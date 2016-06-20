@@ -5,5 +5,4 @@ lights_all_on:
         entity_id: group.all_lights
         brightness: 255
         color_temp: 260
-        rgb_color: [255,255,255]
         transition: 15

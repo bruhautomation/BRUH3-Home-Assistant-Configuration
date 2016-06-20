@@ -4,16 +4,14 @@ bedtime:
       data:
         entity_id: group.all_lights
         transition: 15
-    - service: light.turn_on
+    - service: switch.turn_off
+      data:
+        entity_id: switch.homeseer_hsws100_wall_switch_switch_7_0
+    - service: fan.turn_on
       data:
         entity_id:
-         - light.front_door_right
-         - light.front_door_left
-         - light.back_door
-        brightness: 35
-        color_temp: 300
-        rgb_color: [255,255,255]
-        transition: 30
+         - fan.ge_12730_fan_control_switch_level_54_0
+        speed: "medium"
     - service: input_select.select_option
       data:
         entity_id: input_select.ben_status

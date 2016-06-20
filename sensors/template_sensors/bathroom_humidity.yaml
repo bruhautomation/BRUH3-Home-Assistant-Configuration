@@ -1,0 +1,5 @@
+platform: template
+sensors:
+  bathroom_humidity:
+    value_template: "{% if states.sensor.sn1_humidity.state | float > 70 %} high humidity {% else %} low humidity {% endif %}"
+    friendly_name: "Bathroom Humidity"

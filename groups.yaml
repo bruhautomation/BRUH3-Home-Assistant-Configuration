@@ -45,14 +45,13 @@
   aeotec_multisensor_card:
     name: Shed
     entities:
-      - sensor.bathroom_humidity
+      - sensor.shed_humidity
       - sensor.aeotec_zw100_multisensor_6_burglar_5_10
       - sensor.aeotec_multisensor_motion_template
-      - sensor.__luminance_5_3
-      - sensor.__humidity_5_5
-      - sensor.__temperature_5_1
-      - sensor.__relative_humidity_5_5
-      - sensor.__ultraviolet_5_27
+      - sensor.aeotec_zw100_multisensor_6_luminance_5_3
+      - sensor.aeotec_zw100_multisensor_6_temperature_5_1
+      - sensor.aeotec_zw100_multisensor_6_relative_humidity_5_5
+      - sensor.aeotec_zw100_multisensor_6_ultraviolet_5_27
 
   bathroom_lights_card:
     name: Bathroom Lights
@@ -63,8 +62,14 @@
     name: Bedroom Lights
     entities:
       - light.floor_lamp
+      - light.homeseer_hswd100_wall_dimmer_level_55_0
       - light.nightstand
       - input_slider.jar_animation_speed
+
+  bedroom_devices_card:
+    name: Bedroom Devices
+    entities:
+      - fan.ge_12730_fan_control_switch_level_54_0
 
   bedroom_sensors_card:
     name: Bedroom Sensors
@@ -80,6 +85,13 @@
       - sensor.blinds1_motion
       - cover.blinds1
       - input_slider.blind_tilt
+
+  blinds_card_2:
+    name: Blinds2 Card
+    entities:
+      - sensor.blinds2_tilt
+      - sensor.blinds2_motion
+      - cover.blinds2
 
   door_card:
     name: Door Status
@@ -290,10 +302,11 @@
       - light.porch_strip
       - input_slider.porch_animation_speed
 
-  sensor_node_1_card:
-    name: Sensor Node 1
+  bathroom_sensors_card:
+    name: Bathroom Sensor Node
     entities:
       - sensor.sn1_temperature
+      - sensor.bathroom_humidity
       - sensor.sn1_humidity
       - sensor.sn1_ldr
       - sensor.sn1_pir
@@ -389,8 +402,9 @@
     view: yes
     entities:
       - group.bedroom_lights_card
+      - group.bedroom_devices_card
       - group.bathroom_lights_card
-      - group.bedroom_sensors_card
+      - group.bathroom_sensors_card
       - group.alarm_clock_card
       - media_player.bedroom_home
       - camera.crate
@@ -436,10 +450,11 @@
       - group.strip_cord_card
       - group.octoprint_status_card
       - group.fibaro_multisensor_card
-      - group.sensor_node_1_card
       - media_player.lab
       - cover.blinds1
+      - cover.blinds2
       - group.blinds_card
+      - group.blinds_card_2
       - group.pir_card
 
   living_room_view:

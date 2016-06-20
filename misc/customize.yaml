@@ -8,7 +8,7 @@
       icon: mdi:printer-3d
     switch.wemo_insight:
       icon: mdi:printer-3d
-      friendly_name: Hictop
+      friendly_name: Hictop Printer
     binary_sensor.octoprint_printing:
       hidden: yes
     binary_sensor.octoprint_printing_error:
@@ -152,6 +152,9 @@
     zwave.homeseer_hsws100_wall_switch_7:
       hidden: yes
 
+    light.homeseer_hswd100_wall_dimmer_level_55_0:
+      friendly_name: "Bedroom Central Light"
+
     sensor.fibaro_system_unknown_type0701_id2001_burglar_35_10:
       hidden: yes
     sensor.fibaro_system_unknown_type0701_id2001_general_35_0:
@@ -175,6 +178,13 @@
       friendly_name: "Living Room Fan"
       icon: mdi:fan
 
+    zwave.ge_12730_fan_control_switch_54:
+      friendly_name: "Bedroom Fan Status"
+      hidden: yes
+    fan.ge_12730_fan_control_switch_level_54_0:
+      friendly_name: "Bedroom Fan"
+      icon: mdi:fan
+  
     light.ge_12724_3way_dimmer_switch_level_40_0:
       friendly_name: "Kitchen Overhead"
     zwave.ge_12724_3way_dimmer_switch_40:
@@ -232,7 +242,7 @@
       hidden: yes
 
     light.leviton_unknown_type3201_id0001_level_49_0:
-      friendly_name: "Living Room Fan Light"
+      friendly_name: "Living Room Central Light"
     zwave.leviton_unknown_type3201_id0001_49:
       hidden: yes
 
@@ -272,5 +282,5 @@
       icon: mdi:clock
 
     switch.strip_cord:
-      friendly_name: Mini
+      friendly_name: Mini Printer
       icon: mdi:printer-3d

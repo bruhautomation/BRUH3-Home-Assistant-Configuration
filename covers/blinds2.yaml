@@ -1,0 +1,17 @@
+platform: mqtt
+#state_topic: "bruh/blind2/cover/state"
+#command_topic: "bruh/blind2/cover/command"
+name: "blinds2"
+#payload_open: "OPEN"
+#payload_close: "CLOSE"
+#payload_stop: "STOP"
+#state_open: "OPEN"
+#state_closed: "CLOSE"
+#value_template: '{{ value }}'
+tilt_command_topic: "bruh/blind2/cover/tilt"
+tilt_status_topic: "bruh/blind2/cover/tilt-status"
+tilt_min : 0
+tilt_max: 100
+tilt_opened_value : 50
+tilt_closed_value : 0
+device_class: 'window'

@@ -5,5 +5,4 @@ dash_bounty_on:
         entity_id: group.lab_lights
         brightness: 255
         color_temp: 260
-        rgb_color: [255,255,255]
         transition: 2

@@ -1,13 +1,13 @@
 dogbell:
   sequence:
-    - service: light.turn_on
+    - service: light.lifx_effect_pulse
       data:
-        entity_id: switch.wall
+        entity_id:
           - switch.wall
         brightness: 255
-        color_temp: 200
-        rgb_color: [255,0,0]
-        transition: 1
+        color_name: "blue"
+        period: 255
+        cycles: 5
     - service: tts.google_say
       entity_id:
         - media_player.kitchen_home

@@ -33,15 +33,16 @@ config:
 conversation:
 
 device_tracker:
-  - platform: owntracks
-  - platform: locative
-  - platform: nmap_tracker
-    hosts: !secret nmap_ip
   - platform: netgear
     host: !secret router_IP
     username: !secret router_account
     password: !secret router_password
     port: !secret router_port
+    interval_seconds: 10
+    consider_home: 180
+    track_new_devices: yes
+  - platform: owntracks
+  - platform: locative
 
 discovery:
 
@@ -94,6 +95,7 @@ zwave:
   usb_path: /dev/ttyACM0
   config_path: /srv/homeassistant/src/python-openzwave/openzwave/config
   device_config: !include zwave_device_config.yaml
+  new_entity_ids: false
 
 #### Not in Use Because of HTTPS
 ##panel_iframe:

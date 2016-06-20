@@ -2,8 +2,8 @@ motion_sleeping_night:
   sequence:
   - service: script.turn_off
     data:
-      entity_id: script.motion_sleeping_night_timer
-  - service: light.turn_on
+      entity_id: script.s_motion_sleeping_night_timer
+  - service: light.lifx_set_state
     data:
       entity_id:
         - light.switch
@@ -11,14 +11,14 @@ motion_sleeping_night:
         - light.megadesk
         - light.sink
       brightness: 50
-      color_temp: 233
-      rgb_color: [255,0,0]
+      color_name: "red"
       transition: 2
+      power: on
   - service: light.turn_on
     data:
       entity_id:
         - light.nightlight
-      rgb_color: [3,0,0]
+      color_name: "red"
   - service: script.turn_on
     data:
       entity_id: script.motion_sleeping_night_timer

@@ -9,13 +9,21 @@
       for:
         minutes: 5
   condition:
-    - condition: state
-      entity_id: switch.wemo_insight
-      state: "on"
+    condition: or
+    conditions:
+      - condition: state
+        entity_id: switch.wemo_insight
+        state: "on"
+      - condition: state
+        entity_id: switch.strip_cord
+        state: "on"
   action:
     - service: switch.turn_off
       data:
         entity_id: switch.wemo_insight
+    - service: switch.turn_off
+      data:
+        entity_id: switch.strip_cord
 - id: a_alarm_clock
   alias: 'Alarm Clock'
   trigger:
@@ -54,8 +62,7 @@
         entity_id:
          - light.floor_lamp
         brightness: 255
-        color_temp: 196
-        rgb_color: [0,0,255]
+        color_name: "red"
         transition: 10
     - service: tts.google_say
       entity_id:
@@ -148,12 +155,11 @@
          - light.back_door
          - light.floor_lamp
         brightness: 255
-        color_temp: 196
-        rgb_color: [255,0,0]
-    - service: light.lifx_set_state
+        color_name: "red"
+    - service: light.turn_on
       data:
         entity_id:
-         - light.jar_leds_template
+         - light.porch_strip
         #brightness: 255
         #color_temp: 196
         #rgb_color: [255,0,0]
@@ -380,10 +386,10 @@
       data_template:
         title: "Back Door Open"
         message:  "Somebody took Caesium outside?" 
-- id: a_bathroom_mold
+- id: a_bathroom_condensation_on
   alias: "bathroom fan control"
   initial_state: True
-  hide_entity: True
+  hide_entity: False
   trigger:
     - platform: state
       entity_id: sensor.bathroom_humidity
@@ -395,12 +401,12 @@
       to: "low humidity"
   action:
     - service_template: >
-        {% if states.sensor.bathroom_humidity == "high humidity"%}
+        {% if states.sensor.bathroom_humidity.state == "high humidity"%}
           switch.turn_on
         {% else %}
           switch.turn_off
         {% endif %}
-      entity_id: switch.homeseer_unknown_type4447_id3033_switch_3_0
+      entity_id: switch.homeseer_hsws100_wall_switch_switch_7_0
 - id: a_ble_beacons
   alias: ibeaconupdate
   initial_state: True
@@ -436,7 +442,7 @@
       data:
         entity_id: light.megadesk
         brightness: 255
-        rgb_color: [255,0,0]
+        color_name: "red"
     - delay: 00:00:01
     - service: light.lifx_set_state
       data:
@@ -446,7 +452,7 @@
       data:
         entity_id: light.megadesk
         brightness: 255
-        rgb_color: [255,0,0]
+        color_name: "red"
     - delay: 00:00:01
     - service: light.lifx_set_state
       data:
@@ -462,15 +468,7 @@
   hide_entity: True
   trigger:
     - platform: state
-      entity_id: sensor.blinds1_motionx
-      from: "standby"
-      to: "motion"
-    - platform: state
-      entity_id: sensor.blinds1_motiony
-      from: "standby"
-      to: "motion"
-    - platform: state
-      entity_id: sensor.blinds1_motionz
+      entity_id: sensor.blinds1_motion
       from: "standby"
       to: "motion"
   action:
@@ -482,6 +480,7 @@
         color_name: "red"
         period: 1
         cycles: 2
+        power_on: true
     - service_template: >
         {%- if is_state("cover.blinds1", "closed") -%}
           cover.open_cover
@@ -489,18 +488,6 @@
           cover.close_cover
         {% endif %}
       entity_id: cover.blinds1
-- id: a_blindtilt
-  alias: "Bilnd Tilt"
-  initial_state: True
-  hide_entity: True
-  trigger:
-    - platform: state
-      entity_id: input_slider.blind_tilt
-  action:
-    - service: mqtt.publish
-      data_template:
-        topic: "bruh/blind1/cover/set"
-        payload: '{"tilt": {{ trigger.to_state.state | int }}}'
 - id: a_dash_bounty_toggle
   alias: Dash Bounty Toggle Automation
   initial_state: True
@@ -526,8 +513,7 @@
         entity_id:
          - light.boob1
         brightness: 255
-        color_temp: 196
-        rgb_color: [0,0,255]
+        color_name: "blue"
         transition: 10
 - id: a_home_announce
   alias: "Home Announce"
@@ -811,7 +797,7 @@
     - platform: event
       event_type: zwave.scene_activated
       event_data:
-        entity_id: aeotec_dsa03202_minimote_33
+        entity_id: zwave.aeotec_dsa03202_minimote_33
         scene_id: 2
   action:
     - service: light.lifx_set_state
@@ -830,7 +816,7 @@
     - platform: event
       event_type: zwave.scene_activated
       event_data:
-        entity_id: aeotec_dsa03202_minimote_33
+        entity_id: zwave.aeotec_dsa03202_minimote_33
         scene_id: 1
   action:
     - service: light.lifx_set_state
@@ -851,7 +837,7 @@
     - platform: event
       event_type: zwave.scene_activated
       event_data:
-        entity_id: aeotec_dsa03202_minimote_33
+        entity_id: zwave.aeotec_dsa03202_minimote_33
         scene_id: 4
   action:
     - service: light.lifx_set_state
@@ -868,7 +854,7 @@
     - platform: event
       event_type: zwave.scene_activated
       event_data:
-        entity_id: aeotec_dsa03202_minimote_33
+        entity_id: zwave.aeotec_dsa03202_minimote_33
         scene_id: 3
   action:
     - service: light.lifx_set_state
@@ -887,7 +873,7 @@
     - platform: event
       event_type: zwave.scene_activated
       event_data:
-        entity_id: aeotec_dsa03202_minimote_33
+        entity_id: zwave.aeotec_dsa03202_minimote_33
         scene_id: 6
   action:
     - service: switch.turn_off
@@ -902,7 +888,7 @@
     - platform: event
       event_type: zwave.scene_activated
       event_data:
-        entity_id: aeotec_dsa03202_minimote_33
+        entity_id: zwave.aeotec_dsa03202_minimote_33
         scene_id: 5
   action:
     - service: switch.turn_on
@@ -917,7 +903,7 @@
     - platform: event
       event_type: zwave.scene_activated
       event_data:
-        entity_id: aeotec_dsa03202_minimote_33
+        entity_id: zwave.aeotec_dsa03202_minimote_33
         scene_id: 8
   action:
     - service: switch.turn_off
@@ -942,7 +928,7 @@
     - platform: event
       event_type: zwave.scene_activated
       event_data:
-        entity_id: aeotec_dsa03202_minimote_33
+        entity_id: zwave.aeotec_dsa03202_minimote_33
         scene_id: 7
   action:
     - service: switch.turn_on
@@ -968,7 +954,7 @@
     - platform: event
       event_type: zwave.scene_activated
       event_data:
-        entity_id: aeotec_dsa03202_minimote_34
+        entity_id: zwave.aeotec_dsa03202_minimote_34
         scene_id: 2
   action:
     - service: light.lifx_set_state
@@ -984,7 +970,7 @@
     - platform: event
       event_type: zwave.scene_activated
       event_data:
-        entity_id: aeotec_dsa03202_minimote_34
+        entity_id: zwave.aeotec_dsa03202_minimote_34
         scene_id: 1
   action:
     - service: light.lifx_set_state
@@ -1009,7 +995,7 @@
     - platform: event
       event_type: zwave.scene_activated
       event_data:
-        entity_id: aeotec_dsa03202_minimote_34
+        entity_id: zwave.aeotec_dsa03202_minimote_34
         scene_id: 4
   action:
     - service: light.lifx_set_state
@@ -1027,7 +1013,7 @@
     - platform: event
       event_type: zwave.scene_activated
       event_data:
-        entity_id: aeotec_dsa03202_minimote_34
+        entity_id: zwave.aeotec_dsa03202_minimote_34
         scene_id: 3
   action:
     - service: light.lifx_set_state
@@ -1048,7 +1034,7 @@
     - platform: event
       event_type: zwave.scene_activated
       event_data:
-        entity_id: aeotec_dsa03202_minimote_34
+        entity_id: zwave.aeotec_dsa03202_minimote_34
         scene_id: 6
   action:
     - service: tts.google_say
@@ -1063,7 +1049,7 @@
     - platform: event
       event_type: zwave.scene_activated
       event_data:
-        entity_id: aeotec_dsa03202_minimote_34
+        entity_id: zwave.aeotec_dsa03202_minimote_34
         scene_id: 5
   action:
     - service: switch.turn_on
@@ -1078,7 +1064,7 @@
     - platform: event
       event_type: zwave.scene_activated
       event_data:
-        entity_id: aeotec_dsa03202_minimote_34
+        entity_id: zwave.aeotec_dsa03202_minimote_34
         scene_id: 8
   action:
     - service: input_boolean.toggle
@@ -1093,7 +1079,7 @@
     - platform: event
       event_type: zwave.scene_activated
       event_data:
-        entity_id: aeotec_dsa03202_minimote_34
+        entity_id: zwave.aeotec_dsa03202_minimote_34
         scene_id: 7
   action:
     - service: switch.turn_off
