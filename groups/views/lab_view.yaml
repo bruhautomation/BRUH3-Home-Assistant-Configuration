@@ -1,0 +1,10 @@
+  lab_view:
+    name: Lab
+    view: yes
+    entities:
+      - group.lab_lights_switches
+      - group.lab_lights_overhead
+      - group.lab_devices
+      - group.octoprint_card_status
+      - group.octoprint_card_temperatures
+      - camera.octoprint

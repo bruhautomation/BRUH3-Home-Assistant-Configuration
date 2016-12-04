@@ -1,0 +1,5 @@
+  bedroom_lights:
+    name: Lights
+    entities:
+      - light.floor_lamp
+      - light.nightstand

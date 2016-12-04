@@ -1,0 +1,4 @@
+platform: mqtt_room
+device_id: '07775dd0111b11e491910800200c9a66_232b_09a4'
+name: 'BLE Clear Tag'
+state_topic: 'happy-bubbles/presence/ha'

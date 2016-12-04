@@ -1,0 +1,6 @@
+  porch_led_strip:
+    name: Porch LED Strip
+    entities:
+      - light.porch_leds
+      - input_select.porch_led_effect
+      - input_slider.porch_animation_speed

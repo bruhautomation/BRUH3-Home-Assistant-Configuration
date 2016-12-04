@@ -1,0 +1,6 @@
+  signal_jar:
+    name: Signal Jar
+    entities:
+      - light.signal_jar
+      - input_select.jar_led_effect
+      - input_slider.jar_animation_speed

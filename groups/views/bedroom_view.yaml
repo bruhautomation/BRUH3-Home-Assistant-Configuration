@@ -1,0 +1,7 @@
+  bedroom_view:
+    name: Bedroom
+    view: yes
+    entities:
+      - group.bedroom_lights
+      - group.signal_jar
+      - media_player.bedroom_home

@@ -1,0 +1,172 @@
+homeassistant:
+  name: BRUH3
+  latitude: !secret home_latitude
+  longitude: !secret home_longitude
+  elevation: !secret home_elevation
+  unit_system: imperial
+  time_zone: America/New_York
+  customize:
+    sensor.octoprint_actual_bed_temp:
+      friendly_name: Bed Currently
+      icon: mdi:thermometer
+    sensor.octoprint_actual_tool0_temp:
+      friendly_name: Hot End Currently
+      icon: mdi:thermometer
+    sensor.octoprint_current_state:
+      icon: mdi:printer-3d
+    switch.wemo_insight:
+      icon: mdi:printer-3d
+      friendly_name: Power
+    binary_sensor.octoprint_printing:
+      hidden: yes
+    binary_sensor.octoprint_printing_error:
+      icon: mdi:alert
+      friendly_name: Error
+    sensor.octoprint_job_percentage:
+      icon: mdi:percent
+      friendly_name: Job Percentage
+    sensor.octoprint_target_bed_temp:
+      friendly_name: Bed Target
+      icon: mdi:thermometer
+    sensor.octoprint_target_tool0_temp:
+      friendly_name: Hot End Target
+      icon: mdi:thermometer
+    sensor.octoprint_temperatures:
+      hidden: yes
+    media_player.bcrcc:
+      friendly_name: Chromecast
+
+##LIGHTS##
+    switch.megadesk_leds:
+      friendly_name: Megadesk
+      icon: mdi:led-outline
+    switch.fishstick:
+      friendly_name: FishStick Power
+      icon: mdi:speaker
+
+    switch.wake_on_lan:
+      friendly_name: PC Power
+      icon: mdi:power
+
+##Sensors##
+    sensor.ble_ben_6p:
+      friendly_name: "Ben 6P"
+      icon: mdi:tag
+    sensor.ble_black_tag:
+      friendly_name: "Black Tag"
+      icon: mdi:tag
+    sensor.ble_clear_tag:
+      friendly_name: "Clear Tag"
+      icon: mdi:tag
+    sensor.ble_white_tag:
+      friendly_name: "White Tag"
+      icon: mdi:tag
+
+#######LIGHTS##
+    light.porch_leds:
+      friendly_name: "LED Strip"
+      icon: mdi:led-outline
+    input_select.porch_led_effect:
+      friendly_name: "Effect Selector"
+      icon: mdi:selection
+    input_slider.porch_animation_speed:
+      friendly_name: "Animation Speed"
+      icon: mdi:animation
+frontend:
+
+http:
+  api_password: !secret api_password
+  ssl_certificate: !secret ssl_certificate
+  ssl_key: !secret ssl_key
+
+updater:
+
+discovery:
+
+conversation:
+
+history:
+
+recorder:
+  purge_days: 7
+
+logbook:
+
+sun:
+
+zwave:
+  usb_path: /dev/ttyACM0
+  config_path: /srv/hass/hass_venv/lib/python3.4/site-packages/libopenzwave-0.3.1-py3.4-linux-armv7l.egg/config
+
+
+mqtt:
+  broker: !secret mqtt_broker_ip
+  port: !secret mqtt_port
+  client_id: home-assistant-1
+  username: !secret mqtt_username
+  password: !secret mqtt_password
+
+octoprint:
+  host: !secret octoprint_ip
+  api_key: !secret octoprint_api
+
+camera:
+  platform: mjpeg
+  mjpeg_url: !secret octoprint_camera_ip
+  name: Octoprint
+
+ecobee:
+  api_key: !secret ecobee_api
+
+emulated_hue:
+  host_ip: !secret pi_ip
+  listen_port: !secret emulated_hue_port
+
+notify:
+  - name: ecobee
+    platform: ecobee
+  - name: ben
+    platform: html5
+    gcm_api_key: !secret ben_gcm_api_key
+    gcm_sender_id: !secret ben_gcm_sender_id
+
+panel_iframe:
+  octoprint:
+    title: 'OctoPrint'
+    url: !secret octoprint_ip_https
+    icon: mdi:printer-3d
+  router:
+    title: 'Router'
+    url: !secret router_ip_https
+    icon: mdi:router-wireless
+
+cover:
+  platform: garadget
+  covers:
+      !secret garadget_id:
+        username:  !secret garadget_username
+        password:  !secret garadget_password
+        name:  Garage Door
+
+#hdmi_cec:
+#  devices:
+#    1: TV
+#    2:
+#      1: Chromecast
+#      2: KODI
+#      3: HA
+#      4: PC
+
+###########SENSORS#####
+input_boolean: !include input_boolean.yaml
+input_select: !include input_select.yaml
+input_slider: !include input_slider.yaml
+binary_sensor: !include_dir_list binary_sensors/
+sensor: !include_dir_list sensors/
+light: !include_dir_list lights/
+shell_command: !include shell_commands.yaml
+switch: !include_dir_list switches/
+script: !include_dir_merge_named scripts/
+automation: !include_dir_list automations/
+group: !include_dir_merge_named groups/
+weather: !include_dir_list weather/

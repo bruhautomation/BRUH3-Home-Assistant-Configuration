@@ -1,0 +1,11 @@
+alias: Minimote 1 Button Pressed
+trigger:
+  - platform: event
+    event_type: zwave.scene_activated
+    event_data:
+      entity_id: aeotec_dsa03202_minimote_9
+      scene_id: 1
+action:
+  - service: switch.turn_on
+    data:
+      entity_id: switch.megadesk_leds

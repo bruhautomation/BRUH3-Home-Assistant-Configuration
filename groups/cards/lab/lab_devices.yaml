@@ -1,0 +1,6 @@
+  lab_devices:
+    name: Devices
+    entities:
+      - switch.wake_on_lan
+      - switch.wemo_insight
+      - switch.fishstick

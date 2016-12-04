@@ -1,0 +1,7 @@
+  tracker:
+    name: Tracker
+    entities:
+      - sensor.ble_black_tag
+      - sensor.ble_clear_tag
+      - sensor.ble_white_tag
+      - sensor.ble_ben_6p

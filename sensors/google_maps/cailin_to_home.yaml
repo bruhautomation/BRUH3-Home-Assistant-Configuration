@@ -1,0 +1,5 @@
+platform: google_travel_time
+name: GM Cailin to Home
+api_key: !secret google_time_travel_api_key
+origin: device_tracker.cailin6p_cailin6p
+destination: !secret home_address

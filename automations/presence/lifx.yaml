@@ -1,0 +1,25 @@
+alias: Media Stopped Night
+initial_state: False
+hide_entity: False
+trigger:
+  - platform: state
+    entity_id: media_player.living_room
+    state: "off"
+  - platform: state
+    entity_id: media_player.osmc
+    state: "off"
+action:
+  - service: light.turn_on
+    data:
+      entity_id: light.lr_wall_color_lifx
+      brightness: 255
+      color_temp: 200
+      rgb_color: [255,255,255]
+      transition: 15
+  - service: light.turn_on
+    data:
+      entity_id: light.lr_switch_color_lifx
+      brightness: 255
+      color_temp: 200
+      rgb_color: [255,255,255]
+      transition: 15

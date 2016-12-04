@@ -1,0 +1,5 @@
+  lab_lights_switches:
+    name: Switched Lights
+    entities:
+      - switch.megadesk_leds
+      - switch.mqtt_switch
