@@ -1,6 +1,6 @@
 alias: Dash Bounty Toggle Automation
 initial_state: True
-hide_entity: False
+hide_entity: True
 trigger:
   - platform: state
     entity_id: input_boolean.dash_bounty_toggle

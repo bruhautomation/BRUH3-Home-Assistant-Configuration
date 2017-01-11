@@ -1,0 +1,4 @@
+platform: mqtt_room
+device_id: !secret ibeacon_grey
+name: 'Grey iBeacon'
+state_topic: 'happy-bubbles/presence/ha'

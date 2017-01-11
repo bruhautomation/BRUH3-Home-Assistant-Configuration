@@ -1,0 +1,6 @@
+  ibeacon_view:
+    name: iBeacons
+    view: yes
+    entities:
+      - group.tracker_ble_happy_bubbles
+      - automation.ble_ibeacon_test

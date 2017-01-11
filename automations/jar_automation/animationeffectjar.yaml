@@ -1,6 +1,6 @@
 alias: "Jar Input Effect"
 initial_state: True
-hide_entity: False
+hide_entity: True
 trigger:
   - platform: state
     entity_id: input_select.jar_led_effect

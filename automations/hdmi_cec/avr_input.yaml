@@ -1,0 +1,41 @@
+alias: "AVR Input"
+trigger:
+  - platform: state
+    entity_id: input_select.avr_input
+    state: "Chromecast"
+  - platform: state
+    entity_id: input_select.avr_input
+    state: "KODI"
+  - platform: state
+    entity_id: input_select.avr_input
+    state: "HA"
+  - platform: state
+    entity_id: input_select.avr_input
+    state: "PC"
+  - platform: state
+    entity_id: input_select.avr_input
+    state: "Standby"
+action:
+  - service: hdmi_cec.select_device
+    data_template:
+      device: >
+        {% if states.input_select.avr_input.state == 'Chromecast' %}
+          Chromecast
+        {% elif states.input_select.avr_input.state == 'KODI' %}
+          KODI
+        {% elif states.input_select.avr_input.state == 'HA' %}
+          HA
+        {% elif states.input_select.avr_input.state == 'PC' %}
+          PC
+        {% endif %}
+  - service_template: >
+      {% if is_state('input_boolean.tv_power', 'off') %}
+        input_boolean.turn_on
+      {% endif %}
+    entity_id: input_boolean.tv_power
+  - service: input_boolean.turn_off
+    data_template:
+      entity_id: >
+        {% if states.input_select.avr_input.state == 'Standby' %}
+          input_boolean.tv_power
+        {% endif %}

@@ -1,6 +1,6 @@
 alias: "Porch Animation Speed"
 initial_state: True
-hide_entity: False
+hide_entity: True
 trigger:
   - platform: state
     entity_id: input_slider.porch_animation_speed

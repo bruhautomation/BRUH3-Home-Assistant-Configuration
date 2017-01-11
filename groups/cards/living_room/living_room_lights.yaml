@@ -1,5 +1,5 @@
   living_room_lights:
-    name: Lights
+    name: Living Room
     entities:
       - light.switch
       - light.wall

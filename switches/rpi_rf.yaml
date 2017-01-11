@@ -1,7 +1,7 @@
 platform: rpi_rf
 gpio: 17
 switches:
-  bedroom_fan:
+  megadesk_fan:
     protocol: 1
     pulselength: 186
     code_on: !secret code1_on
@@ -11,7 +11,7 @@ switches:
     pulselength: 186
     code_on: !secret code2_on
     code_off: !secret code2_off
-  livingroom_wall_outlet:
+  killswitch:
     protocol: 1
     pulselength: 186
     code_on: !secret code3_on

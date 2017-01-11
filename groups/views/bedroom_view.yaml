@@ -3,5 +3,5 @@
     view: yes
     entities:
       - group.bedroom_lights
-      - group.signal_jar
+      - group.nightlight_group
       - media_player.bedroom_home

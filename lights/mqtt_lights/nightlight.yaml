@@ -1,5 +1,5 @@
 platform: mqtt
-name: "Signal Jar"
+name: "Nightlight"
 command_topic: "bruh/mqttjar/setpower"
 state_topic: "bruh/mqttjar/setpowerpub"
 rgb_state_topic: "bruh/mqttjar/setcolorpub"

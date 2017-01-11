@@ -1,6 +1,6 @@
-  signal_jar:
-    name: Signal Jar
+  nightlight_group:
+    name: Nightlight Group
     entities:
-      - light.signal_jar
+      - light.nightlight
       - input_select.jar_led_effect
       - input_slider.jar_animation_speed

@@ -3,3 +3,4 @@
     view: yes
     entities: 
       - group.kitchen_lights
+      - media_player.kitchen_home

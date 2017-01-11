@@ -1,0 +1,14 @@
+bedtime:
+  sequence:
+    - service: light.turn_off
+      data:
+        entity_id: group.all_lights
+        transition: 15
+    - service: input_select.select_option
+      data:
+        entity_id: input_select.ben_status
+        option: "Sleeping"
+    - service: input_select.select_option
+      data:
+        entity_id: input_select.cailin_status
+        option: "Sleeping"

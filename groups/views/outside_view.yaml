@@ -4,5 +4,5 @@
     entities:
       - group.outside_lights_backdoor
       - group.outside_lights_frontdoor
-      - group.porch_led_strip
+      - group.porch_led_strip_group
       - group.weather

@@ -1,5 +1,6 @@
   bedroom_lights:
-    name: Lights
+    name: Bedroom
     entities:
       - light.floor_lamp
       - light.nightstand
+      - switch.bathroom_vanity_switch_3_0

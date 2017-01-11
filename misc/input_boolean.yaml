@@ -1,0 +1,8 @@
+dash_bounty_toggle:
+  name: Lab Dash Toggle
+  initial: off
+  icon: mdi:biohazard
+tv_power:
+  name: TV Power
+  initial: off
+  icon: mdi:TV

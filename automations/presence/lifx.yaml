@@ -1,12 +1,9 @@
 alias: Media Stopped Night
-initial_state: False
-hide_entity: False
+initial_state: True
+hide_entity: True
 trigger:
   - platform: state
     entity_id: media_player.living_room
-    state: "off"
-  - platform: state
-    entity_id: media_player.osmc
     state: "off"
 action:
   - service: light.turn_on

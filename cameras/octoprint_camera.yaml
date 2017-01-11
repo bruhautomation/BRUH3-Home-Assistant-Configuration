@@ -1,0 +1,3 @@
+platform: mjpeg
+mjpeg_url: !secret octoprint_camera_ip
+name: Octoprint

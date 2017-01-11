@@ -5,5 +5,5 @@
   outside_lights_frontdoor:
     name: Porch
     entities:
-      - light.front_door_1
-      - light.front_door_2
+      - light.front_door_left
+      - light.front_door_right

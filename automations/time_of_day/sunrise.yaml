@@ -1,4 +1,4 @@
-alias: "Sunset"
+alias: "Sunrise"
 trigger:
   platform: sun
   event: sunrise

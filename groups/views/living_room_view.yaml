@@ -3,5 +3,4 @@
     view: yes
     entities: 
       - group.living_room_lights
-      - media_player.living_room_home
       - media_player.living_room

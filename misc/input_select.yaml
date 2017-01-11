@@ -5,7 +5,6 @@ porch_led_effect:
    - "Candy Cane"
    - "Confetti"
    - "Cyclon Rainbow"
-   - "Cyclon Single"
    - "Dots"
    - "Fire"
    - "Glitter"
@@ -21,6 +20,7 @@ porch_led_effect:
    - "Solid"
    - "Twinkle"
   initial: "Solid"
+####
 jar_led_effect:
   name: Jar Effects
   options:
@@ -28,7 +28,6 @@ jar_led_effect:
    - "Candy Cane"
    - "Confetti"
    - "Cyclon Rainbow"
-   - "Cyclon Single"
    - "Dots"
    - "Fire"
    - "Glitter"
@@ -44,3 +43,31 @@ jar_led_effect:
    - "Solid"
    - "Twinkle"
   initial: "Solid"
+ben_status:
+  name: Ben Status
+  options:
+   - "Home"
+   - "Work"
+   - "Away"
+   - "Sleeping"
+  initial: "Home"
+####
+cailin_status:
+  name: Cailin Status
+  options:
+   - "Home"
+   - "Work"
+   - "Away"
+   - "Sleeping"
+  initial: "Home"
+####
+avr_input:
+  name: AVR Input
+  options:
+  - Chromecast
+  - KODI
+  - HA
+  - PC
+  - Standby
+  initial: Standby
+  icon: mdi:TV

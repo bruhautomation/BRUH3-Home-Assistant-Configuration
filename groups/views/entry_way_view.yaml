@@ -2,4 +2,5 @@
     name: Entry Way
     view: yes
     entities:
-      - group.ecobee
+      - group.ecobee_group
+      - group.fibaro_group

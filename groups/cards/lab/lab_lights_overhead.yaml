@@ -1,5 +1,0 @@
-  lab_lights_overhead:
-    name: Lights
-    entities:
-      - light.overhead_1
-      - light.overhead_2

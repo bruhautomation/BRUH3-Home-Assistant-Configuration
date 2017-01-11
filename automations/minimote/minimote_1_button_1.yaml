@@ -1,4 +1,6 @@
 alias: Minimote 1 Button Pressed
+initial_state: True
+hide_entity: True
 trigger:
   - platform: event
     event_type: zwave.scene_activated
