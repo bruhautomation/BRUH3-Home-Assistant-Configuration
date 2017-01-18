@@ -1,0 +1,11 @@
+alias: "Jar Input Effect"
+initial_state: True
+hide_entity: True
+trigger:
+  - platform: state
+    entity_id: input_select.jar_led_effect
+action:
+  - service: mqtt.publish
+    data_template:
+      topic: "bruh/mqttjar/seteffect"
+      payload: '{{ trigger.to_state.state | string }}'

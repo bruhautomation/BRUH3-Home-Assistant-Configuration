@@ -1,0 +1,5 @@
+platform: google_travel_time
+name: GM Ben To Home
+api_key: !secret google_time_travel_api_key
+origin: device_tracker.ben6p_ben6p
+destination: !secret home_address

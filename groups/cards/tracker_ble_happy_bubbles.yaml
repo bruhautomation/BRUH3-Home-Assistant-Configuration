@@ -1,0 +1,7 @@
+  tracker_ble_happy_bubbles:
+    name: BLE Tracker - Happy Bubbles 
+    entities:
+      - sensor.white_ibeacon
+      - sensor.black_ibeacon
+      - sensor.grey_ibeacon
+      - sensor.clear_ibeacon

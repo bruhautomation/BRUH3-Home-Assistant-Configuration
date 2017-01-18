@@ -1,0 +1,28 @@
+platform: rpi_rf
+gpio: 17
+switches:
+  megadesk_fan:
+    protocol: 1
+    pulselength: 186
+    code_on: !secret code1_on
+    code_off: !secret code1_off
+  bedroom_lamp:
+    protocol: 1
+    pulselength: 186
+    code_on: !secret code2_on
+    code_off: !secret code2_off
+  killswitch:
+    protocol: 1
+    pulselength: 186
+    code_on: !secret code3_on
+    code_off: !secret code3_off
+  megadesk_leds:
+    protocol: 1
+    pulselength: 186
+    code_on: !secret code4_on
+    code_off: !secret code4_off
+  fishstick:
+    protocol: 1
+    pulselength: 186
+    code_on: !secret code5_on
+    code_off: !secret code5_off

@@ -1,0 +1,6 @@
+  nightlight_group:
+    name: Nightlight Group
+    entities:
+      - light.nightlight
+      - input_select.jar_led_effect
+      - input_slider.jar_animation_speed

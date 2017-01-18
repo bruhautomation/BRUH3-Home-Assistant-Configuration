@@ -1,0 +1,10 @@
+goodmorning:
+  sequence:
+    - service: input_select.select_option
+      data:
+        entity_id: input_select.ben_status
+        option: "Home"
+    - service: input_select.select_option
+      data:
+        entity_id: input_select.cailin_status
+        option: "Home"

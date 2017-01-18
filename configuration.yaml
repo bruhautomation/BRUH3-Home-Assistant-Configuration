@@ -1,0 +1,146 @@
+homeassistant:
+  name: BRUH3
+  latitude: !secret home_latitude
+  longitude: !secret home_longitude
+  elevation: !secret home_elevation
+  unit_system: imperial
+  time_zone: America/New_York
+  customize: !include misc/customize.yaml
+
+frontend:
+
+http:
+  api_password: !secret api_password
+  ssl_certificate: !secret ssl_certificate
+  ssl_key: !secret ssl_key
+  base_url: !secret base_url
+  server_port: !secret server_port
+  cors_allowed_origins:
+    - https://google.com
+    - https://home-assistant.io
+  use_x_forwarded_for: True
+  trusted_networks:
+    - !secret trusted_ip
+  ip_ban_enabled: True
+  login_attempts_threshold: 5
+
+updater:
+
+discovery:
+
+media_player:
+  - platform: cast
+  - platform: kodi
+    host: !secret kodi_ip
+conversation:
+
+history:
+
+recorder:
+  purge_days: 7
+
+logbook:
+
+logger:
+  default: info
+
+ifttt:
+  key: !secret ifttt_api
+
+sun:
+
+zwave:
+  usb_path: /dev/ttyACM0
+  config_path: /srv/homeassistant/homeassistant_venv/lib/python3.4/site-packages/libopenzwave-0.3.1-py3.4-linux-armv7l.egg/config
+
+
+mqtt:
+  broker: !secret mqtt_broker_ip
+  port: !secret mqtt_port
+  client_id: home-assistant-1
+  username: !secret mqtt_username
+  password: !secret mqtt_password
+
+octoprint:
+  host: !secret octoprint_ip
+  api_key: !secret octoprint_api
+
+ecobee:
+  api_key: !secret ecobee_api
+
+emulated_hue:
+  type: google_home
+  listen_port: 80
+  host_ip: !secret pi_ip
+
+notify:
+  - name: ecobee
+    platform: ecobee
+  - name: ben
+    platform: html5
+    gcm_api_key: !secret ben_gcm_api_key
+    gcm_sender_id: !secret ben_gcm_sender_id
+
+panel_iframe:
+  octoprint:
+    title: 'OctoPrint'
+    url: !secret octoprint_ip_https
+    icon: mdi:printer-3d
+  router:
+    title: 'Router'
+    url: !secret router_ip_https
+    icon: mdi:router-wireless
+
+cover:
+  - platform: garadget
+    covers:
+        !secret garadget_id:
+          username:  !secret garadget_username
+          password:  !secret garadget_password
+          name:  Garage Door
+  - platform: mqtt
+    state_topic: "bruh/blind1/cover"
+    command_topic: "bruh/blind1/cover/set"
+    name: "blinds1"
+    payload_open: "OPEN"
+    payload_close: "CLOSE"
+    payload_stop: "STOP"
+    state_open: "OPEN"
+    state_closed: "CLOSE"
+    optimistic: false
+
+hdmi_cec:
+  devices:
+    1: TV
+    2:
+      1: Chromecast
+      2: KODI
+      3: HA
+      4: PC
+
+device_tracker:
+  - platform: owntracks
+  - platform: locative
+  - platform: nmap_tracker
+    hosts: !secret nmap_ip
+
+tts:
+  - platform: google
+
+###########SENSORS#####
+input_boolean: !include misc/input_boolean.yaml
+input_select: !include misc/input_select.yaml
+input_slider: !include misc/input_slider.yaml
+binary_sensor: !include_dir_list binary_sensors/
+sensor: !include_dir_list sensors/
+light: !include_dir_list lights/
+shell_command: !include misc/shell_commands.yaml
+switch: !include_dir_list switches/
+script: !include_dir_merge_named scripts/
+automation: !include_dir_list automations/
+group: !include_dir_merge_named groups/
+weather: !include_dir_list weather/
+zone: !include_dir_list zones/
+camera: !include_dir_list cameras/
+
+##This is a test message

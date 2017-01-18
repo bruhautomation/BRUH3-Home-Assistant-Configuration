@@ -1,0 +1,11 @@
+platform: mqtt
+name: "Porch LEDs"
+command_topic: "bruh/mqttstrip/setpower"
+state_topic: "bruh/mqttstrip/setpowerpub"
+rgb_state_topic: "bruh/mqttstrip/setcolorpub"
+rgb_command_topic: "bruh/mqttstrip/setcolor"
+brightness_state_topic: "bruh/mqttstrip/setbrightnesspub"
+brightness_command_topic: "bruh/mqttstrip/setbrightness"
+#color_temp_state_topic: "bruh/mqttstrip/setcolortemppub"
+#color_temp_command_topic: "bruh/mqttstrip/setcolortemp"
+optimistic: false

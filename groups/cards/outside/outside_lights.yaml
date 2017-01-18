@@ -1,0 +1,9 @@
+  outside_lights_backdoor:
+    name: Backyard
+    entities:
+      - light.back_door
+  outside_lights_frontdoor:
+    name: Porch
+    entities:
+      - light.front_door_left
+      - light.front_door_right

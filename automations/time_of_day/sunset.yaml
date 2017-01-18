@@ -1,0 +1,11 @@
+alias: "Sunset"
+trigger:
+  platform: sun
+  event: sunset
+  offset: "-00:30:00"
+# condition:
+  # - condition: state
+    # entity_id: group.all_devices
+    # state: "home"
+action:
+  service: script.sunset

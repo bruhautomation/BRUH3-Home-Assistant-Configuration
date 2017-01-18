@@ -1,0 +1,13 @@
+  weather:
+    name: Weather
+    entities:
+      - sensor.owm_cloud_coverage
+      - sun.sun
+      - sensor.owm_condition
+      - sensor.owm_humidity
+      - sensor.owm_pressure
+      - sensor.owm_rain
+      - sensor.owm_snow
+      - sensor.owm_temperature
+      - sensor.owm_wind_speed
+      - weather.openweathermap

@@ -1,0 +1,7 @@
+  lab_lights:
+    name: Lab
+    entities:
+      - light.boob_1
+      - light.boob_2
+      - light.megadesk
+      - switch.mqtt_switch
