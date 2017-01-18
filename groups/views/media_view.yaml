@@ -1,9 +1,0 @@
-  media_view:
-    name: Media Players
-    view: yes
-    entities:
-      - media_player.bedroom_home
-      - media_player.kitchen_home
-      - media_player.lab
-      - media_player.living_room
-      - media_player.everything

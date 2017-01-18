@@ -1,7 +1,0 @@
-  lab_switches:
-    name: Lab Switches
-    entities:
-      - switch.wake_on_lan
-      - switch.wemo_insight
-      - switch.fishstick
-      - switch.megadesk_fan

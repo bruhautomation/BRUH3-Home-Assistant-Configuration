@@ -1,4 +1,0 @@
-  kitchen_lights:
-    name: Kitchen
-    entities:
-      - light.sink

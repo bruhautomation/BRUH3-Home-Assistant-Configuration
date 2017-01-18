@@ -1,5 +1,0 @@
-platform: template
-sensors:
-  fibaro_motion_template:
-    value_template: "{%if states.sensor.fibaro_system_fgms001_motion_sensor_burglar_5_10.state == '8' %}motion detected{% elif states.sensor.fibaro_system_fgms001_motion_sensor_burglar_5_10.state == '0' %}standby{% elif states.sensor.fibaro_system_fgms001_motion_sensor_burglar_5_10.state == '3' %}vibration detected{% elif states.sensor.fibaro_system_fgms001_motion_sensor_burglar_5_10.state == '254' %}not reporting{% endif %}"
-    friendly_name: "Fibaro Motion Template"

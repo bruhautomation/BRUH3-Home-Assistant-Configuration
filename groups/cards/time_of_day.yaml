@@ -1,5 +1,0 @@
-  time_of_day:
-    name: Time Of Day
-    entities:
-      - automation.sunrise
-      - automation.sunrise
