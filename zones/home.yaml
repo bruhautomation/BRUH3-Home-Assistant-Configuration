@@ -1,1 +1,1 @@
-name: Homelatitude: !secret home_latitudelongitude: !secret home_longituderadius: 150icon: mdi:account-multiple
+name: Homelatitude: !secret home_latitudelongitude: !secret home_longituderadius: 150icon: mdi:account-multiple
