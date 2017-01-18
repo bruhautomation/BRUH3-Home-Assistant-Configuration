@@ -1,0 +1,20 @@
+<<<<<<< HEAD
+  default_view:
+    view: yes
+    entities:
+      - group.bedroom_lights
+      - group.kitchen_lights
+      - group.lab_lights
+      - group.living_room_lights
+      - group.porch_lights
+=======
+  default_view:
+    view: yes
+    entities:
+      - group.bedroom_lights
+      - group.kitchen_lights
+      - group.lab_lights
+      - group.living_room_lights
+      - group.porch_lights
+>>>>>>> 7ea084b2d93918d544091323ccfdea995a0fc8c6
+      - group.kitchen_lights      

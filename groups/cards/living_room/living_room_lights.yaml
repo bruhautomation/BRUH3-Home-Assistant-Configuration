@@ -1,0 +1,12 @@
+<<<<<<< HEAD
+  living_room_lights:
+    name: Living Room
+    entities:
+      - light.switch
+=======
+  living_room_lights:
+    name: Living Room
+    entities:
+      - light.switch
+>>>>>>> 7ea084b2d93918d544091323ccfdea995a0fc8c6
+      - light.wall

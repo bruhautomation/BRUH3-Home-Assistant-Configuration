@@ -1,0 +1,16 @@
+<<<<<<< HEAD
+  lab_lights:
+    name: Lab
+    entities:
+      - light.boob_1
+      - light.boob_2
+      - light.megadesk
+=======
+  lab_lights:
+    name: Lab
+    entities:
+      - light.boob_1
+      - light.boob_2
+      - light.megadesk
+>>>>>>> 7ea084b2d93918d544091323ccfdea995a0fc8c6
+      - switch.mqtt_switch

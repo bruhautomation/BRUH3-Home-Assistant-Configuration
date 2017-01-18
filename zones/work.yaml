@@ -1,0 +1,12 @@
+<<<<<<< HEAD
+name: Work
+latitude: !secret work_latitude
+longitude: !secret work_longitude
+radius: 250
+=======
+name: Work
+latitude: !secret work_latitude
+longitude: !secret work_longitude
+radius: 250
+>>>>>>> 7ea084b2d93918d544091323ccfdea995a0fc8c6
+icon: mdi:worker

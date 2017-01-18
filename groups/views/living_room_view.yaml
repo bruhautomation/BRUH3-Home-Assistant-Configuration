@@ -1,0 +1,14 @@
+<<<<<<< HEAD
+  living_room_view:
+    name: Living Room
+    view: yes
+    entities: 
+      - group.living_room_lights
+=======
+  living_room_view:
+    name: Living Room
+    view: yes
+    entities: 
+      - group.living_room_lights
+>>>>>>> 7ea084b2d93918d544091323ccfdea995a0fc8c6
+      - media_player.living_room

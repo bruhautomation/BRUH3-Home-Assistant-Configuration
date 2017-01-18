@@ -1,0 +1,16 @@
+<<<<<<< HEAD
+  tracker_ble_happy_bubbles:
+    name: BLE Tracker - Happy Bubbles 
+    entities:
+      - sensor.white_ibeacon
+      - sensor.black_ibeacon
+      - sensor.grey_ibeacon
+=======
+  tracker_ble_happy_bubbles:
+    name: BLE Tracker - Happy Bubbles 
+    entities:
+      - sensor.white_ibeacon
+      - sensor.black_ibeacon
+      - sensor.grey_ibeacon
+>>>>>>> 7ea084b2d93918d544091323ccfdea995a0fc8c6
+      - sensor.clear_ibeacon

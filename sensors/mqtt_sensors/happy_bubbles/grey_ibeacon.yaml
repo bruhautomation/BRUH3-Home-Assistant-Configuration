@@ -1,0 +1,10 @@
+<<<<<<< HEAD
+platform: mqtt_room
+device_id: !secret ibeacon_grey
+name: 'Grey iBeacon'
+=======
+platform: mqtt_room
+device_id: !secret ibeacon_grey
+name: 'Grey iBeacon'
+>>>>>>> 7ea084b2d93918d544091323ccfdea995a0fc8c6
+state_topic: 'happy-bubbles/presence/ha'

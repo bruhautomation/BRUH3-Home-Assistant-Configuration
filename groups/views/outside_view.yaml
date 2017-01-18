@@ -1,0 +1,19 @@
+<<<<<<< HEAD
+  outside_view:
+    name: Outside
+    view: yes
+    entities:
+      - group.outside_lights_backdoor
+      - group.outside_lights_frontdoor
+      - group.porch_led_strip_group
+      - group.weather
+=======
+  outside_view:
+    name: Outside
+    view: yes
+    entities:
+      - group.outside_lights_backdoor
+      - group.outside_lights_frontdoor
+      - group.porch_led_strip_group
+      - group.weather
+>>>>>>> 7ea084b2d93918d544091323ccfdea995a0fc8c6

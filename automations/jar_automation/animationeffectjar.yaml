@@ -1,0 +1,24 @@
+<<<<<<< HEAD
+alias: "Jar Input Effect"
+initial_state: True
+hide_entity: True
+trigger:
+  - platform: state
+    entity_id: input_select.jar_led_effect
+action:
+  - service: mqtt.publish
+    data_template:
+      topic: "bruh/mqttjar/seteffect"
+=======
+alias: "Jar Input Effect"
+initial_state: True
+hide_entity: True
+trigger:
+  - platform: state
+    entity_id: input_select.jar_led_effect
+action:
+  - service: mqtt.publish
+    data_template:
+      topic: "bruh/mqttjar/seteffect"
+>>>>>>> 7ea084b2d93918d544091323ccfdea995a0fc8c6
+      payload: '{{ trigger.to_state.state | string }}'

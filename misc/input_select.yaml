@@ -1,0 +1,148 @@
+<<<<<<< HEAD
+porch_led_effect:
+  name: Porch LED Effect
+  options:
+   - "BPM"
+   - "Candy Cane"
+   - "Confetti"
+   - "Cyclon Rainbow"
+   - "Dots"
+   - "Fire"
+   - "Glitter"
+   - "Juggle"
+   - "Lightning"
+   - "Noise"
+   - "Police All"
+   - "Police One"
+   - "Rainbow"
+   - "Rainbow with Glitter"
+   - "Ripple"
+   - "Sinelon"
+   - "Solid"
+   - "Twinkle"
+  initial: "Solid"
+####
+jar_led_effect:
+  name: Jar Effects
+  options:
+   - "BPM"
+   - "Candy Cane"
+   - "Confetti"
+   - "Cyclon Rainbow"
+   - "Dots"
+   - "Fire"
+   - "Glitter"
+   - "Juggle"
+   - "Lightning"
+   - "Noise"
+   - "Police All"
+   - "Police One"
+   - "Rainbow"
+   - "Rainbow with Glitter"
+   - "Ripple"
+   - "Sinelon"
+   - "Solid"
+   - "Twinkle"
+  initial: "Solid"
+ben_status:
+  name: Ben Status
+  options:
+   - "Home"
+   - "Work"
+   - "Away"
+   - "Sleeping"
+  initial: "Home"
+####
+cailin_status:
+  name: Cailin Status
+  options:
+   - "Home"
+   - "Work"
+   - "Away"
+   - "Sleeping"
+  initial: "Home"
+####
+avr_input:
+  name: AVR Input
+  options:
+  - Chromecast
+  - KODI
+  - HA
+  - PC
+  - Standby
+  initial: Standby
+=======
+porch_led_effect:
+  name: Porch LED Effect
+  options:
+   - "BPM"
+   - "Candy Cane"
+   - "Confetti"
+   - "Cyclon Rainbow"
+   - "Dots"
+   - "Fire"
+   - "Glitter"
+   - "Juggle"
+   - "Lightning"
+   - "Noise"
+   - "Police All"
+   - "Police One"
+   - "Rainbow"
+   - "Rainbow with Glitter"
+   - "Ripple"
+   - "Sinelon"
+   - "Solid"
+   - "Twinkle"
+  initial: "Solid"
+####
+jar_led_effect:
+  name: Jar Effects
+  options:
+   - "BPM"
+   - "Candy Cane"
+   - "Confetti"
+   - "Cyclon Rainbow"
+   - "Dots"
+   - "Fire"
+   - "Glitter"
+   - "Juggle"
+   - "Lightning"
+   - "Noise"
+   - "Police All"
+   - "Police One"
+   - "Rainbow"
+   - "Rainbow with Glitter"
+   - "Ripple"
+   - "Sinelon"
+   - "Solid"
+   - "Twinkle"
+  initial: "Solid"
+ben_status:
+  name: Ben Status
+  options:
+   - "Home"
+   - "Work"
+   - "Away"
+   - "Sleeping"
+  initial: "Home"
+####
+cailin_status:
+  name: Cailin Status
+  options:
+   - "Home"
+   - "Work"
+   - "Away"
+   - "Sleeping"
+  initial: "Home"
+####
+avr_input:
+  name: AVR Input
+  options:
+  - Chromecast
+  - KODI
+  - HA
+  - PC
+  - Standby
+  initial: Standby
+>>>>>>> 7ea084b2d93918d544091323ccfdea995a0fc8c6
+  icon: mdi:TV

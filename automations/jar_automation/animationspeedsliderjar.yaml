@@ -1,0 +1,24 @@
+<<<<<<< HEAD
+alias: "Porch Animation Speed"
+initial_state: True
+hide_entity: True
+trigger:
+  - platform: state
+    entity_id: input_slider.jar_animation_speed
+action:
+  - service: mqtt.publish
+    data_template:
+      topic: "bruh/mqttjar/setanimationspeed"
+=======
+alias: "Porch Animation Speed"
+initial_state: True
+hide_entity: True
+trigger:
+  - platform: state
+    entity_id: input_slider.jar_animation_speed
+action:
+  - service: mqtt.publish
+    data_template:
+      topic: "bruh/mqttjar/setanimationspeed"
+>>>>>>> 7ea084b2d93918d544091323ccfdea995a0fc8c6
+      payload: '{{ trigger.to_state.state | int }}'

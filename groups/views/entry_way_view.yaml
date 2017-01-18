@@ -1,0 +1,14 @@
+<<<<<<< HEAD
+  entry_way_view:
+    name: Entry Way
+    view: yes
+    entities:
+      - group.ecobee_group
+=======
+  entry_way_view:
+    name: Entry Way
+    view: yes
+    entities:
+      - group.ecobee_group
+>>>>>>> 7ea084b2d93918d544091323ccfdea995a0fc8c6
+      - group.fibaro_group

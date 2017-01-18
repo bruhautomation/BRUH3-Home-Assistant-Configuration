@@ -1,0 +1,14 @@
+<<<<<<< HEAD
+lights_all_off:
+  sequence:
+    - service: light.turn_off
+      data:
+        entity_id: group.all_lights
+=======
+lights_all_off:
+  sequence:
+    - service: light.turn_off
+      data:
+        entity_id: group.all_lights
+>>>>>>> 7ea084b2d93918d544091323ccfdea995a0fc8c6
+        transition: 15

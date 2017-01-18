@@ -1,0 +1,22 @@
+<<<<<<< HEAD
+alias: "Sunrise"
+trigger:
+  platform: sun
+  event: sunrise
+# condition:
+  # - condition: state
+    # entity_id: group.all_devices
+    # state: "home"
+action:
+=======
+alias: "Sunrise"
+trigger:
+  platform: sun
+  event: sunrise
+# condition:
+  # - condition: state
+    # entity_id: group.all_devices
+    # state: "home"
+action:
+>>>>>>> 7ea084b2d93918d544091323ccfdea995a0fc8c6
+  service: script.sunrise

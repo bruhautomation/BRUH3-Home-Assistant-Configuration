@@ -1,0 +1,250 @@
+<<<<<<< HEAD
+    sensor.octoprint_actual_bed_temp:
+      friendly_name: Bed Currently
+      icon: mdi:thermometer
+    sensor.octoprint_actual_tool0_temp:
+      friendly_name: Hot End Currently
+      icon: mdi:thermometer
+    sensor.octoprint_current_state:
+      icon: mdi:printer-3d
+    switch.wemo_insight:
+      icon: mdi:printer-3d
+      friendly_name: Power
+    binary_sensor.octoprint_printing:
+      hidden: yes
+    binary_sensor.octoprint_printing_error:
+      icon: mdi:alert
+      friendly_name: Error
+    sensor.octoprint_job_percentage:
+      icon: mdi:percent
+      friendly_name: Job Percentage
+    sensor.octoprint_target_bed_temp:
+      friendly_name: Bed Target
+      icon: mdi:thermometer
+    sensor.octoprint_target_tool0_temp:
+      friendly_name: Hot End Target
+      icon: mdi:thermometer
+    sensor.octoprint_temperatures:
+      hidden: yes
+    media_player.bcrcc:
+      friendly_name: Chromecast
+
+##LIGHTS##
+    switch.megadesk_leds:
+      friendly_name: Megadesk LEDs
+      icon: mdi:led-outline
+    switch.megadesk_fan:
+      friendly_name: Megadesk Fan
+      icon: mdi:fan
+    switch.killswitch:
+      friendly_name: Modem Power
+      icon: mdi:ethernet-cable-off
+    switch.fishstick:
+      friendly_name: FishStick
+      icon: mdi:speaker
+
+    switch.wake_on_lan:
+      friendly_name: PC Power
+      icon: mdi:power
+
+##Sensors##
+    sensor.ble_ben_6p:
+      friendly_name: "Ben 6P"
+      icon: mdi:tag
+    sensor.ble_black_tag:
+      friendly_name: "Black Tag"
+      icon: mdi:tag
+    sensor.ble_clear_tag:
+      friendly_name: "Clear Tag"
+      icon: mdi:tag
+    sensor.ble_white_tag:
+      friendly_name: "White Tag"
+      icon: mdi:tag
+
+#######LIGHTS##
+    light.porch_leds:
+      friendly_name: "LED Strip"
+      icon: mdi:led-outline
+    input_select.porch_led_effect:
+      friendly_name: "Effect Selector"
+      icon: mdi:selection
+    input_slider.porch_animation_speed:
+      friendly_name: "Animation Speed"
+      icon: mdi:animation
+    switch.master_bathroom_vanity_switch_3_0:
+      friendly_name: "Master Bathroom Vanity"
+      icon: mdi:led-outline
+#######devices#
+    device_tracker.bruh_ben6p:
+      friendly_name: "Ben 6P MQTT"
+#############AEOTEC####
+    sensor.aeotec_zw100_multisensor_6_burglar_4_10:
+      friendly_name: "Lab Aeotec Motion"
+      icon: mdi:security
+    sensor.aeotec_zw100_multisensor_6_luminance_4_3:
+      friendly_name: "Lab Aeotec Luminance"
+      icon: mdi:brightness-7
+    sensor.aeotec_zw100_multisensor_6_relative_humidity_4_5:
+      friendly_name: "Lab Aeotec Humidity"
+      icon: mdi:water
+    sensor.aeotec_zw100_multisensor_6_temperature_4_1:
+      friendly_name: "Lab Aeotec Temperature"
+      icon: mdi:thermometer
+    sensor.aeotec_zw100_multisensor_6_ultraviolet_4_27:
+      friendly_name: "Lab  Aeotec UV"
+    sensor.aeotec_zw100_multisensor_6_alarm_level_4_1:
+      hidden: yes
+    sensor.aeotec_zw100_multisensor_6_alarm_type_4_0:
+      hidden: yes
+    binary_sensor.aeotec_zw100_multisensor_6_sensor_4_0:
+      hidden: yes
+    sensor.aeotec_zw100_multisensor_6_sourcenodeid_4_2:
+      hidden: yes
+##############Fibaro####
+    sensor.fibaro_system_fgms001_motion_sensor_burglar_5_10:
+      friendly_name: "Fibaro Motion"
+      icon: mdi:security
+    sensor.fibaro_system_fgms001_motion_sensor_luminance_5_3:
+      friendly_name: "Fibaro Luminance"
+      icon: mdi:brightness-7
+    sensor.fibaro_system_fgms001_motion_sensor_temperature_5_1:
+      friendly_name: "Fibaro Temperature"
+      icon: mdi:thermometer
+    sensor.fibaro_system_fgms001_motion_sensor_seismic_intensity_5_25:
+      friendly_name: "Fibaro Seismic"
+      icon: mdi:thermometer
+    sensor.fibaro_system_fgms001_motion_sensor_alarm_level_5_1:
+      hidden: yes
+    sensor.fibaro_system_fgms001_motion_sensor_alarm_type_5_0:
+      hidden: yes
+    sensor.fibaro_system_fgms001_motion_sensor_general_5_0:
+      hidden: yes
+    sensor.fibaro_system_fgms001_motion_sensor_sourcenodeid_5_2:
+      hidden: yes
+    binary_sensor.fibaro_system_fgms001_motion_sensor_sensor_5_0:
+=======
+    sensor.octoprint_actual_bed_temp:
+      friendly_name: Bed Currently
+      icon: mdi:thermometer
+    sensor.octoprint_actual_tool0_temp:
+      friendly_name: Hot End Currently
+      icon: mdi:thermometer
+    sensor.octoprint_current_state:
+      icon: mdi:printer-3d
+    switch.wemo_insight:
+      icon: mdi:printer-3d
+      friendly_name: Power
+    binary_sensor.octoprint_printing:
+      hidden: yes
+    binary_sensor.octoprint_printing_error:
+      icon: mdi:alert
+      friendly_name: Error
+    sensor.octoprint_job_percentage:
+      icon: mdi:percent
+      friendly_name: Job Percentage
+    sensor.octoprint_target_bed_temp:
+      friendly_name: Bed Target
+      icon: mdi:thermometer
+    sensor.octoprint_target_tool0_temp:
+      friendly_name: Hot End Target
+      icon: mdi:thermometer
+    sensor.octoprint_temperatures:
+      hidden: yes
+    media_player.bcrcc:
+      friendly_name: Chromecast
+
+##LIGHTS##
+    switch.megadesk_leds:
+      friendly_name: Megadesk LEDs
+      icon: mdi:led-outline
+    switch.megadesk_fan:
+      friendly_name: Megadesk Fan
+      icon: mdi:fan
+    switch.killswitch:
+      friendly_name: Modem Power
+      icon: mdi:ethernet-cable-off
+    switch.fishstick:
+      friendly_name: FishStick
+      icon: mdi:speaker
+
+    switch.wake_on_lan:
+      friendly_name: PC Power
+      icon: mdi:power
+
+##Sensors##
+    sensor.ble_ben_6p:
+      friendly_name: "Ben 6P"
+      icon: mdi:tag
+    sensor.ble_black_tag:
+      friendly_name: "Black Tag"
+      icon: mdi:tag
+    sensor.ble_clear_tag:
+      friendly_name: "Clear Tag"
+      icon: mdi:tag
+    sensor.ble_white_tag:
+      friendly_name: "White Tag"
+      icon: mdi:tag
+
+#######LIGHTS##
+    light.porch_leds:
+      friendly_name: "LED Strip"
+      icon: mdi:led-outline
+    input_select.porch_led_effect:
+      friendly_name: "Effect Selector"
+      icon: mdi:selection
+    input_slider.porch_animation_speed:
+      friendly_name: "Animation Speed"
+      icon: mdi:animation
+    switch.master_bathroom_vanity_switch_3_0:
+      friendly_name: "Master Bathroom Vanity"
+      icon: mdi:led-outline
+#######devices#
+    device_tracker.bruh_ben6p:
+      friendly_name: "Ben 6P MQTT"
+#############AEOTEC####
+    sensor.aeotec_zw100_multisensor_6_burglar_4_10:
+      friendly_name: "Lab Aeotec Motion"
+      icon: mdi:security
+    sensor.aeotec_zw100_multisensor_6_luminance_4_3:
+      friendly_name: "Lab Aeotec Luminance"
+      icon: mdi:brightness-7
+    sensor.aeotec_zw100_multisensor_6_relative_humidity_4_5:
+      friendly_name: "Lab Aeotec Humidity"
+      icon: mdi:water
+    sensor.aeotec_zw100_multisensor_6_temperature_4_1:
+      friendly_name: "Lab Aeotec Temperature"
+      icon: mdi:thermometer
+    sensor.aeotec_zw100_multisensor_6_ultraviolet_4_27:
+      friendly_name: "Lab  Aeotec UV"
+    sensor.aeotec_zw100_multisensor_6_alarm_level_4_1:
+      hidden: yes
+    sensor.aeotec_zw100_multisensor_6_alarm_type_4_0:
+      hidden: yes
+    binary_sensor.aeotec_zw100_multisensor_6_sensor_4_0:
+      hidden: yes
+    sensor.aeotec_zw100_multisensor_6_sourcenodeid_4_2:
+      hidden: yes
+##############Fibaro####
+    sensor.fibaro_system_fgms001_motion_sensor_burglar_5_10:
+      friendly_name: "Fibaro Motion"
+      icon: mdi:security
+    sensor.fibaro_system_fgms001_motion_sensor_luminance_5_3:
+      friendly_name: "Fibaro Luminance"
+      icon: mdi:brightness-7
+    sensor.fibaro_system_fgms001_motion_sensor_temperature_5_1:
+      friendly_name: "Fibaro Temperature"
+      icon: mdi:thermometer
+    sensor.fibaro_system_fgms001_motion_sensor_seismic_intensity_5_25:
+      friendly_name: "Fibaro Seismic"
+      icon: mdi:thermometer
+    sensor.fibaro_system_fgms001_motion_sensor_alarm_level_5_1:
+      hidden: yes
+    sensor.fibaro_system_fgms001_motion_sensor_alarm_type_5_0:
+      hidden: yes
+    sensor.fibaro_system_fgms001_motion_sensor_general_5_0:
+      hidden: yes
+    sensor.fibaro_system_fgms001_motion_sensor_sourcenodeid_5_2:
+      hidden: yes
+    binary_sensor.fibaro_system_fgms001_motion_sensor_sensor_5_0:
+>>>>>>> 7ea084b2d93918d544091323ccfdea995a0fc8c6
+      hidden: yes

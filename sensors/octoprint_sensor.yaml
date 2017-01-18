@@ -1,0 +1,15 @@
+<<<<<<< HEAD
+platform: octoprint
+name: OctoPrint
+monitored_conditions:
+  - Current State
+  - Temperatures
+  - Job Percentage
+=======
+platform: octoprint
+name: OctoPrint
+monitored_conditions:
+  - Current State
+  - Temperatures
+  - Job Percentage
+>>>>>>> 7ea084b2d93918d544091323ccfdea995a0fc8c6

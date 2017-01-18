@@ -1,0 +1,14 @@
+<<<<<<< HEAD
+  kitchen_view:
+    name: Kitchen
+    view: yes
+    entities: 
+      - group.kitchen_lights
+=======
+  kitchen_view:
+    name: Kitchen
+    view: yes
+    entities: 
+      - group.kitchen_lights
+>>>>>>> 7ea084b2d93918d544091323ccfdea995a0fc8c6
+      - media_player.kitchen_home
