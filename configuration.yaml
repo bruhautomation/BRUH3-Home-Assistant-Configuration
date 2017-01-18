@@ -144,4 +144,4 @@ weather: !include_dir_list weather/
 zone: !include_dir_list zones/
 camera: !include_dir_list cameras/
 
-##This is a test message
+##This is a test message to demonstrate the gitupdate script
