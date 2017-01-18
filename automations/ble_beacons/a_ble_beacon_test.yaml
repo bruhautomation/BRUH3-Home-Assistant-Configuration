@@ -1,9 +1,9 @@
-alias: BLE iBeacon Test
-initial_state: True
+alias: BLE Beacon Test
+initial_state: False
 hide_entity: False
 trigger:
   - platform: state
-    entity_id: sensor.white_ibeacon
+    entity_id: sensor.ble_beacon_white
 condition: 
   - condition: template
     value_template: '{{ trigger.from_state.state != trigger.to_state.state }}'

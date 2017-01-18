@@ -1,9 +1,9 @@
-sunset:
+dash_bounty_on:
   sequence:
     - service: light.turn_on
       data:
-        entity_id: group.all_lights
+        entity_id: group.lab_lights
         brightness: 255
         color_temp: 260
         rgb_color: [255,255,255]
-        transition: 15
+        transition: 2

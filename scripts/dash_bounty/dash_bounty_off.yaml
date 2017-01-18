@@ -1,9 +1,0 @@
-dash_bounty_off:
-  sequence:
-    - service: light.turn_off
-      data:
-        entity_id: group.lab_lights_overhead
-        transition: 15
-    - service: switch.turn_off
-      data:
-        entity_id: switch.megadesk_leds

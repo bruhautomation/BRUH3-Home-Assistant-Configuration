@@ -1,8 +1,12 @@
 dash_bounty_toggle:
   name: Lab Dash Toggle
   initial: off
-  icon: mdi:biohazard
+  icon: mdi:amazon
 tv_power:
   name: TV Power
   initial: off
   icon: mdi:TV
+motion_lockout:
+  name: Motion Lockout
+  initial: off
+  icon: mdi:run

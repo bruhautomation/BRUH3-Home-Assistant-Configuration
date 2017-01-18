@@ -1,4 +1,6 @@
 alias: "AVR Input"
+initial_state: True
+hide_entity: False
 trigger:
   - platform: state
     entity_id: input_select.avr_input

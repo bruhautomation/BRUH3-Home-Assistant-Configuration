@@ -1,6 +1,6 @@
-sunset:
+dash_bounty_off:
   sequence:
     - service: light.turn_off
       data:
-        entity_id: group.all_lights
+        entity_id: group.lab_lights
         transition: 15

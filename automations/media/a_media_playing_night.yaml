@@ -1,4 +1,4 @@
-alias: Media Stopped Night
+alias: Media Playing Night
 initial_state: True
 hide_entity: True
 trigger:
@@ -6,17 +6,17 @@ trigger:
     entity_id: media_player.living_room
     state: "off"
 action:
-  - service: light.turn_on
+  - service: light.turn_off
     data:
-      entity_id: light.lr_wall_color_lifx
-      brightness: 255
-      color_temp: 200
-      rgb_color: [255,255,255]
+      entity_id:
+       - light.switch
+       - light.sink
       transition: 15
   - service: light.turn_on
     data:
-      entity_id: light.lr_switch_color_lifx
-      brightness: 255
+      entity_id:
+       - light.wall
+      brightness: 175
       color_temp: 200
       rgb_color: [255,255,255]
       transition: 15

@@ -1,0 +1,4 @@
+platform: mqtt_room
+device_id: !secret ble_beacon_white
+name: 'BLE Beacon White'
+state_topic: 'happy-bubbles/presence/ha'
