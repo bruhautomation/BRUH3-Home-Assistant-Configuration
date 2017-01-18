@@ -1,4 +1,3 @@
-<<<<<<< HEAD
   outside_lights_backdoor:
     name: Backyard
     entities:
@@ -7,14 +6,4 @@
     name: Porch
     entities:
       - light.front_door_left
-=======
-  outside_lights_backdoor:
-    name: Backyard
-    entities:
-      - light.back_door
-  outside_lights_frontdoor:
-    name: Porch
-    entities:
-      - light.front_door_left
->>>>>>> 7ea084b2d93918d544091323ccfdea995a0fc8c6
       - light.front_door_right

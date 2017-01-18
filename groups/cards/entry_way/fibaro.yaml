@@ -1,4 +1,3 @@
-<<<<<<< HEAD
   fibaro_group:
     name: Fibaro Sensor
     entities:
@@ -6,13 +5,4 @@
       - sensor.fibaro_motion_template
       - sensor.fibaro_system_fgms001_motion_sensor_luminance_5_3
       - sensor.fibaro_system_fgms001_motion_sensor_temperature_5_1
-=======
-  fibaro_group:
-    name: Fibaro Sensor
-    entities:
-      - sensor.fibaro_system_fgms001_motion_sensor_burglar_5_10
-      - sensor.fibaro_motion_template
-      - sensor.fibaro_system_fgms001_motion_sensor_luminance_5_3
-      - sensor.fibaro_system_fgms001_motion_sensor_temperature_5_1
->>>>>>> 7ea084b2d93918d544091323ccfdea995a0fc8c6
       - sensor.fibaro_system_fgms001_motion_sensor_seismic_intensity_5_25

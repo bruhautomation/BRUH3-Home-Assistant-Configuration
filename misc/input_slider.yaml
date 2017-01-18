@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 porch_animation_speed:
   name: Porch Animation Speed
   initial: 150
@@ -10,17 +9,4 @@ jar_animation_speed:
   initial: 150
   min: 1
   max: 150
-=======
-porch_animation_speed:
-  name: Porch Animation Speed
-  initial: 150
-  min: 1
-  max: 150
-  step: 10
-jar_animation_speed:
-  name: Jar Animation Speed
-  initial: 150
-  min: 1
-  max: 150
->>>>>>> 7ea084b2d93918d544091323ccfdea995a0fc8c6
   step: 10

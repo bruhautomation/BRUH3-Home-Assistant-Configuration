@@ -1,13 +1,5 @@
-<<<<<<< HEAD
   time_of_day:
     name: Time Of Day
     entities:
       - automation.sunrise
       - automation.sunrise
-=======
-  time_of_day:
-    name: Time Of Day
-    entities:
-      - automation.sunrise
-      - automation.sunrise
->>>>>>> 7ea084b2d93918d544091323ccfdea995a0fc8c6

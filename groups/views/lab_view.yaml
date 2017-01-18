@@ -1,4 +1,3 @@
-<<<<<<< HEAD
   lab_view:
     name: Lab
     view: yes
@@ -8,15 +7,4 @@
       - group.octoprint_card_status
       - group.octoprint_card_temperatures
       - camera.octoprint
-=======
-  lab_view:
-    name: Lab
-    view: yes
-    entities:
-      - group.lab_lights
-      - group.lab_switches
-      - group.octoprint_card_status
-      - group.octoprint_card_temperatures
-      - camera.octoprint
->>>>>>> 7ea084b2d93918d544091323ccfdea995a0fc8c6
       - group.aeotec_sensor

@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 tts_test_all:
   sequence:
     - service: tts.google_say
@@ -9,16 +8,4 @@ tts_test_lab:
     - service: tts.google_say
       entity_id: media_player.lab
       data:
-=======
-tts_test_all:
-  sequence:
-    - service: tts.google_say
-      data:
-        message: "May the Force be with you."
-tts_test_lab:
-  sequence:
-    - service: tts.google_say
-      entity_id: media_player.lab
-      data:
->>>>>>> 7ea084b2d93918d544091323ccfdea995a0fc8c6
         message: "May the Force be with you."

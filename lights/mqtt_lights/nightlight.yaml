@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 platform: mqtt
 name: "Nightlight"
 command_topic: "bruh/mqttjar/setpower"
@@ -9,16 +8,4 @@ brightness_state_topic: "bruh/mqttjar/setbrightnesspub"
 brightness_command_topic: "bruh/mqttjar/setbrightness"
 #color_temp_state_topic: "bruh/mqttjar/setcolortemppub"
 #color_temp_command_topic: "bruh/mqttjar/setcolortemp"
-=======
-platform: mqtt
-name: "Nightlight"
-command_topic: "bruh/mqttjar/setpower"
-state_topic: "bruh/mqttjar/setpowerpub"
-rgb_state_topic: "bruh/mqttjar/setcolorpub"
-rgb_command_topic: "bruh/mqttjar/setcolor"
-brightness_state_topic: "bruh/mqttjar/setbrightnesspub"
-brightness_command_topic: "bruh/mqttjar/setbrightness"
-#color_temp_state_topic: "bruh/mqttjar/setcolortemppub"
-#color_temp_command_topic: "bruh/mqttjar/setcolortemp"
->>>>>>> 7ea084b2d93918d544091323ccfdea995a0fc8c6
 optimistic: false

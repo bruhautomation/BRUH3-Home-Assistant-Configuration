@@ -1,4 +1,3 @@
-<<<<<<< HEAD
   family_view:
     name: Family
     view: yes
@@ -9,16 +8,4 @@
       - device_tracker.cailin_6p
       - input_select.ben_status
       - input_select.cailin_status
-=======
-  family_view:
-    name: Family
-    view: yes
-    entities:
-      - device_tracker.224873e12b052dbd
-      - device_tracker.ben_6p
-      - device_tracker.bruh_ben6p
-      - device_tracker.cailin_6p
-      - input_select.ben_status
-      - input_select.cailin_status
->>>>>>> 7ea084b2d93918d544091323ccfdea995a0fc8c6
       - sensor.phone_batt_ben

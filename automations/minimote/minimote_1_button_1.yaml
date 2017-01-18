@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 alias: Minimote 1 Button Pressed
 initial_state: True
 hide_entity: True
@@ -11,18 +10,4 @@ trigger:
 action:
   - service: switch.turn_on
     data:
-=======
-alias: Minimote 1 Button Pressed
-initial_state: True
-hide_entity: True
-trigger:
-  - platform: event
-    event_type: zwave.scene_activated
-    event_data:
-      entity_id: aeotec_dsa03202_minimote_9
-      scene_id: 1
-action:
-  - service: switch.turn_on
-    data:
->>>>>>> 7ea084b2d93918d544091323ccfdea995a0fc8c6
       entity_id: switch.megadesk_leds

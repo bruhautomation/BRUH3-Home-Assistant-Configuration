@@ -20,11 +20,7 @@ http:
     - https://home-assistant.io
   use_x_forwarded_for: True
   trusted_networks:
-<<<<<<< HEAD
     - !secret trusted_ip
-=======
-    - 192.168.86.0/24
->>>>>>> 7ea084b2d93918d544091323ccfdea995a0fc8c6
   ip_ban_enabled: True
   login_attempts_threshold: 5
 
@@ -34,12 +30,9 @@ discovery:
 
 media_player:
   - platform: cast
-<<<<<<< HEAD
   - platform: kodi
     host: !secret kodi_ip
-=======
 
->>>>>>> 7ea084b2d93918d544091323ccfdea995a0fc8c6
 conversation:
 
 history:
@@ -100,7 +93,6 @@ panel_iframe:
     icon: mdi:router-wireless
 
 cover:
-<<<<<<< HEAD
   - platform: garadget
     covers:
         !secret garadget_id:
@@ -117,14 +109,6 @@ cover:
     state_open: "OPEN"
     state_closed: "CLOSE"
     optimistic: false
-=======
-  platform: garadget
-  covers:
-      !secret garadget_id:
-        username:  !secret garadget_username
-        password:  !secret garadget_password
-        name:  Garage Door
->>>>>>> 7ea084b2d93918d544091323ccfdea995a0fc8c6
 
 hdmi_cec:
   devices:
@@ -139,11 +123,7 @@ device_tracker:
   - platform: owntracks
   - platform: locative
   - platform: nmap_tracker
-<<<<<<< HEAD
     hosts: !secret nmap_ip
-=======
-    hosts: 192.168.86.50-51
->>>>>>> 7ea084b2d93918d544091323ccfdea995a0fc8c6
 
 tts:
   - platform: google
@@ -162,10 +142,6 @@ automation: !include_dir_list automations/
 group: !include_dir_merge_named groups/
 weather: !include_dir_list weather/
 zone: !include_dir_list zones/
-<<<<<<< HEAD
 camera: !include_dir_list cameras/
 
 ##This is a test message
-=======
-camera: !include_dir_list cameras/
->>>>>>> 7ea084b2d93918d544091323ccfdea995a0fc8c6

@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 platform: openweathermap
 api_key: !secret openweather_api_key
 monitored_conditions:
@@ -9,16 +8,4 @@ monitored_conditions:
   - pressure
   - clouds
   - rain
-=======
-platform: openweathermap
-api_key: !secret openweather_api_key
-monitored_conditions:
-  - weather
-  - temperature
-  - wind_speed
-  - humidity
-  - pressure
-  - clouds
-  - rain
->>>>>>> 7ea084b2d93918d544091323ccfdea995a0fc8c6
   - snow

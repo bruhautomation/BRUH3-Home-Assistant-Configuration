@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 alias: BLE iBeacon Test
 initial_state: True
 hide_entity: False
@@ -33,54 +32,4 @@ action:
       entity_id: light.megadesk
   - service: light.turn_off
     data:
-=======
-alias: BLE iBeacon Test
-initial_state: True
-hide_entity: False
-trigger:
-  - platform: state
-    entity_id: sensor.white_ibeacon
-condition: 
-  - condition: template
-    value_template: '{{ trigger.from_state.state != trigger.to_state.state }}'
-action:
-  - service: notify.ben
-    data_template:
-      title: "iBeacon Update"
-      message: "{{trigger.to_state.name}} has moved and is currently in the {{trigger.to_state.state}}"
-  - service: light.turn_on
-    data:
-      entity_id: light.megadesk
-      brightness: 255
-      rgb_color: [255,0,0]
-  - service: light.turn_on
-    data:
-      entity_id: light.floor_lamp
-      brightness: 255
-      rgb_color: [255,0,0]
-  - delay: 00:00:01
-  - service: light.turn_off
-    data:
-      entity_id: light.megadesk
-  - service: light.turn_off
-    data:
-      entity_id: light.floor_lamp
-  - delay: 00:00:01
-  - service: light.turn_on
-    data:
-      entity_id: light.floor_lamp
-      brightness: 255
-      rgb_color: [255,0,0]
-  - service: light.turn_on
-    data:
-      entity_id: light.megadesk
-      brightness: 255
-      rgb_color: [255,0,0]
-  - delay: 00:00:01
-  - service: light.turn_off
-    data:
-      entity_id: light.megadesk
-  - service: light.turn_off
-    data:
->>>>>>> 7ea084b2d93918d544091323ccfdea995a0fc8c6
       entity_id: light.floor_lamp

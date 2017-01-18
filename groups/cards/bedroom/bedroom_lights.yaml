@@ -1,14 +1,6 @@
-<<<<<<< HEAD
   bedroom_lights:
     name: Bedroom
     entities:
       - light.floor_lamp
       - light.nightstand
-=======
-  bedroom_lights:
-    name: Bedroom
-    entities:
-      - light.floor_lamp
-      - light.nightstand
->>>>>>> 7ea084b2d93918d544091323ccfdea995a0fc8c6
       - switch.bathroom_vanity_switch_3_0

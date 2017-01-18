@@ -1,12 +1,5 @@
-<<<<<<< HEAD
 platform: wake_on_lan
 mac_address: !secret pc_mac
 host: "!secret pc_ip"
 turn_off: 
-=======
-platform: wake_on_lan
-mac_address: !secret pc_mac
-host: "!secret pc_ip"
-turn_off: 
->>>>>>> 7ea084b2d93918d544091323ccfdea995a0fc8c6
   service: shell_command.pc_off

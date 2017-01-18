@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 owntracks_update:
   sequence:
     - service: mqtt.publish
@@ -8,15 +7,4 @@ owntracks_update:
     - service: mqtt.publish
       data:
         topic: owntracks/bruh/cailin6p/cmd 
-=======
-owntracks_update:
-  sequence:
-    - service: mqtt.publish
-      data:
-        topic: owntracks/bruh/ben6p/cmd 
-        payload: '{"_type":"cmd","action":"reportLocation"}"'
-    - service: mqtt.publish
-      data:
-        topic: owntracks/bruh/cailin6p/cmd 
->>>>>>> 7ea084b2d93918d544091323ccfdea995a0fc8c6
         payload: '{"_type":"cmd","action":"reportLocation"}"'

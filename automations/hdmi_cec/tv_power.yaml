@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 alias: "TV power"
 trigger:
   - platform: state
@@ -20,27 +19,4 @@ action:
       option: > 
         {% if is_state('input_boolean.tv_power', 'off') %}
           Standby
-=======
-alias: "TV power"
-trigger:
-  - platform: state
-    entity_id: input_boolean.tv_power
-    state: "on"
-  - platform: state
-    entity_id: input_boolean.tv_power
-    state: "off"
-action:
-  - service_template: >
-      {% if is_state('input_boolean.tv_power', 'on') %}
-        hdmi_cec.power_on
-      {% elif is_state('input_boolean.tv_power', 'off') %}
-        hdmi_cec.standby
-      {% endif %}
-  - service: input_select.select_option
-    data_template:
-      entity_id: input_select.avr_input
-      option: > 
-        {% if is_state('input_boolean.tv_power', 'off') %}
-          Standby
->>>>>>> 7ea084b2d93918d544091323ccfdea995a0fc8c6
         {% endif %}

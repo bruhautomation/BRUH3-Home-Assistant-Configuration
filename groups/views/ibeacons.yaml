@@ -1,15 +1,6 @@
-<<<<<<< HEAD
   ibeacon_view:
     name: iBeacons
     view: yes
     entities:
       - group.tracker_ble_happy_bubbles
       - automation.ble_ibeacon_test
-=======
-  ibeacon_view:
-    name: iBeacons
-    view: yes
-    entities:
-      - group.tracker_ble_happy_bubbles
-      - automation.ble_ibeacon_test
->>>>>>> 7ea084b2d93918d544091323ccfdea995a0fc8c6

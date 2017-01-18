@@ -1,4 +1,3 @@
-<<<<<<< HEAD
   weather:
     name: Weather
     entities:
@@ -11,18 +10,4 @@
       - sensor.owm_snow
       - sensor.owm_temperature
       - sensor.owm_wind_speed
-=======
-  weather:
-    name: Weather
-    entities:
-      - sensor.owm_cloud_coverage
-      - sun.sun
-      - sensor.owm_condition
-      - sensor.owm_humidity
-      - sensor.owm_pressure
-      - sensor.owm_rain
-      - sensor.owm_snow
-      - sensor.owm_temperature
-      - sensor.owm_wind_speed
->>>>>>> 7ea084b2d93918d544091323ccfdea995a0fc8c6
       - weather.openweathermap

@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 sunset:
   sequence:
     - service: light.turn_on
@@ -7,14 +6,4 @@ sunset:
         brightness: 255
         color_temp: 260
         rgb_color: [255,255,255]
-=======
-sunset:
-  sequence:
-    - service: light.turn_on
-      data:
-        entity_id: group.all_lights
-        brightness: 255
-        color_temp: 260
-        rgb_color: [255,255,255]
->>>>>>> 7ea084b2d93918d544091323ccfdea995a0fc8c6
         transition: 15

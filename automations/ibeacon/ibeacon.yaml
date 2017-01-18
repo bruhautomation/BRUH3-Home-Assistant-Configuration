@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 alias: ibeaconupdate
 initial_state: True
 hide_entity: True
@@ -13,20 +12,4 @@ action:
     data_template:
       topic: > 
         owntracks/bruh/{{trigger.payload_json.desc}}
-=======
-alias: ibeaconupdate
-initial_state: True
-hide_entity: True
-trigger:
-  - platform: mqtt
-    topic: owntracks/bruh/ben6p/waypoint
-action:
-  - service: script.owntracks_update
-  - delay:
-      seconds: 15
-  - service: mqtt.publish
-    data_template:
-      topic: > 
-        owntracks/bruh/{{trigger.payload_json.desc}}
->>>>>>> 7ea084b2d93918d544091323ccfdea995a0fc8c6
       payload: '{"_type":"location","tid":"{{trigger.payload_json.desc}}","acc":{{ states.device_tracker.bruh_ben6p.attributes.gps_accuracy}},"batt":80,"conn":"w","doze":false,"lat":{{ states.device_tracker.bruh_ben6p.attributes.latitude}},"lon":{{ states.device_tracker.bruh_ben6p.attributes.longitude}},"t":"r","tst":1234567890}'

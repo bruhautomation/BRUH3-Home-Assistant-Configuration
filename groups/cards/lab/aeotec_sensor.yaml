@@ -1,4 +1,3 @@
-<<<<<<< HEAD
   aeotec_sensor:
     name: Aeotec Sensor
     entities:
@@ -7,14 +6,4 @@
       - sensor.aeotec_zw100_multisensor_6_luminance_4_3
       - sensor.aeotec_zw100_multisensor_6_relative_humidity_4_5
       - sensor.aeotec_zw100_multisensor_6_temperature_4_1
-=======
-  aeotec_sensor:
-    name: Aeotec Sensor
-    entities:
-      - sensor.aeotec_zw100_multisensor_6_burglar_4_10
-      - sensor.aeotec_multisensor_6_motion_template
-      - sensor.aeotec_zw100_multisensor_6_luminance_4_3
-      - sensor.aeotec_zw100_multisensor_6_relative_humidity_4_5
-      - sensor.aeotec_zw100_multisensor_6_temperature_4_1
->>>>>>> 7ea084b2d93918d544091323ccfdea995a0fc8c6
       - sensor.aeotec_zw100_multisensor_6_ultraviolet_4_27

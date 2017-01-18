@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 nightlight:
   sequence:
     - service: light.turn_on
@@ -9,16 +8,4 @@ nightlight:
         minutes: 1
     - service: light.turn_off
       data:
-=======
-nightlight:
-  sequence:
-    - service: light.turn_on
-      data:
-        entity_id: light.signal_jar
-        rgb_color: [10,10,10]
-    - delay:
-        minutes: 1
-    - service: light.turn_off
-      data:
->>>>>>> 7ea084b2d93918d544091323ccfdea995a0fc8c6
         entity_id: light.signal_jar

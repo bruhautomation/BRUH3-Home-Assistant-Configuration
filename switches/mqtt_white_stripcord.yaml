@@ -1,9 +1,3 @@
-<<<<<<< HEAD
 platform: mqtt
 command_topic: "cmnd1/sonoff/power"
 state_topic: "stat1/sonoff/POWER"
-=======
-platform: mqtt
-command_topic: "cmnd1/sonoff/power"
-state_topic: "stat1/sonoff/POWER"
->>>>>>> 7ea084b2d93918d544091323ccfdea995a0fc8c6

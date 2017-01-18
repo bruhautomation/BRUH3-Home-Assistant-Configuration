@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 message_temperature_ecobee:
   sequence:
     - service: notify.ecobee
@@ -11,18 +10,4 @@ message_temperature_push:
         message: "The main floor current temperature is {{ states('sensor.main_floor_temperature') }}"
     - service: notify.ben_cmstormtrooper
       data_template:
-=======
-message_temperature_ecobee:
-  sequence:
-    - service: notify.ecobee
-      data_template:
-        message: "The main floor current temperature is {{ states('sensor.main_floor_temperature') }}"
-message_temperature_push:
-  sequence:
-    - service: notify.ben
-      data_template:
-        message: "The main floor current temperature is {{ states('sensor.main_floor_temperature') }}"
-    - service: notify.ben_cmstormtrooper
-      data_template:
->>>>>>> 7ea084b2d93918d544091323ccfdea995a0fc8c6
         message: "The main floor current temperature is {{ states('sensor.main_floor_temperature') }}"

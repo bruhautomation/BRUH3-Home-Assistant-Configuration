@@ -1,4 +1,3 @@
-<<<<<<< HEAD
   octoprint_card_frontend:
     name: octoprint
     entities:
@@ -18,25 +17,4 @@
       - sensor.octoprint_target_bed_temp
       - sensor.octoprint_actual_bed_temp
       - sensor.octoprint_target_tool0_temp
-=======
-  octoprint_card_frontend:
-    name: octoprint
-    entities:
-      - sensor.octoprint_current_state
-      - sensor.octoprint_job_percentage
-  octoprint_card_status:
-    name: Printer Status
-    entities:
-      - switch.wemo_insight
-      - sensor.octoprint_current_state
-      - binary_sensor.octoprint_printing
-      - binary_sensor.octoprint_printing_error
-      - sensor.octoprint_job_percentage
-  octoprint_card_temperatures:
-    name: temperatures
-    entities:
-      - sensor.octoprint_target_bed_temp
-      - sensor.octoprint_actual_bed_temp
-      - sensor.octoprint_target_tool0_temp
->>>>>>> 7ea084b2d93918d544091323ccfdea995a0fc8c6
       - sensor.octoprint_actual_tool0_temp

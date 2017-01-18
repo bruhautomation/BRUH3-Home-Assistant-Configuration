@@ -1,4 +1,3 @@
-<<<<<<< HEAD
   media_view:
     name: Media Players
     view: yes
@@ -7,14 +6,4 @@
       - media_player.kitchen_home
       - media_player.lab
       - media_player.living_room
-=======
-  media_view:
-    name: Media Players
-    view: yes
-    entities:
-      - media_player.bedroom_home
-      - media_player.kitchen_home
-      - media_player.lab
-      - media_player.living_room
->>>>>>> 7ea084b2d93918d544091323ccfdea995a0fc8c6
       - media_player.everything

@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 dash_bounty_on:
   sequence:
     - service: light.turn_on
@@ -10,17 +9,4 @@ dash_bounty_on:
         transition: 2
     - service: switch.turn_on
       data:
-=======
-dash_bounty_on:
-  sequence:
-    - service: light.turn_on
-      data:
-        entity_id: group.lab_lights_overhead
-        brightness: 255
-        color_temp: 260
-        rgb_color: [255,255,255]
-        transition: 2
-    - service: switch.turn_on
-      data:
->>>>>>> 7ea084b2d93918d544091323ccfdea995a0fc8c6
         entity_id: switch.megadesk_leds

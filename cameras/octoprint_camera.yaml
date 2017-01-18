@@ -1,8 +1,3 @@
-<<<<<<< HEAD
 platform: mjpeg
 mjpeg_url: !secret octoprint_camera_ip
-=======
-platform: mjpeg
-mjpeg_url: !secret octoprint_camera_ip
->>>>>>> 7ea084b2d93918d544091323ccfdea995a0fc8c6
 name: Octoprint

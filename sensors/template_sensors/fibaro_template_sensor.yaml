@@ -1,12 +1,5 @@
-<<<<<<< HEAD
 platform: template
 sensors:
   fibaro_motion_template:
     value_template: "{%if states.sensor.fibaro_system_fgms001_motion_sensor_burglar_5_10.state == '8' %}motion detected{% elif states.sensor.fibaro_system_fgms001_motion_sensor_burglar_5_10.state == '0' %}standby{% elif states.sensor.fibaro_system_fgms001_motion_sensor_burglar_5_10.state == '3' %}vibration detected{% elif states.sensor.fibaro_system_fgms001_motion_sensor_burglar_5_10.state == '254' %}not reporting{% endif %}"
-=======
-platform: template
-sensors:
-  fibaro_motion_template:
-    value_template: "{%if states.sensor.fibaro_system_fgms001_motion_sensor_burglar_5_10.state == '8' %}motion detected{% elif states.sensor.fibaro_system_fgms001_motion_sensor_burglar_5_10.state == '0' %}standby{% elif states.sensor.fibaro_system_fgms001_motion_sensor_burglar_5_10.state == '3' %}vibration detected{% elif states.sensor.fibaro_system_fgms001_motion_sensor_burglar_5_10.state == '254' %}not reporting{% endif %}"
->>>>>>> 7ea084b2d93918d544091323ccfdea995a0fc8c6
     friendly_name: "Fibaro Motion Template"

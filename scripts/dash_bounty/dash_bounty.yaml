@@ -1,12 +1,5 @@
-<<<<<<< HEAD
 dash_bounty:
   sequence:
     - service: input_boolean.toggle
       data:
-=======
-dash_bounty:
-  sequence:
-    - service: input_boolean.toggle
-      data:
->>>>>>> 7ea084b2d93918d544091323ccfdea995a0fc8c6
         entity_id: input_boolean.dash_bounty_toggle

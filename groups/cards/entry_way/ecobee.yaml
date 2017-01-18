@@ -1,4 +1,3 @@
-<<<<<<< HEAD
   ecobee_group:
     name: Ecobee Main Floor
     entities:
@@ -7,14 +6,4 @@
       - sensor.kitchen_temperature
       - binary_sensor.kitchen_occupancy
       - binary_sensor.main_floor_occupancy
-=======
-  ecobee_group:
-    name: Ecobee Main Floor
-    entities:
-      - sensor.main_floor_temperature
-      - sensor.main_floor_humidity
-      - sensor.kitchen_temperature
-      - binary_sensor.kitchen_occupancy
-      - binary_sensor.main_floor_occupancy
->>>>>>> 7ea084b2d93918d544091323ccfdea995a0fc8c6
       - climate.main_floor

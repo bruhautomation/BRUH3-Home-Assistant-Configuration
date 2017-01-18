@@ -1,16 +1,7 @@
-<<<<<<< HEAD
   lab_switches:
     name: Lab Switches
     entities:
       - switch.wake_on_lan
       - switch.wemo_insight
       - switch.fishstick
-=======
-  lab_switches:
-    name: Lab Switches
-    entities:
-      - switch.wake_on_lan
-      - switch.wemo_insight
-      - switch.fishstick
->>>>>>> 7ea084b2d93918d544091323ccfdea995a0fc8c6
       - switch.megadesk_fan
