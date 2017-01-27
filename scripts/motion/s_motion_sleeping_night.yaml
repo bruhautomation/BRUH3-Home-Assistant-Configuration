@@ -10,10 +10,15 @@ motion_sleeping_night:
         - light.wall
         - light.megadesk
         - light.sink
-      brightness: 75
+      brightness: 50
       color_temp: 233
       rgb_color: [255,0,0]
       transition: 2
+  - service: light.turn_on
+    data:
+      entity_id:
+        - light.nightlight
+      rgb_color: [3,0,0]
   - service: script.turn_on
     data:
       entity_id: script.motion_sleeping_night_timer

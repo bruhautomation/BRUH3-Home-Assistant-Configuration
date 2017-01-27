@@ -1,0 +1,13 @@
+alias: Minimote Button 4 Long Press
+initial_state: True
+hide_entity: True
+trigger:
+  - platform: event
+    event_type: zwave.scene_activated
+    event_data:
+      entity_id: minimote_1_6
+      scene_id: 8
+action:
+  - service: input_boolean.toggle
+    data:
+      entity_id: input_boolean.tv_power

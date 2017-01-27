@@ -9,4 +9,5 @@ motion_sleeping_night_timer:
         - light.wall
         - light.megadesk
         - light.sink
+        - light.nightlight
       transition: 2

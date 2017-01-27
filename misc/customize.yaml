@@ -8,7 +8,7 @@
       icon: mdi:printer-3d
     switch.wemo_insight:
       icon: mdi:printer-3d
-      friendly_name: Power
+      friendly_name: 3D Printer
     binary_sensor.octoprint_printing:
       hidden: yes
     binary_sensor.octoprint_printing_error:
@@ -35,9 +35,9 @@
     switch.megadesk_fan:
       friendly_name: Megadesk Fan
       icon: mdi:fan
-    switch.killswitch:
-      friendly_name: Modem Power
-      icon: mdi:ethernet-cable-off
+    switch.monitor_light:
+      friendly_name: Monitor Light
+      icon: mdi:led-outline
     switch.fishstick:
       friendly_name: FishStick
       icon: mdi:speaker

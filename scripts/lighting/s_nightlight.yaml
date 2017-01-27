@@ -2,8 +2,8 @@ nightlight:
   sequence:
     - service: light.turn_on
       data:
-        entity_id: light.signal_jar
-        rgb_color: [10,10,10]
+        entity_id: light.nightlight
+        rgb_color: [5,5,5]
     - delay:
         minutes: 1
     - service: light.turn_off

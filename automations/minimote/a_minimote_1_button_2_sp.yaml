@@ -1,0 +1,20 @@
+alias: Minimote Button 2 Short Press
+initial_state: True
+hide_entity: True
+trigger:
+  - platform: event
+    event_type: zwave.scene_activated
+    event_data:
+      entity_id: minimote_1_6
+      scene_id: 3
+action:
+  - service: light.turn_on
+    data:
+      entity_id:
+       - light.megadesk
+       - light.boob_1
+       - light.boob_2
+      brightness: 255
+      color_temp: 287
+      rgb_color: [255,255,255]
+      transition: 1

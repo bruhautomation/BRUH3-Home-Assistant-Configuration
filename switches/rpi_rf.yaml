@@ -11,7 +11,7 @@ switches:
     pulselength: 186
     code_on: !secret code2_on
     code_off: !secret code2_off
-  killswitch:
+  monitor_light:
     protocol: 1
     pulselength: 186
     code_on: !secret code3_on

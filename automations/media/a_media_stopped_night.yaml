@@ -13,6 +13,6 @@ action:
        - light.wall
        - light.sink
       brightness: 255
-      color_temp: 200
+      color_temp: 287
       rgb_color: [255,255,255]
       transition: 15

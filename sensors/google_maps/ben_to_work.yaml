@@ -1,5 +1,5 @@
 platform: google_travel_time
 name: GM Ben to Work
 api_key: !secret google_time_travel_api_key
-origin: device_tracker.ben6p_ben6p
+origin: device_tracker.bruh_ben6p
 destination: !secret work_address

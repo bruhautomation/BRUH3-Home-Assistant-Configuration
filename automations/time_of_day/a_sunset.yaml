@@ -20,6 +20,6 @@ action:
        - light.front_door_left
        - light.back_door
       brightness: 255
-      color_temp: 200
+      color_temp: 287
       rgb_color: [255,255,255]
       transition: 30

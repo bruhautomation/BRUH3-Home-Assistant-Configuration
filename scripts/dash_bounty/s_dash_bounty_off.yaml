@@ -3,4 +3,4 @@ dash_bounty_off:
     - service: light.turn_off
       data:
         entity_id: group.lab_lights
-        transition: 15
+        transition: 2

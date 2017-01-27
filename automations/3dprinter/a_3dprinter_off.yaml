@@ -1,0 +1,17 @@
+alias: "3D Printer Finish Off"
+initial_state: True
+hide_entity: False
+trigger:
+  - platform: state
+    entity_id: sensor.octoprint_job_percentage
+    state: "100.00"
+    for:
+      minutes: 5
+condition:
+  - condition: state
+    entity_id: switch.wemo_insight
+    state: "on"
+action:
+  - service: switch.turn_off
+    data:
+      entity_id: switch.wemo_insight

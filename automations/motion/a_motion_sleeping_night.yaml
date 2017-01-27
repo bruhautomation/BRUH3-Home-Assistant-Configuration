@@ -1,4 +1,4 @@
-alias: "motion activated lights while sleeping mode is enabled"
+alias: "motion sleeping night"
 initial_state: True
 hide_entity: False
 trigger:

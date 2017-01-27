@@ -1,0 +1,14 @@
+alias: Minimote Button 1 Long Press
+initial_state: True
+hide_entity: True
+trigger:
+  - platform: event
+    event_type: zwave.scene_activated
+    event_data:
+      entity_id: minimote_1_6
+      scene_id: 2
+action:
+  - service: light.turn_off
+    data:
+      entity_id:
+       - light.megadesk

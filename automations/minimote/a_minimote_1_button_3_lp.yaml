@@ -1,0 +1,14 @@
+alias: Minimote Button 3 Long Press
+initial_state: True
+hide_entity: True
+trigger:
+  - platform: event
+    event_type: zwave.scene_activated
+    event_data:
+      entity_id: minimote_1_6
+      scene_id: 6
+action:
+  - service: tts.google_say
+    data:
+      entity_id: media_player.bedroom_home
+      message: "Ben your hair looks beautiful today"

@@ -4,7 +4,7 @@ hide_entity: True
 trigger:
   - platform: state
     entity_id: media_player.living_room
-    state: "off"
+    state: "playing"
 action:
   - service: light.turn_off
     data:
@@ -16,7 +16,7 @@ action:
     data:
       entity_id:
        - light.wall
-      brightness: 175
-      color_temp: 200
+      brightness: 125
+      color_temp: 287
       rgb_color: [255,255,255]
       transition: 15

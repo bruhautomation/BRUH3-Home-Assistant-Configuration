@@ -3,7 +3,7 @@ initial_state: True
 hide_entity: False
 trigger:
   platform: time
-  after: '23:00:00'
+  after: '22:00:00'
 # condition:
   # - condition: state
     # entity_id: group.all_devices
@@ -15,7 +15,7 @@ action:
        - light.front_door_right
        - light.front_door_left
        - light.back_door
-      brightness: 100
-      color_temp: 200
+      brightness: 50
+      color_temp: 287
       rgb_color: [255,255,255]
       transition: 30
