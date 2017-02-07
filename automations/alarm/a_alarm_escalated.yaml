@@ -1,0 +1,13 @@
+alias: Alarm Escalate Automation
+initial_state: True
+hide_entity: False
+trigger:
+  - platform: event
+    event_type: html5_notification.clicked
+    event_data:
+     action: activate_siren
+action:
+  - service: notify.ben
+    data:
+      title: "ALARM SOUND"
+      message: "The alarm sound has been activated"

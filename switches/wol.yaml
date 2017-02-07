@@ -1,5 +1,5 @@
 platform: wake_on_lan
 mac_address: !secret pc_mac
-host: "!secret pc_ip"
+host: !secret pc_ip
 turn_off: 
   service: shell_command.pc_off

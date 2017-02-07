@@ -1,7 +1,7 @@
 platform: rpi_rf
 gpio: 17
 switches:
-  megadesk_fan:
+  fan:
     protocol: 1
     pulselength: 186
     code_on: !secret code1_on
@@ -16,7 +16,7 @@ switches:
     pulselength: 186
     code_on: !secret code3_on
     code_off: !secret code3_off
-  megadesk_leds:
+  camera_light:
     protocol: 1
     pulselength: 186
     code_on: !secret code4_on

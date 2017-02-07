@@ -1,0 +1,21 @@
+alias: Alarm Trigger Automation
+initial_state: True
+hide_entity: False
+trigger:
+  - platform: state
+    entity_id: sensor.xandem
+    state: 'motion detected'
+condition:
+    - condition: state
+      entity_id: alarm_control_panel.ha_alarm
+      state: armed_away
+action:
+  - service: notify.ben
+    data_template:
+      message: "Alarm triggered by {{ trigger.entity_id }}."
+    data:
+      data:
+        tag: 'alarm_trigger'
+        actions:
+        - action: "activate_siren"
+          title: "activate siren"

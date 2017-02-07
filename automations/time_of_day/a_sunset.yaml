@@ -19,6 +19,7 @@ action:
        - light.front_door_right
        - light.front_door_left
        - light.back_door
+       - light.floor_lamp
       brightness: 255
       color_temp: 287
       rgb_color: [255,255,255]

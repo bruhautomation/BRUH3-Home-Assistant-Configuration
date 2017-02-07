@@ -4,7 +4,7 @@ hide_entity: False
 trigger:
   - platform: state
     entity_id: sensor.octoprint_job_percentage
-    state: "100.00"
+    state: "100"
     for:
       minutes: 5
 condition:

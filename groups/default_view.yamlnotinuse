@@ -1,6 +1,7 @@
   default_view:
     view: yes
     entities:
+      - group.alarm
       - group.bedroom_lights
       - group.kitchen_lights
       - group.lab_lights

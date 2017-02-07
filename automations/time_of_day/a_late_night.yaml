@@ -2,8 +2,8 @@ alias: "Late Night"
 initial_state: True
 hide_entity: False
 trigger:
-  platform: time
-  after: '22:00:00'
+  - platform: time
+    after: '22:00:00'
 # condition:
   # - condition: state
     # entity_id: group.all_devices

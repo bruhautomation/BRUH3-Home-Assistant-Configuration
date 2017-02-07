@@ -32,18 +32,18 @@
     switch.megadesk_leds:
       friendly_name: Megadesk LEDs
       icon: mdi:led-outline
-    switch.megadesk_fan:
+    switch.fan:
       friendly_name: Megadesk Fan
       icon: mdi:fan
-    switch.monitor_light:
-      friendly_name: Monitor Light
+    switch.camera_light:
+      friendly_name: Camera Light
       icon: mdi:led-outline
     switch.fishstick:
       friendly_name: FishStick
       icon: mdi:speaker
 
     switch.wake_on_lan:
-      friendly_name: PC Power
+      friendly_name: PC
       icon: mdi:power
 
 ##Sensors##

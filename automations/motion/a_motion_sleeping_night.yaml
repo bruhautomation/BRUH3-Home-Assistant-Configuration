@@ -14,6 +14,9 @@ trigger:
   - platform: state
     entity_id: binary_sensor.main_floor_occupancy
     state: "On"
+  - platform: state
+    entity_id: sensor.xandem
+    state: 'motion detected'
 condition:
   - condition: state
     entity_id: sun.sun
