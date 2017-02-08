@@ -144,7 +144,7 @@ weather: !include_dir_list weather/
 zone: !include_dir_list zones/
 camera: !include_dir_list cameras/
 
-##This is a test message to demonstrate the gitupdate script hello world test
+##This is a test message to demonstrate the gitupdate script hello world test 2
 
 alarm_control_panel:
   - platform: manual
