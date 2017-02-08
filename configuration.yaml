@@ -52,7 +52,7 @@ sun:
 
 zwave:
   usb_path: /dev/ttyACM0
-  config_path: /srv/homeassistant/homeassistant_venv/lib/python3.4/site-packages/libopenzwave-0.3.1-py3.4-linux-armv7l.egg/config
+  config_path: /srv/homeassistant/lib/python3.4/site-packages/libopenzwave-0.3.2-py3.4-linux-armv7l.egg/config
 
 
 mqtt:
@@ -66,13 +66,13 @@ octoprint:
   host: !secret octoprint_ip
   api_key: !secret octoprint_api
 
-ecobee:
-  api_key: !secret ecobee_api
-
 emulated_hue:
   type: google_home
   listen_port: 80
   host_ip: !secret pi_ip
+
+ecobee:
+  api_key: !secret ecobee_api
 
 notify:
   - name: ecobee
