@@ -1,4 +1,4 @@
-  lab_lights:
+  lab_lights_card:
     name: Lab
     entities:
       - light.boob_1

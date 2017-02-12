@@ -2,10 +2,8 @@
     name: Family
     view: yes
     entities:
-      - device_tracker.224873e12b052dbd
-      - device_tracker.ben_6p
-      - device_tracker.bruh_ben6p
-      - device_tracker.cailin_6p
-      - input_select.ben_status
-      - input_select.cailin_status
-      - sensor.phone_batt_ben
+      - group.system_sensors_card
+      - group.system_lockouts_card
+      - group.family_locations_card
+      - group.time_travel_card
+      - group.family_location_card

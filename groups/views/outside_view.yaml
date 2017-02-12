@@ -2,7 +2,8 @@
     name: Outside
     view: yes
     entities:
-      - group.outside_lights_backdoor
-      - group.outside_lights_frontdoor
-      - group.porch_led_strip_group
-      - group.weather
+      - group.outside_lights_backdoor_card
+      - group.outside_lights_frontdoor_card
+      - group.porch_led_strip_card
+      - group.weather_card
+      - camera.radar

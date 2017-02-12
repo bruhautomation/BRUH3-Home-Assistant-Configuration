@@ -3,11 +3,12 @@ initial_state: True
 hide_entity: False
 trigger:
   - platform: state
-    entity_id: sensor.aeotec_multisensor_6_motion_template
+    entity_id: sensor.fibaro_multisensor_motion_template
     state: "motion detected"
   - platform: state
-    entity_id: sensor.fibaro_motion_template
-    state: "motion detected"
+    entity_id: sensor.fibaro_door_sensor_template
+    from: "closed"
+    to: "open"
   - platform: state
     entity_id: binary_sensor.kitchen_occupancy
     state: "On"

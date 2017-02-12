@@ -2,5 +2,5 @@
     name: BLE Beacons
     view: yes
     entities:
-      - group.tracker_ble_happy_bubbles
+      - group.tracker_ble_happy_bubbles_card
       - automation.ble_beacon_test

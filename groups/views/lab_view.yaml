@@ -2,9 +2,7 @@
     name: Lab
     view: yes
     entities:
-      - group.lab_lights
-      - group.lab_switches
-      - group.octoprint_card_status
-      - group.octoprint_card_temperatures
-      - camera.octoprint
-      - group.aeotec_sensor
+      - group.lab_lights_card
+      - group.lab_switches_card
+      - group.octoprint_status_card
+      - group.fibaro_multisensor_card

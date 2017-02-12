@@ -5,6 +5,9 @@ trigger:
   - platform: state
     entity_id: media_player.living_room
     state: "playing"
+  - platform: state
+    entity_id: media_player.kodi
+    state: "playing"
 action:
   - service: light.turn_off
     data:

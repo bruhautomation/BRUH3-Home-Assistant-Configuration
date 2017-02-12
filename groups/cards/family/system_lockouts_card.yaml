@@ -1,0 +1,6 @@
+  system_lockouts_card:
+    name: System Lockouts
+    entities:
+      - input_boolean.presence_automations_lockout
+      - input_boolean.sleep_automations_lockout
+      - input_boolean.motion_lockout

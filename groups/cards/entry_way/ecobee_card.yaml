@@ -1,4 +1,4 @@
-  ecobee_group:
+  ecobee_card:
     name: Ecobee Main Floor
     entities:
       - sensor.main_floor_temperature

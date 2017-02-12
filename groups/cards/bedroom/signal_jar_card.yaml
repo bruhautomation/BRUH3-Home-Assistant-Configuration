@@ -1,4 +1,4 @@
-  nightlight_group:
+  nightlight_card:
     name: Nightlight Group
     entities:
       - light.nightlight

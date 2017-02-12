@@ -2,5 +2,5 @@
     name: Kitchen
     view: yes
     entities: 
-      - group.kitchen_lights
+      - group.kitchen_lights_card
       - media_player.kitchen_home

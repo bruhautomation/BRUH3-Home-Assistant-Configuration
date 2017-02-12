@@ -1,4 +1,4 @@
-  weather:
+  weather_card:
     name: Weather
     entities:
       - sensor.owm_cloud_coverage

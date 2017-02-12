@@ -35,8 +35,8 @@
     switch.fan:
       friendly_name: Megadesk Fan
       icon: mdi:fan
-    switch.camera_light:
-      friendly_name: Camera Light
+    switch.monitor_light:
+      friendly_name: Monitor Light
       icon: mdi:led-outline
     switch.fishstick:
       friendly_name: FishStick
@@ -47,9 +47,6 @@
       icon: mdi:power
 
 ##Sensors##
-    sensor.ble_ben_6p:
-      friendly_name: "Ben 6P"
-      icon: mdi:tag
     sensor.ble_black_tag:
       friendly_name: "Black Tag"
       icon: mdi:tag
@@ -70,8 +67,8 @@
     input_slider.porch_animation_speed:
       friendly_name: "Animation Speed"
       icon: mdi:animation
-    switch.master_bathroom_vanity_switch_3_0:
-      friendly_name: "Master Bathroom Vanity"
+    switch.homeseer_unknown_type4447_id3033_switch_3_0:
+      friendly_name: "Vanity Light"
       icon: mdi:led-outline
 #######devices#
     device_tracker.bruh_ben6p:
@@ -100,25 +97,25 @@
     sensor.aeotec_zw100_multisensor_6_sourcenodeid_4_2:
       hidden: yes
 ##############Fibaro####
-    sensor.fibaro_system_fgms001_motion_sensor_burglar_5_10:
+    sensor.fibaro_system_fgms001zw5_motion_sensor_burglar_5_10:
       friendly_name: "Fibaro Motion"
       icon: mdi:security
-    sensor.fibaro_system_fgms001_motion_sensor_luminance_5_3:
+    sensor.fibaro_system_fgms001zw5_motion_sensor_luminance_5_3:
       friendly_name: "Fibaro Luminance"
       icon: mdi:brightness-7
-    sensor.fibaro_system_fgms001_motion_sensor_temperature_5_1:
+    sensor.fibaro_system_fgms001zw5_motion_sensor_temperature_5_1:
       friendly_name: "Fibaro Temperature"
       icon: mdi:thermometer
-    sensor.fibaro_system_fgms001_motion_sensor_seismic_intensity_5_25:
+    sensor.fibaro_system_fgms001zw5_motion_sensor_seismic_intensity_5_25:
       friendly_name: "Fibaro Seismic"
       icon: mdi:thermometer
-    sensor.fibaro_system_fgms001_motion_sensor_alarm_level_5_1:
+    sensor.fibaro_system_fgms001zw5_motion_sensor_alarm_level_5_1:
       hidden: yes
-    sensor.fibaro_system_fgms001_motion_sensor_alarm_type_5_0:
+    sensor.fibaro_system_fgms001zw5_motion_sensor_alarm_type_5_0:
       hidden: yes
-    sensor.fibaro_system_fgms001_motion_sensor_general_5_0:
+    sensor.fibaro_system_fgms001zw5_motion_sensor_general_5_0:
       hidden: yes
-    sensor.fibaro_system_fgms001_motion_sensor_sourcenodeid_5_2:
+    sensor.fibaro_system_fgms001zw5_motion_sensor_sourcenodeid_5_2:
       hidden: yes
-    binary_sensor.fibaro_system_fgms001_motion_sensor_sensor_5_0:
+    binary_sensor.fibaro_system_fgms001zw5_motion_sensor_sensor_5_0:
       hidden: yes

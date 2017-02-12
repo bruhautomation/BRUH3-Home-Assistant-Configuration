@@ -1,0 +1,35 @@
+alias: "Away"
+initial_state: True
+hide_entity: False
+trigger:
+  - platform: state
+    entity_id: input_select.ben_status
+    state: "away"
+  - platform: state
+    entity_id: input_select.cailin_status
+    state: "away"
+condition:
+  - condition: template
+    value_template: "{% if states('input_select.ben_status') != 'sleeping' and states('input_select.cailin_status') != 'sleeping' %}true{% else %}false{% endif %}"
+  - condition: state
+    entity_id: input_boolean.presence_automations_lockout
+    state: "off"
+action:
+  - service: light.turn_off
+    data:
+      entity_id: group.all_lights
+      transition: 15
+  - service: switch.turn_off
+    data:
+      entity_id:
+        - switch.pc
+        - switch.fishstick
+        - switch.fan
+        - switch.camera_light
+        - switch.bedroom_lamp
+        - switch.monitor_light
+        - switch.wake_on_lan
+  - service: automation.trigger
+    data:
+      entity_id:
+        - automation.tv_power

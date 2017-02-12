@@ -1,0 +1,5 @@
+platform: mqtt
+state_topic: "owntracks/bruh/cailin6p"
+name: "Cailin N6P Battery"
+unit_of_measurement: "%"
+value_template: "{{ value_json.batt }}"

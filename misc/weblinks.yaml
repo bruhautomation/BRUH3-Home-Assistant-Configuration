@@ -1,0 +1,5 @@
+entities:
+  - name: Octoprint Web UI
+    url: !secret octoprint_ip_https
+  - name: XANDEM Cloud
+    url: !secret xandem_ip

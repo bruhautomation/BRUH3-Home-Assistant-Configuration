@@ -1,4 +1,4 @@
-  outside_lights_backdoor:
+  outside_lights_backdoor_card:
     name: Backyard
     entities:
       - light.back_door

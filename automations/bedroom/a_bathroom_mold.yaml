@@ -1,0 +1,20 @@
+alias: "bathroom fan control"
+initial_state: True
+hide_entity: True
+trigger:
+  - platform: state
+    entity_id: sensor.bathroom_humidity
+    from: "low humidity"
+    to: "high humidity"
+  - platform: state
+    entity_id: sensor.bathroom_humidity
+    from: "high humidity"
+    to: "low humidity"
+action:
+  - service_template: >
+      {% if states.sensor.bathroom_humidity == "high humidity"%}
+        switch.turn_on
+      {% else %}
+        switch.turn_off
+      {% endif %}
+    entity_id: switch.homeseer_unknown_type4447_id3033_switch_3_0

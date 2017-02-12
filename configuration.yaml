@@ -129,6 +129,7 @@ tts:
   - platform: google
 
 ###########SENSORS#####
+alert: !include_dir_merge_named alerts/
 input_boolean: !include misc/input_boolean.yaml
 input_select: !include misc/input_select.yaml
 input_slider: !include misc/input_slider.yaml
@@ -141,6 +142,7 @@ script: !include_dir_merge_named scripts/
 automation: !include_dir_list automations/
 group: !include_dir_merge_named groups/
 weather: !include_dir_list weather/
+weblink: !include misc/weblinks.yaml
 zone: !include_dir_list zones/
 camera: !include_dir_list cameras/
 

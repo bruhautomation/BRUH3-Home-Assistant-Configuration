@@ -1,0 +1,26 @@
+alias: "awake"
+initial_state: True
+hide_entity: True
+trigger:
+  - platform: state
+    entity_id: sensor.fibaro_door_sensor_template
+    state: "open"
+condition:
+  - condition: template
+    value_template: "{% if states('input_select.ben_status') == 'Sleeping' or states('input_select.cailin_status') == 'Sleeping'%} true {% else %}false{% endif %}"
+  - condition: state
+    entity_id: input_boolean.sleep_automations_lockout
+    state: "off"
+action:
+    - service: input_select.select_option
+      data:
+        entity_id: input_select.ben_status
+        option: "Home"
+    - service: input_select.select_option
+      data:
+        entity_id: input_select.cailin_status
+        option: "Home"
+    - service: tts.google_say
+      entity_id: media_player.kitchen_home
+      data:
+        message: "Good morning!"

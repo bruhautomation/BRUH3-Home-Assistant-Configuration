@@ -1,0 +1,7 @@
+  alarm_control_card:
+    name: Alarm Control
+    entities:
+      - alarm_control_panel.ha_alarm
+      - sensor.xandem_status
+      - sensor.xandem
+      - weblink.xandem

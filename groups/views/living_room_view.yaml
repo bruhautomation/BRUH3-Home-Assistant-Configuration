@@ -2,5 +2,5 @@
     name: Living Room
     view: yes
     entities: 
-      - group.living_room_lights
+      - group.living_room_lights_card
       - media_player.living_room

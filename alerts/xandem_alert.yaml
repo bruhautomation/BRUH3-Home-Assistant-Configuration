@@ -1,0 +1,9 @@
+xandem_alert:
+  name: XANDEM node outage
+  entity_id: sensor.xandem_status
+  state: 'node outage'
+  repeat: 15
+  can_acknowledge: True
+  skip_first: False
+  notifiers:
+    - ben

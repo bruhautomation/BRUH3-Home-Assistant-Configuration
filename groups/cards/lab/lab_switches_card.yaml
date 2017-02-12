@@ -1,8 +1,8 @@
-  lab_switches:
+  lab_switches_card:
     name: Lab Switches
     entities:
       - switch.wake_on_lan
       - switch.wemo_insight
       - switch.fishstick
       - switch.fan
-      - switch.camera_light
+      - switch.monitor_light

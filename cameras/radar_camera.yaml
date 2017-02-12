@@ -1,0 +1,3 @@
+platform: generic
+still_image_url: https://radblast.wunderground.com/cgi-bin/radar/WUNIDS_map?station=RAX&brand=wui&num=10&delay=25&type=N0R&frame=0&scale=1.000&noclutter=1&showstorms=0&mapx=400&mapy=240&centerx=400&centery=240&transx=0&transy=0&showlabels=1&severe=0&rainsnow=1&lightning=1&smooth=0&rand=24781365&lat=0&lon=0&label=you  
+name: Radar

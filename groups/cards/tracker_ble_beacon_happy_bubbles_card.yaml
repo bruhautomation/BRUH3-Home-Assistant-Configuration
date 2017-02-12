@@ -1,4 +1,4 @@
-  tracker_ble_happy_bubbles:
+  tracker_ble_happy_bubbles_card:
     name: BLE Tracker - Happy Bubbles 
     entities:
       - sensor.ble_beacon_white

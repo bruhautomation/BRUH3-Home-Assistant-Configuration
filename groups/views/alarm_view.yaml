@@ -1,0 +1,6 @@
+  alarm_view:
+    name: Alarm
+    view: yes
+    entities:
+      - group.alarm_control_card
+      - group.alarm_automations_card

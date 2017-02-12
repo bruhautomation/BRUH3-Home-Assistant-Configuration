@@ -7,6 +7,14 @@ tv_power:
   initial: off
   icon: mdi:TV
 motion_lockout:
-  name: Motion Lockout
+  name: Motion Automations
   initial: off
   icon: mdi:run
+sleep_automations_lockout:
+  name: Sleep Automations
+  initial: off
+  icon: mdi:bed
+presence_automations_lockout:
+  name: Presence Automations
+  initial: off
+  icon: mdi:house

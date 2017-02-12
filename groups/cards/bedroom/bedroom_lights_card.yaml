@@ -1,4 +1,4 @@
-  bedroom_lights:
+  bedroom_lights_card:
     name: Bedroom
     entities:
       - light.floor_lamp

@@ -1,0 +1,9 @@
+  family_locations_card:
+    name: Family Locations
+    entities:
+      - device_tracker.bruh_ben6p
+      - input_select.ben_status
+      - sensor.ben_n6p_battery
+      - device_tracker.bruh_cailin6p
+      - input_select.cailin_status
+      - sensor.cailin_n6p_battery

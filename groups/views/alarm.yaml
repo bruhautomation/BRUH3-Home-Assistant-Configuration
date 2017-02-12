@@ -1,8 +1,0 @@
-  alarm_view:
-    name: Alarm
-    view: yes
-    entities:
-      - alarm_control_panel.ha_alarm
-      - sensor.xandem
-      - automation.alarm_trigger_automation
-      - automation.alarm_escalate_automation
