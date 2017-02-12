@@ -11,6 +11,9 @@ condition:
   - condition: state
     entity_id: input_boolean.sleep_automations_lockout
     state: "off"
+  - condition: state
+    entity_id: sun.sun
+    state: "above_horizon"
 action:
     - service: input_select.select_option
       data:

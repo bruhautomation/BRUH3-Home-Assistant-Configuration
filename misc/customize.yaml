@@ -75,19 +75,19 @@
       friendly_name: "Ben 6P MQTT"
 #############AEOTEC####
     sensor.aeotec_zw100_multisensor_6_burglar_4_10:
-      friendly_name: "Lab Aeotec Motion"
+      friendly_name: "Aeotec Motion"
       icon: mdi:security
     sensor.aeotec_zw100_multisensor_6_luminance_4_3:
-      friendly_name: "Lab Aeotec Luminance"
+      friendly_name: "Aeotec Luminance"
       icon: mdi:brightness-7
     sensor.aeotec_zw100_multisensor_6_relative_humidity_4_5:
-      friendly_name: "Lab Aeotec Humidity"
+      friendly_name: "Aeotec Humidity"
       icon: mdi:water
     sensor.aeotec_zw100_multisensor_6_temperature_4_1:
-      friendly_name: "Lab Aeotec Temperature"
+      friendly_name: "Aeotec Temperature"
       icon: mdi:thermometer
     sensor.aeotec_zw100_multisensor_6_ultraviolet_4_27:
-      friendly_name: "Lab  Aeotec UV"
+      friendly_name: "Aeotec UV"
     sensor.aeotec_zw100_multisensor_6_alarm_level_4_1:
       hidden: yes
     sensor.aeotec_zw100_multisensor_6_alarm_type_4_0:
