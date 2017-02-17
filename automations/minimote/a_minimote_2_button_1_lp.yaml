@@ -1,16 +1,14 @@
-alias: Minimote 1 Button 2 Long Press
+alias: Minimote 2 Button 1 Long Press
 initial_state: True
 hide_entity: True
 trigger:
   - platform: event
     event_type: zwave.scene_activated
     event_data:
-      entity_id: aeotec_dsa03202_minimote_33
-      scene_id: 4
+      entity_id: aeotec_dsa03202_minimote_34
+      scene_id: 2
 action:
   - service: light.turn_off
     data:
       entity_id:
        - light.megadesk
-       - light.boob_1
-       - light.boob_2

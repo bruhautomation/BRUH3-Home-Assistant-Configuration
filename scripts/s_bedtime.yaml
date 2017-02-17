@@ -16,3 +16,7 @@ bedtime:
       data:
         entity_id: input_select.cailin_status
         option: "Sleeping"
+    - service: tts.google_say
+      entity_id: media_player.kitchen_home
+      data:
+        message: "Powering down. Beep boop! Good night. Sleep tight."

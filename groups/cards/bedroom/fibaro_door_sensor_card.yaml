@@ -2,10 +2,10 @@
     name: Fibaro Door Sensor
     entities:
       - sensor.fibaro_door_sensor_template
-      - sensor.fibaro_system_unknown_type0701_id2001_burglar_9_10
-      - sensor.fibaro_system_unknown_type0701_id2001_general_9_0
-      - sensor.fibaro_system_unknown_type0701_id2001_sourcenodeid_9_2
-      - sensor.fibaro_system_unknown_type0701_id2001_alarm_type_9_0
-      - sensor.fibaro_system_unknown_type0701_id2001_alarm_level_9_1
-      - sensor.fibaro_system_unknown_type0701_id2001_access_control_9_9
-      - binary_sensor.fibaro_system_unknown_type0701_id2001_sensor_9_0
+      - sensor.fibaro_system_unknown_type0701_id2001_burglar_35_10
+      - sensor.fibaro_system_unknown_type0701_id2001_general_35_0
+      - sensor.fibaro_system_unknown_type0701_id2001_sourcenodeid_35_2
+      - sensor.fibaro_system_unknown_type0701_id2001_alarm_type_35_0
+      - sensor.fibaro_system_unknown_type0701_id2001_alarm_level_35_1
+      - sensor.fibaro_system_unknown_type0701_id2001_access_control_35_9
+      - binary_sensor.fibaro_system_unknown_type0701_id2001_sensor_35_0

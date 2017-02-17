@@ -1,0 +1,9 @@
+  media_equipment_card:
+    name: Media Equipment
+    entities:
+      - input_boolean.tv
+      - input_select.avr_input
+      - switch.hdmi_0
+      - switch.hdmi_2
+      - switch.hdmi_4
+      - switch.hdmi_5

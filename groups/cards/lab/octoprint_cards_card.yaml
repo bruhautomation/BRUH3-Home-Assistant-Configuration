@@ -10,5 +10,5 @@
       - sensor.octoprint_actual_bed_temp
       - sensor.octoprint_target_tool0_temp
       - sensor.octoprint_actual_tool0_temp
-      - weblink.octoprint
+      - weblink.octoprint_web_ui
       - camera.octoprint

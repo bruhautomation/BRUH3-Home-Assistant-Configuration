@@ -2,9 +2,9 @@
     name: Aeotec Multisensor
     entities:
       - sensor.bathroom_humidity
-      - sensor.aeotec_zw100_multisensor_6_burglar_4_10
+      - sensor.aeotec_zw100_multisensor_6_burglar_5_10
       - sensor.aeotec_multisensor_motion_template
-      - sensor.aeotec_zw100_multisensor_6_luminance_4_3
-      - sensor.aeotec_zw100_multisensor_6_relative_humidity_4_5
-      - sensor.aeotec_zw100_multisensor_6_temperature_4_1
-      - sensor.aeotec_zw100_multisensor_6_ultraviolet_4_27
+      - sensor.aeotec_zw100_multisensor_6_luminance_5_3
+      - sensor.aeotec_zw100_multisensor_6_relative_humidity_5_5
+      - sensor.aeotec_zw100_multisensor_6_temperature_5_1
+      - sensor.aeotec_zw100_multisensor_6_ultraviolet_5_27

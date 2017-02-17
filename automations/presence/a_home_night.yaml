@@ -1,0 +1,50 @@
+alias: "Home Night"
+initial_state: True
+hide_entity: False
+trigger:
+  - platform: state
+    entity_id: input_select.ben_status
+    from: "Away"
+    to: "Home"
+  - platform: state
+    entity_id: input_select.cailin_status
+    from: "Away"
+    to: "Home"
+condition:
+  - condition: template
+    value_template: "{% if states('input_select.ben_status') == 'Away' and states('input_select.cailin_status') == 'Away' %}true{% else %}false{% endif %}"
+  - condition: state
+    entity_id: input_boolean.presence_lockout
+    state: "off"
+  - condition: state
+    entity_id: sun.sun
+    state: "below_horizon"
+action:
+  - service: light.turn_on
+    data:
+      entity_id:
+       - light.switch
+       - light.wall
+       - light.sink
+       - light.front_door_right
+       - light.front_door_left
+       - light.back_door
+       - light.floor_lamp
+      brightness: 255
+      color_temp: 287
+      rgb_color: [255,255,255]
+      transition: 5
+  - service: input_select.select_option
+    data:
+      entity_id: input_select.porch_led_effect
+      option: "Twinkle"
+  - service: mqtt.publish
+    data_template:
+      topic: "bruh/mqttstrip/seteffect"
+      payload: 'Twinkle'
+  - delay:
+      seconds: 45
+  - service: tts.google_say
+    entity_id: media_player.kitchen_home
+    data:
+      message: "Hello! Welcome Home"

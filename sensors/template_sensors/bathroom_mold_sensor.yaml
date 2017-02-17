@@ -1,5 +1,5 @@
 platform: template
 sensors:
   bathroom_humidity:
-    value_template: "{% if states.sensor.aeotec_zw100_multisensor_6_relative_humidity_4_5.state | float > 70 %} high humidity {% else %} low humidity {% endif %}"
+    value_template: "{% if states.sensor.aeotec_zw100_multisensor_6_relative_humidity_5_5.state | float > 70 %} high humidity {% else %} low humidity {% endif %}"
     friendly_name: "Bathroom Humidity"

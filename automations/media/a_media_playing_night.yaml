@@ -8,6 +8,13 @@ trigger:
   - platform: state
     entity_id: media_player.kodi
     state: "playing"
+condition:
+  - condition: state
+    entity_id: input_boolean.media_lockout
+    state: "off"
+  - condition: state
+    entity_id: sun.sun
+    state: "below_horizon"
 action:
   - service: light.turn_off
     data:

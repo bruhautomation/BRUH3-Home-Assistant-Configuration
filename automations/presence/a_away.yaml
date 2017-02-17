@@ -4,15 +4,15 @@ hide_entity: False
 trigger:
   - platform: state
     entity_id: input_select.ben_status
-    state: "away"
+    state: "Away"
   - platform: state
     entity_id: input_select.cailin_status
-    state: "away"
+    state: "Away"
 condition:
   - condition: template
-    value_template: "{% if states('input_select.ben_status') != 'sleeping' and states('input_select.cailin_status') != 'sleeping' %}true{% else %}false{% endif %}"
+    value_template: "{% if states('input_select.ben_status') == 'Away' and states('input_select.cailin_status') == 'Away' %}true{% else %}false{% endif %}"
   - condition: state
-    entity_id: input_boolean.presence_automations_lockout
+    entity_id: input_boolean.presence_lockout
     state: "off"
 action:
   - service: light.turn_off
@@ -22,13 +22,13 @@ action:
   - service: switch.turn_off
     data:
       entity_id:
-        - switch.pc
         - switch.fishstick
         - switch.fan
         - switch.camera_light
         - switch.bedroom_lamp
         - switch.monitor_light
         - switch.wake_on_lan
+        - switch.homeseer_unknown_type4447_id3033_switch_3_0
   - service: automation.trigger
     data:
       entity_id:

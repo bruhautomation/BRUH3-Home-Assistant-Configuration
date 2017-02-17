@@ -2,19 +2,26 @@ dash_bounty_toggle:
   name: Lab Dash Toggle
   initial: off
   icon: mdi:amazon
-tv_power:
-  name: TV Power
+tv:
+  name: TV
   initial: off
   icon: mdi:TV
 motion_lockout:
   name: Motion Automations
   initial: off
   icon: mdi:run
-sleep_automations_lockout:
+media_lockout:
+  name: Media Automations
+  initial: off
+  icon: mdi:TV
+sleep_lockout:
   name: Sleep Automations
   initial: off
   icon: mdi:bed
-presence_automations_lockout:
+presence_lockout:
   name: Presence Automations
   initial: off
   icon: mdi:house
+ha_uptime:
+  name: Home Assistant Uptime
+  initial: on

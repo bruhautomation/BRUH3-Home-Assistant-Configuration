@@ -82,15 +82,16 @@ notify:
     gcm_api_key: !secret ben_gcm_api_key
     gcm_sender_id: !secret ben_gcm_sender_id
 
-panel_iframe:
-  octoprint:
-    title: 'OctoPrint'
-    url: !secret octoprint_ip_https
-    icon: mdi:printer-3d
-  router:
-    title: 'Router'
-    url: !secret router_ip_https
-    icon: mdi:router-wireless
+#### Not in Use Because of HTTPS
+##panel_iframe:
+##  octoprint:
+##    title: 'OctoPrint'
+##    url: !secret octoprint_ip_https
+##    icon: mdi:printer-3d
+##  router:
+##    title: 'Router'
+##    url: !secret router_ip_https
+##    icon: mdi:router-wireless
 
 cover:
   - platform: garadget

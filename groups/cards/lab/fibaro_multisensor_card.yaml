@@ -1,8 +1,8 @@
   fibaro_multisensor_card:
     name: Fibaro Multisensor
     entities:
-      - sensor.fibaro_system_fgms001zw5_motion_sensor_burglar_5_10
+      - sensor.fibaro_system_fgms001zw5_motion_sensor_burglar_6_10
       - sensor.fibaro_multisensor_motion_template
-      - sensor.fibaro_system_fgms001zw5_motion_sensor_luminance_5_3
-      - sensor.fibaro_system_fgms001zw5_motion_sensor_temperature_5_1
-      - sensor.fibaro_system_fgms001zw5_motion_sensor_seismic_intensity_5_25
+      - sensor.fibaro_system_fgms001zw5_motion_sensor_luminance_6_3
+      - sensor.fibaro_system_fgms001zw5_motion_sensor_temperature_6_1
+      - sensor.fibaro_system_fgms001zw5_motion_sensor_seismic_intensity_6_25
