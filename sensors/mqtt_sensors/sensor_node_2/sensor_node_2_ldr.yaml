@@ -1,0 +1,5 @@
+platform: mqtt
+state_topic: "bruh/sensornode2/ldr"
+name: "SN2 LDR"
+unit_of_measurement: "LUX"
+value_template: "{{  value | round(1) }}"

@@ -1,0 +1,5 @@
+platform: mqtt
+state_topic: "bruh/sensornode1/temperature"
+name: "SN1 Temperature"
+unit_of_measurement: "F"
+value_template: "{{  value | round(1) }}"

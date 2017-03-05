@@ -1,0 +1,15 @@
+#############Not working with LIFX right now
+platform: flux
+lights:
+  - light.floor_lamp
+  - light.wall
+  - light.switch
+name: Flux
+##start_time: '7:00' defaults to sunrise
+stop_time: '22:00'
+start_colortemp: 5000
+sunset_colortemp: 3000
+stop_colortemp: 1900
+brightness: 200
+disable_brightness_adjust: True
+mode: xy

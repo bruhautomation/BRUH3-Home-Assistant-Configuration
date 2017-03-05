@@ -1,5 +1,5 @@
 platform: template
 sensors:
   fibaro_door_sensor_template:
-    value_template: "{%if states.sensor.fibaro_system_unknown_type0701_id2001_access_control_35_9.state == '22' %}open{% elif states.sensor.fibaro_system_unknown_type0701_id2001_access_control_35_9.state == '254' %}not reporting{% endif %}"
+    value_template: "{%if states.sensor.fibaro_system_unknown_type0701_id2001_access_control_35_9.state == '22' %}open{% elif states.sensor.fibaro_system_unknown_type0701_id2001_access_control_35_9.state == '23' %}closed{% elif states.sensor.fibaro_system_unknown_type0701_id2001_access_control_35_9.state == '254' %}not reporting{% endif %}"
     friendly_name: "Fibaro Door Sensor Template"

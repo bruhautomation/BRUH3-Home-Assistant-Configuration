@@ -1,0 +1,5 @@
+platform: mqtt
+state_topic: "bruh/sensornode2/pir"
+name: "SN2 PIR"
+payload_on: "motion detected"
+payload_off: "standby"

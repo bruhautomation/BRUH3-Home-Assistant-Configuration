@@ -7,5 +7,5 @@ trigger:
 action:
   - service: mqtt.publish
     data_template:
-      topic: "bruh/mqttstrip/setanimationspeed"
-      payload: '{{ trigger.to_state.state | int }}'
+      topic: "bruh/mqttstrip/set"
+      payload: '{"transition":{{ trigger.to_state.state | int }}}'

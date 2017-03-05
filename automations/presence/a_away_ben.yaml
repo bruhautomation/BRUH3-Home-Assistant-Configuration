@@ -1,0 +1,13 @@
+alias: "Away Ben"
+initial_state: True
+hide_entity: False
+trigger:
+  - platform: state
+    entity_id: input_select.ben_status
+    from: "Home"
+    to: "Away"
+action:
+  - service: notify.ben
+    data_template:
+      title: "Ben is Leaving"
+      message:  "Ben is now {{states.input_select.ben_status.state}}" 

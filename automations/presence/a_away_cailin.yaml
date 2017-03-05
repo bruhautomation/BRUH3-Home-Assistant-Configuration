@@ -1,0 +1,13 @@
+alias: "Away Cailin"
+initial_state: True
+hide_entity: False
+trigger:
+  - platform: state
+    entity_id: input_select.cailin_status
+    from: "Home"
+    to: "Away"
+action:
+  - service: notify.ben
+    data_template:
+      title: "Cailin is Leaving"
+      message:  "Cailin is now {{states.input_select.cailin_status.state}}" 

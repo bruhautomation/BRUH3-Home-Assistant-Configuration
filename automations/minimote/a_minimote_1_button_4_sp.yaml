@@ -8,7 +8,17 @@ trigger:
       entity_id: aeotec_dsa03202_minimote_33
       scene_id: 7
 action:
-  - service: switch.turn_off
+  - service: switch.turn_on
     data:
       entity_id:
-       - switch.monitor_light
+       - switch.wake_on_lan
+  - service: light.turn_on
+    data:
+      entity_id:
+       - light.megadesk
+       - light.boob_1
+       - light.boob_2
+      brightness: 255
+      color_temp: 287
+      rgb_color: [255,255,255]
+      transition: 1

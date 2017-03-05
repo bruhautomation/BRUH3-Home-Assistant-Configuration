@@ -8,7 +8,7 @@ trigger:
       entity_id: aeotec_dsa03202_minimote_33
       scene_id: 6
 action:
-  - service: tts.google_say
+  - service: switch.turn_off
     data:
-      entity_id: media_player.bedroom_home
-      message: "Ben your hair looks beautiful today"
+      entity_id:
+       - switch.monitor_light

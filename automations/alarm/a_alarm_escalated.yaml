@@ -11,3 +11,9 @@ action:
     data:
       title: "ALARM SOUND"
       message: "The alarm sound has been activated"
+  - service: tts.google_say
+    entity_id:
+      - media_player.kitchen_home
+      - media_player.bedroom_home
+    data_template:
+      message: "Alarm triggered by {{ trigger.entity_id }}. You weren't very sneaky! Please leave." 

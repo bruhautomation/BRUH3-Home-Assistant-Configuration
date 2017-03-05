@@ -11,6 +11,6 @@ action:
   - service: light.turn_off
     data:
       entity_id:
-       - light.megadesk
-       - light.boob_1
-       - light.boob_2
+       - light.switch
+       - light.wall
+       - light.sink

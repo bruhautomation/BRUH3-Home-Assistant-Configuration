@@ -12,6 +12,8 @@ action:
     data:
       entity_id:
        - light.megadesk
+       - light.boob_1
+       - light.boob_2
       brightness: 255
       color_temp: 287
       rgb_color: [255,255,255]

@@ -1,0 +1,5 @@
+platform: mqtt
+state_topic: "bruh/blind1/cover/tiltpercentage"
+name: "Blinds1 Tilt"
+##unit_of_measurement:
+value_template: "{{  value | round(1) }}"

@@ -1,4 +1,4 @@
-alias: "Away"
+alias: "Away Global Actions"
 initial_state: True
 hide_entity: False
 trigger:
@@ -28,8 +28,5 @@ action:
         - switch.bedroom_lamp
         - switch.monitor_light
         - switch.wake_on_lan
-        - switch.homeseer_unknown_type4447_id3033_switch_3_0
-  - service: automation.trigger
-    data:
-      entity_id:
-        - automation.tv_power
+        - switch.homeseer_unknown_type4447_id3033_switch_7_0
+  - service: alarm_control_panel.alarm_arm_away

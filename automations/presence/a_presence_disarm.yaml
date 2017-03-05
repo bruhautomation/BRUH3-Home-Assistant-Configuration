@@ -1,0 +1,22 @@
+alias: "Presence Disarmed"
+initial_state: True
+hide_entity: False
+trigger:
+  - platform: state
+    entity_id: input_select.ben_status
+    state: "Home"
+  - platform: state
+    entity_id: input_select.cailin_status
+    state: "Home"
+condition:
+  - condition: state
+    entity_id: input_select.ben_status
+    state: "Home"
+  - condition: state
+    entity_id: input_select.cailin_status
+    state: "Home"
+action:
+  - delay:
+      seconds: 301
+  - service: input_boolean.turn_off
+    entity_id: input_boolean.presence_armed

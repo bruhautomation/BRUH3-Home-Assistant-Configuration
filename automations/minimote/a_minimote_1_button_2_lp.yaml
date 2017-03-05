@@ -12,5 +12,4 @@ action:
     data:
       entity_id:
        - light.megadesk
-       - light.boob_1
-       - light.boob_2
+      transition: 1

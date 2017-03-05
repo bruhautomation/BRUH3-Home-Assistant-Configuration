@@ -1,4 +1,4 @@
-alias: "Home Night"
+alias: "Home Day"
 initial_state: True
 hide_entity: False
 trigger:
@@ -18,7 +18,7 @@ condition:
       state: "off"
     - condition: state
       entity_id: sun.sun
-      state: "below_horizon"
+      state: "above_horizon"
     - condition: or
       conditions:
 ###############If one of us have been home for more than 5 minutes, don't fire
@@ -29,18 +29,8 @@ condition:
       - condition: template
         value_template: '{% if as_timestamp(now()) - as_timestamp(states.input_select.ben_status.last_changed) < 300 and as_timestamp(now()) - as_timestamp(states.input_select.cailin_status.last_changed) < 300 %}true{% else %}false{% endif %}'
 action:
-  - service: light.turn_on
+  - service: switch.turn_on
     data:
       entity_id:
-       - light.switch
-       - light.wall
-       - light.sink
-       - light.front_door_right
-       - light.front_door_left
-       - light.back_door
-       - light.floor_lamp
-      brightness: 255
-      color_temp: 196
-      rgb_color: [255,255,255]
-      transition: 5
+        - switch.wake_on_lan
   - service: alarm_control_panel.alarm_disarm

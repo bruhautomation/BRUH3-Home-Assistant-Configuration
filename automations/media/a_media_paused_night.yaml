@@ -1,16 +1,13 @@
-alias: Media Stopped Night
+alias: Media Paused Night
 initial_state: True
 hide_entity: True
 trigger:
   - platform: state
     entity_id: media_player.living_room
-    state: "off"
+    state: "paused"
   - platform: state
     entity_id: media_player.kodi
-    state: "off"
-  - platform: state
-    entity_id: media_player.kodi
-    state: "idle"
+    state: "paused"
 condition:
   - condition: state
     entity_id: input_boolean.media_lockout
@@ -22,10 +19,8 @@ action:
   - service: light.turn_on
     data:
       entity_id:
-       - light.switch
-       - light.wall
        - light.sink
-      brightness: 255
+      brightness: 50
       color_temp: 196
       rgb_color: [255,255,255]
       transition: 15

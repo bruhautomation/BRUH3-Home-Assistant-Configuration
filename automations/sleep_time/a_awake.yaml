@@ -3,8 +3,8 @@ initial_state: True
 hide_entity: True
 trigger:
   - platform: state
-    entity_id: sensor.fibaro_door_sensor_template
-    state: "open"
+    entity_id: sensor.xandem
+    state: "motion detected"
 condition:
   - condition: template
     value_template: "{% if states('input_select.ben_status') == 'Sleeping' or states('input_select.cailin_status') == 'Sleeping'%} true {% else %}false{% endif %}"

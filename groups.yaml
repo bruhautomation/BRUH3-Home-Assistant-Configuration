@@ -1,0 +1,312 @@
+  alarm_automations_card:
+    name: Alarm Automations
+    entities:
+      - automation.alarm_trigger_automation
+      - automation.alarm_escalate_automation
+
+  alarm_control_card:
+    name: Alarm Control
+    entities:
+      - alarm_control_panel.ha_alarm
+      - sensor.xandem_status
+      - sensor.xandem
+      - weblink.xandem_cloud
+
+  aeotec_multisensor_card:
+    name: Aeotec Multisensor
+    entities:
+      - sensor.bathroom_humidity
+      - sensor.aeotec_zw100_multisensor_6_burglar_5_10
+      - sensor.aeotec_multisensor_motion_template
+      - sensor.aeotec_zw100_multisensor_6_luminance_5_3
+      - sensor.aeotec_zw100_multisensor_6_relative_humidity_5_5
+      - sensor.aeotec_zw100_multisensor_6_temperature_5_1
+      - sensor.aeotec_zw100_multisensor_6_ultraviolet_5_27
+
+  bathroom_lights_card:
+    name: Bathroom
+    entities:
+      - switch.homeseer_unknown_type4447_id3033_switch_7_0
+
+  bedroom_lights_card:
+    name: Bedroom
+    entities:
+      - light.floor_lamp
+      - light.nightstand
+      - switch.bathroom_vanity_switch_7_0
+
+  blinds_card:
+    name: Blinds1 Card
+    entities:
+      - sensor.blinds1_tilt
+      - cover.blinds1
+
+  fibaro_door_sensor_card:
+    name: Fibaro Door Sensor
+    entities:
+      - sensor.fibaro_door_sensor_template
+      - sensor.fibaro_system_unknown_type0701_id2001_burglar_35_10
+      - sensor.fibaro_system_unknown_type0701_id2001_general_35_0
+      - sensor.fibaro_system_unknown_type0701_id2001_sourcenodeid_35_2
+      - sensor.fibaro_system_unknown_type0701_id2001_alarm_type_35_0
+      - sensor.fibaro_system_unknown_type0701_id2001_alarm_level_35_1
+      - sensor.fibaro_system_unknown_type0701_id2001_access_control_35_9
+      - binary_sensor.fibaro_system_unknown_type0701_id2001_sensor_35_0
+
+  nightlight_card:
+    name: Nightlight Group
+    entities:
+      - light.nightlight
+      - light.jar_leds_template
+      - input_select.jar_led_effect
+      - input_slider.jar_animation_speed
+
+  ecobee_card:
+    name: Ecobee Main Floor
+    entities:
+      - sensor.main_floor_temperature
+      - sensor.main_floor_humidity
+      - sensor.kitchen_temperature
+      - binary_sensor.kitchen_occupancy
+      - binary_sensor.main_floor_occupancy
+      - climate.main_floor
+
+  family_locations_card:
+    name: Family Locations
+    entities:
+      - device_tracker.bruh_ben6p
+      - input_select.ben_status
+      - sensor.ben_n6p_battery
+      - device_tracker.bruh_cailin6p
+      - input_select.cailin_status
+      - sensor.cailin_n6p_battery
+
+  system_lockouts_card:
+    name: System Lockouts
+    entities:
+      - input_boolean.presence_lockout
+      - input_boolean.sleep_lockout
+      - input_boolean.motion_lockout
+      - input_boolean.media_lockout
+
+  system_sensors_card:
+    name: System Sensors
+    entities:
+      - sensor.connected_clients
+
+  time_travel_card:
+    name: Time To Destination
+    entities:
+      - sensor.gm_ben_to_work
+      - sensor.gm_ben_to_home
+      - sensor.gm_cailin_to_home
+
+  kitchen_lights_card:
+    name: Kitchen
+    entities:
+      - light.sink
+
+  fibaro_multisensor_card:
+    name: Fibaro Multisensor
+    entities:
+      - sensor.fibaro_system_fgms001zw5_motion_sensor_burglar_6_10
+      - sensor.fibaro_multisensor_motion_template
+      - sensor.fibaro_system_fgms001zw5_motion_sensor_luminance_6_3
+      - sensor.fibaro_system_fgms001zw5_motion_sensor_temperature_6_1
+      - sensor.fibaro_system_fgms001zw5_motion_sensor_seismic_intensity_6_25
+
+  lab_lights_card:
+    name: Lab
+    entities:
+      - light.boob_1
+      - light.boob_2
+      - light.megadesk
+      - switch.mqtt_switch
+
+  lab_switches_card:
+    name: Lab Switches
+    entities:
+      - switch.wake_on_lan
+      - switch.wemo_insight
+      - switch.fishstick
+      - switch.fan
+      - switch.monitor_light
+
+  octoprint_status_card:
+    name: 3D Printer Status
+    entities:
+      - switch.wemo_insight
+      - sensor.octoprint_current_state
+      - binary_sensor.octoprint_printing
+      - binary_sensor.octoprint_printing_error
+      - sensor.octoprint_job_percentage
+      - sensor.octoprint_target_bed_temp
+      - sensor.octoprint_actual_bed_temp
+      - sensor.octoprint_target_tool0_temp
+      - sensor.octoprint_actual_tool0_temp
+      - weblink.octoprint_web_ui
+      - camera.octoprint
+
+  living_room_lights_card:
+    name: Living Room
+    entities:
+      - light.switch
+      - light.wall
+
+  media_equipment_card:
+    name: Media Equipment
+    entities:
+      - input_boolean.tv
+      - input_select.avr_input
+      - switch.hdmi_0
+      - switch.hdmi_2
+      - switch.hdmi_4
+      - switch.hdmi_5
+
+  outside_lights_backdoor_card:
+    name: Backyard
+    entities:
+      - light.back_door
+  outside_lights_frontdoor_card:
+    name: Porch
+    entities:
+      - light.front_door_left
+      - light.front_door_right
+
+  porch_led_strip_card:
+    name: Porch LED Strip Group
+    entities:
+      - light.porch_leds
+      - light.porch_leds_template
+      - input_select.porch_led_effect
+      - input_slider.porch_animation_speed
+
+  weather_card:
+    name: Weather
+    entities:
+      - sensor.owm_cloud_coverage
+      - sun.sun
+      - sensor.owm_condition
+      - sensor.owm_humidity
+      - sensor.owm_pressure
+      - sensor.owm_rain
+      - sensor.owm_snow
+      - sensor.owm_temperature
+      - sensor.owm_wind_speed
+      - weather.openweathermap
+
+  sensor_node_1_card:
+    name: Sensor Node 1
+    entities:
+      - sensor.sn1_temperature
+      - sensor.sn1_humidity
+      - sensor.sn1_ldr
+      - sensor.sn1_pir
+      - light.sn1_led
+
+  tracker_ble_happy_bubbles_card:
+    name: BLE Tracker - Happy Bubbles 
+    entities:
+      - sensor.ble_beacon_white
+      - sensor.ble_beacon_black
+      - sensor.ble_beacon_grey
+      - sensor.ble_beacon_clear
+
+  tracker_ble_owntracks_card:
+    name: BLE Tracker - Owntracks
+    entities:
+      - device_tracker.bruh_white
+      - device_tracker.bruh_black
+      - device_tracker.bruh_grey
+      - device_tracker.bruh_clear
+
+  alarm_view:
+    name: Alarm
+    view: yes
+    entities:
+      - group.alarm_control_card
+      - group.alarm_automations_card
+
+  bedroom_view:
+    name: Bedroom
+    view: yes
+    entities:
+      - group.bedroom_lights_card
+      - group.nightlight_card
+      - group.fibaro_door_sensor_card
+      - group.aeotec_multisensor_card
+      - group.bathroom_lights_card
+      - media_player.bedroom_home
+
+  ble_beacon_view:
+    name: BLE Beacons
+    view: yes
+    entities:
+      - group.tracker_ble_happy_bubbles_card
+      - automation.ble_beacon_test
+
+  entry_way_view:
+    name: Entry Way
+    view: yes
+    entities:
+      - group.ecobee_card
+
+  family_view:
+    name: Family
+    view: yes
+    entities:
+      - group.system_sensors_card
+      - group.system_lockouts_card
+      - group.family_locations_card
+      - group.time_travel_card
+      - group.family_location_card
+
+  kitchen_view:
+    name: Kitchen
+    view: yes
+    entities: 
+      - group.kitchen_lights_card
+      - media_player.kitchen_home
+
+  lab_view:
+    name: Lab
+    view: yes
+    entities:
+      - group.lab_lights_card
+      - group.lab_switches_card
+      - group.octoprint_status_card
+      - group.fibaro_multisensor_card
+      - group.sensor_node_1_card
+      - media_player.lab
+      - cover.blinds1
+
+  living_room_view:
+    name: Living Room
+    view: yes
+    entities: 
+      - group.living_room_lights_card
+      - group.media_equipment_card
+      - media_player.living_room
+      - media_player.kodi
+
+  media_view:
+    name: Media Players
+    view: yes
+    entities:
+      - media_player.bedroom_home
+      - media_player.kitchen_home
+      - media_player.lab
+      - media_player.living_room
+      - media_player.kodi
+      - media_player.everything
+
+  outside_view:
+    name: Outside
+    view: yes
+    entities:
+      - group.outside_lights_backdoor_card
+      - group.outside_lights_frontdoor_card
+      - group.porch_led_strip_card
+      - group.weather_card
+      - camera.radar
+

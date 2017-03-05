@@ -27,6 +27,6 @@ action:
       entity_id:
        - light.wall
       brightness: 125
-      color_temp: 287
+      color_temp: 196
       rgb_color: [255,255,255]
       transition: 15

@@ -1,0 +1,7 @@
+platform: mqtt
+name: "SN1 LED"
+command_topic: "bruh/sensornode1/setpower"
+command_state_topic: "bruh/sensornode1/setpowerpub"
+rgb_state_topic: "bruh/sensornode1/setcolorpub"
+rgb_command_topic: "bruh/sensornode1/setcolor"
+optimistic: false

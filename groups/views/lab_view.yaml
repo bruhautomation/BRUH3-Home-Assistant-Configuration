@@ -6,3 +6,6 @@
       - group.lab_switches_card
       - group.octoprint_status_card
       - group.fibaro_multisensor_card
+      - group.sensor_node_1_card
+      - media_player.lab
+      - cover.blinds1

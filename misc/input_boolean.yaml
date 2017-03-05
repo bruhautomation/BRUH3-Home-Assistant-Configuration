@@ -25,3 +25,6 @@ presence_lockout:
 ha_uptime:
   name: Home Assistant Uptime
   initial: on
+presence_armed:
+  name: Presence Armed
+  initial: off

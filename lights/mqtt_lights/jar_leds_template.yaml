@@ -1,0 +1,46 @@
+platform: mqtt_template
+name: "Jar LEDs Template"
+effect_list:
+   - BPM
+   - Candy Cane  
+   - Confetti  
+   - Cyclon Rainbow  
+   - Dots  
+   - Fire  
+   - Glitter  
+   - Juggle  
+   - Lightning  
+   - Noise  
+   - Police All  
+   - Police One  
+   - Rainbow  
+   - Rainbow with Glitter  
+   - Ripple  
+   - Sinelon  
+   - Solid  
+   - Twinkle  
+command_topic: "bruh/mqttjar/set"
+state_topic: "bruh/mqttjar/status"
+command_on_template: >
+  {"state": "on"
+  {%- if brightness is defined -%}
+  , "brightness": {{ brightness }}
+   {%- endif -%}
+  {%- if red is defined and green is defined and blue is defined -%}
+   , "color": [{{ red }}, {{ green }}, {{ blue }}]
+  {%- endif -%}
+   {%- if effect is defined -%}
+   , "effect": "{{ effect }}"
+   {%- endif -%}
+   {%- if transition is defined -%}
+   , "transition": "{{ transition }}"
+   {%- endif -%}
+   }
+command_off_template: '{"state": "off"}'
+state_template: '{{ value_json.state }}'
+brightness_template: '{{ value_json.brightness }}'
+red_template: '{{ value_json.color[0] }}'
+green_template: '{{ value_json.color[1] }}'
+blue_template: '{{ value_json.color[2] }}'
+effect_template: '{{ value_json.effect }}'
+optimistic: false

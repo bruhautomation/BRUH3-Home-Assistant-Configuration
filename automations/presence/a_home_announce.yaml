@@ -11,10 +11,16 @@ condition:
     - condition: state
       entity_id: input_boolean.presence_lockout
       state: "off"
+    - condition: state
+      entity_id: input_boolean.presence_armed
+      state: "on"
+############Only fire if Home Assistant has been up for > 5 minutes
     - condition: template
       value_template: "{% if as_timestamp(now()) - as_timestamp(states.input_boolean.ha_uptime.last_changed) > 301%}true{% else %}false{% endif %}"
+############Only fire if it has been >5 minutes since  last annoucement
     - condition: template
       value_template: "{% if as_timestamp(now()) - as_timestamp(states.automation.home_announce.last_updated) > 301%}true{% else %}false{% endif %}"
+############Only fire if either of us have been home for < 5 minutes
     - condition: or
       conditions:
       - condition: template
