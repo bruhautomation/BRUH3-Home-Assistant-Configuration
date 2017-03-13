@@ -104,12 +104,12 @@ cover:
     state_topic: "bruh/blind1/cover"
     command_topic: "bruh/blind1/cover/set"
     name: "blinds1"
-    payload_open: "OPEN"
-    payload_close: "CLOSE"
-    payload_stop: "STOP"
-    state_open: "OPEN"
-    state_closed: "CLOSE"
-    optimistic: false
+    payload_open: '{"state": "open"}'
+    payload_close:  '{"state": "close"}'
+    payload_stop: '{"state": "stop"}'
+    state_open: '{"state": "open"}'
+    state_closed: '{"state": "close"}'
+    optimistic: true
 
 hdmi_cec:
   devices:

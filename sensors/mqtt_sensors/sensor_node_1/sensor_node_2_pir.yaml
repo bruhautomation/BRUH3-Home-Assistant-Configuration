@@ -1,0 +1,4 @@
+platform: mqtt
+state_topic: "bruh/sensornode2/sensorstate"
+name: "SN2 PIR"
+value_template: '{{ value_json.motion }}'

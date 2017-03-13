@@ -28,6 +28,17 @@
     entities:
       - switch.homeseer_unknown_type4447_id3033_switch_7_0
 
+  pir_card:
+    name: PIR Test
+    entities:
+      - sensor.sn1_pir
+      - sensor.sn2_pir
+      - sensor.sn3_pir
+      - sensor.sn4_pir
+      - sensor.sn5_pir
+      - sensor.sn6_pir
+      - sensor.sn7_pir
+
   bedroom_lights_card:
     name: Bedroom
     entities:
@@ -40,6 +51,7 @@
     entities:
       - sensor.blinds1_tilt
       - cover.blinds1
+      - input_slider.blind_tilt
 
   fibaro_door_sensor_card:
     name: Fibaro Door Sensor

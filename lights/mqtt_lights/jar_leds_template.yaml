@@ -33,7 +33,7 @@ command_on_template: >
    , "effect": "{{ effect }}"
    {%- endif -%}
    {%- if transition is defined -%}
-   , "transition": "{{ transition }}"
+   , "transition": {{ transition }}
    {%- endif -%}
    }
 command_off_template: '{"state": "off"}'
