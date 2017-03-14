@@ -148,7 +148,7 @@ weblink: !include misc/weblinks.yaml
 zone: !include_dir_list zones/
 camera: !include_dir_list cameras/
 
-##This is a HASSBIAN GitHub Test... Again... 
+##This is a HASSBIAN GitHub Test... Again... Take 2
 
 alarm_control_panel:
   - platform: manual
