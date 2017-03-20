@@ -67,7 +67,7 @@
     input_slider.porch_animation_speed:
       friendly_name: "Animation Speed"
       icon: mdi:animation
-    switch.homeseer_unknown_type4447_id3033_switch_7_0:
+    switch.homeseer_hsws100_wall_switch_switch_7_0:
       friendly_name: "Vanity Light"
       icon: mdi:led-outline
 #######devices#

@@ -28,5 +28,5 @@ action:
         - switch.bedroom_lamp
         - switch.monitor_light
         - switch.wake_on_lan
-        - switch.homeseer_unknown_type4447_id3033_switch_7_0
+        - switch.homeseer_hsws100_wall_switch_switch_7_0
   - service: alarm_control_panel.alarm_arm_away

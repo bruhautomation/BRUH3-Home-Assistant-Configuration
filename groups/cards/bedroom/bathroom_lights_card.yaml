@@ -1,4 +1,4 @@
   bathroom_lights_card:
     name: Bathroom
     entities:
-      - switch.homeseer_unknown_type4447_id3033_switch_7_0
+      - switch.homeseer_hsws100_wall_switch_switch_7_0
