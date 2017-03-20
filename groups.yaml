@@ -291,6 +291,7 @@
       - group.sensor_node_1_card
       - media_player.lab
       - cover.blinds1
+      - group.pir_card
 
   living_room_view:
     name: Living Room

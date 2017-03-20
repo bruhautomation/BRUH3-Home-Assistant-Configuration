@@ -1,0 +1,4 @@
+platform: mjpeg
+mjpeg_url: !secret annke_ip2
+username: !secret annke_username
+password: !secret annke_password

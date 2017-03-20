@@ -1,0 +1,2 @@
+platform: generic
+still_image_url: !secret annke_ip

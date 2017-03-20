@@ -61,6 +61,8 @@ mqtt:
   client_id: home-assistant-1
   username: !secret mqtt_username
   password: !secret mqtt_password
+  discovery: true
+  discovery_prefix: homeassistant
 
 octoprint:
   host: !secret octoprint_ip
@@ -154,3 +156,11 @@ alarm_control_panel:
   - platform: manual
 
 config:
+
+############NOT WORKING - https issue?
+android_ip_webcam:
+  # This should be the ip of your phone
+  - host: !secret B6P_ip
+    name: B6P
+    username: !secret B6P_username
+    password: !secret B6P_password
