@@ -15,9 +15,9 @@ condition:
   - condition: state
     entity_id: input_boolean.media_lockout
     state: "off"
-  - condition: state
-    entity_id: sun.sun
-    state: "below_horizon"
+  - condition: sun
+    after: sunset
+    after_offset: "-1:00:00"
 action:
   - service: light.turn_on
     data:

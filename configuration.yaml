@@ -114,6 +114,7 @@ cover:
     optimistic: true
 
 hdmi_cec:
+  platform: media_player
   devices:
     1: TV
     2:
