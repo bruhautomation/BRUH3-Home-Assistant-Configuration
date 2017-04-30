@@ -1,6 +1,0 @@
-  bedroom_lights_card:
-    name: Bedroom
-    entities:
-      - light.floor_lamp
-      - light.nightstand
-      - switch.bathroom_vanity_switch_7_0

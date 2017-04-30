@@ -1,0 +1,6 @@
+platform: template
+sensors:
+  back_door_sensor_template:
+    value_template: "{%if states.sensor.linear_unknown_type2001_id0102_alarm_level_46_1.state == '255' %}open{% elif states.sensor.linear_unknown_type2001_id0102_alarm_level_46_1.state == '0' %}closed{% elif states.sensor.linear_unknown_type2001_id0102_alarm_level_46_1.state == '254' %}not reporting{% endif %}"
+    friendly_name: "Back Door"
+    icon_template: "{%if states.sensor.linear_unknown_type2001_id0102_alarm_level_46_1.state == '255' %}mdi:glassdoor{% elif states.sensor.linear_unknown_type2001_id0102_alarm_level_46_1.state == '0' %}mdi:glassdoor{% elif states.sensor.linear_unknown_type2001_id0102_alarm_level_46_1.state == '254' %}mdi:glassdoor{% endif %}"

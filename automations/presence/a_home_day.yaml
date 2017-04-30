@@ -34,3 +34,7 @@ action:
       entity_id:
         - switch.wake_on_lan
   - service: alarm_control_panel.alarm_disarm
+  - service: notify.ben
+    data_template:
+      title: "Home"
+      message:  "BRUH is now set to home day" 

@@ -40,7 +40,19 @@ action:
        - light.back_door
        - light.floor_lamp
       brightness: 255
-      color_temp: 196
+      color_temp: 200
+      rgb_color: [255,255,255]
+      transition: 5
+  - service: light.turn_on
+    data:
+      entity_id:
+       - light.porch_strip
+       - light.nightstand
+      brightness: 125
       rgb_color: [255,255,255]
       transition: 5
   - service: alarm_control_panel.alarm_disarm
+  - service: notify.ben
+    data_template:
+      title: "Home"
+      message:  "BRUH is now set to home night" 

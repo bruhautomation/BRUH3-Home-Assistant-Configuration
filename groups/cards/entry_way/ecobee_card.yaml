@@ -1,9 +1,0 @@
-  ecobee_card:
-    name: Ecobee Main Floor
-    entities:
-      - sensor.main_floor_temperature
-      - sensor.main_floor_humidity
-      - sensor.kitchen_temperature
-      - binary_sensor.kitchen_occupancy
-      - binary_sensor.main_floor_occupancy
-      - climate.main_floor

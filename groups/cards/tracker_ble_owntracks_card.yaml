@@ -1,7 +1,0 @@
-  tracker_ble_owntracks_card:
-    name: BLE Tracker - Owntracks
-    entities:
-      - device_tracker.bruh_white
-      - device_tracker.bruh_black
-      - device_tracker.bruh_grey
-      - device_tracker.bruh_clear

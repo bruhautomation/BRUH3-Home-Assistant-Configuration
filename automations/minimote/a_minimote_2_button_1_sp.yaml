@@ -19,6 +19,6 @@ action:
        - light.back_door
        - light.floor_lamp
       brightness: 255
-      color_temp: 287
+      color_temp: 200
       rgb_color: [255,255,255]
-      transition: 5
+      transition: 1

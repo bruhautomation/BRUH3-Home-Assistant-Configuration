@@ -1,5 +1,9 @@
 entities:
   - name: Octoprint Web UI
     url: !secret octoprint_ip_https
-  - name: XANDEM Cloud
+  - name: XANDEM Local
     url: !secret xandem_ip
+  - name: XANDEM Cloud
+    url: https://cloud.xandem.com/#/login
+  - name: Arlo Cloud
+    url: https://arlo.netgear.com/#/login

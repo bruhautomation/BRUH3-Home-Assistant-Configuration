@@ -1,7 +1,9 @@
-platform: mqtt
+platform: mqtt_json
 name: "SN1 LED"
-command_topic: "bruh/sensornode1/setpower"
-command_state_topic: "bruh/sensornode1/setpowerpub"
-rgb_state_topic: "bruh/sensornode1/setcolorpub"
-rgb_command_topic: "bruh/sensornode1/setcolor"
+state_topic: "bruh/sensornode1"
+command_topic: "bruh/sensornode1/set"
+brightness: true
+flash: true
+rgb: true
 optimistic: false
+qos: 0

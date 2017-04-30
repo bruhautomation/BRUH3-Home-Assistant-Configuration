@@ -1,3 +1,22 @@
+alarm_clock_time:
+  name: Set Alarm Time
+  icon: mdi:alarm
+  options:
+      - "6:00"
+      - "6:15"
+      - "6:30"
+      - "6:45"
+      - "7:00"
+      - "7:15"
+      - "7:30"
+      - "7:45"
+      - "8:00"
+      - "8:15"
+      - "8:30"
+      - "8:45"
+      - "9:00"
+      - "10:00"
+  initial: "8:00"
 ben_status:
   name: Ben Status
   options:

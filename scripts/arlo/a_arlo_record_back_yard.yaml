@@ -1,0 +1,8 @@
+arlo_record_back_yard:
+  sequence:
+  - service: ifttt.trigger
+    data: {"event":"arlo_record_back_yard"}
+  - service: notify.ben
+    data_template:
+      title: "ARLO RECORD"
+      message:  "Arlo is now recording the back yard" 

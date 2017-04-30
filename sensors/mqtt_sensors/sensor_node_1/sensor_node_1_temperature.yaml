@@ -1,5 +1,5 @@
 platform: mqtt
-state_topic: "bruh/sensornode1/sensorstate"
+state_topic: "bruh/sensornode1"
 name: "SN1 Temperature"
-unit_of_measurement: "F"
-value_template: '{{ value_json.temperature }}'
+unit_of_measurement: "°F"
+value_template: '{{ value_json.temperature | round(1) }}'

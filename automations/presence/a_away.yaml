@@ -17,7 +17,11 @@ condition:
 action:
   - service: light.turn_off
     data:
-      entity_id: group.all_lights
+      entity_id:
+       - group.lab_lights_card
+       - group.kitchen_lights_card
+       - group.bedroom_lights_card
+       - group.bathroom_lights_card
       transition: 15
   - service: switch.turn_off
     data:
@@ -30,3 +34,7 @@ action:
         - switch.wake_on_lan
         - switch.homeseer_hsws100_wall_switch_switch_7_0
   - service: alarm_control_panel.alarm_arm_away
+  - service: notify.ben
+    data_template:
+      title: "Away"
+      message:  "BRUH is now set to away" 

@@ -1,4 +1,0 @@
-  bathroom_lights_card:
-    name: Bathroom
-    entities:
-      - switch.homeseer_hsws100_wall_switch_switch_7_0

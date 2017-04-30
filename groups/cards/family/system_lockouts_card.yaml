@@ -1,7 +1,0 @@
-  system_lockouts_card:
-    name: System Lockouts
-    entities:
-      - input_boolean.presence_lockout
-      - input_boolean.sleep_lockout
-      - input_boolean.motion_lockout
-      - input_boolean.media_lockout

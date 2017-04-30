@@ -1,0 +1,29 @@
+platform: mqtt_json
+name: "Porch Strip"
+state_topic: "bruh/porch"
+command_topic: "bruh/porch/set"
+effect: true
+effect_list:
+  - bpm
+  - candy cane  
+  - confetti  
+  - cyclon rainbow  
+  - dots  
+  - fire  
+  - glitter  
+  - juggle  
+  - lightning
+  - noise  
+  - police all  
+  - police one  
+  - rainbow  
+  - rainbow with glitter  
+  - ripple  
+  - sinelon  
+  - solid  
+  - twinkle  
+brightness: true
+flash: true
+rgb: true
+optimistic: false
+qos: 0

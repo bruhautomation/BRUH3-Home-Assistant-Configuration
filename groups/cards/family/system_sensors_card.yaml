@@ -1,4 +1,0 @@
-  system_sensors_card:
-    name: System Sensors
-    entities:
-      - sensor.connected_clients

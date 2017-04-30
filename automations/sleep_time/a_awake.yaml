@@ -11,9 +11,9 @@ condition:
   - condition: state
     entity_id: input_boolean.sleep_lockout
     state: "off"
-  - condition: state
-    entity_id: sun.sun
-    state: "above_horizon"
+  - condition: sun
+    after: sunrise
+    after_offset: "-3:00:00"
 action:
     - service: input_select.select_option
       data:

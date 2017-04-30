@@ -1,0 +1,16 @@
+dogbell:
+  sequence:
+    - service: light.turn_on
+      data:
+        entity_id: switch.wall
+          - switch.wall
+        brightness: 255
+        color_temp: 200
+        rgb_color: [255,0,0]
+        transition: 1
+    - service: tts.google_say
+      entity_id:
+        - media_player.kitchen_home
+        - media_player.bedroom_home
+      data:
+        message: "Caesium needs to go out! Hurry, human!"

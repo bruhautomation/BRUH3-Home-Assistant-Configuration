@@ -1,0 +1,11 @@
+alias: "Porch Animation Speed"
+initial_state: True
+hide_entity: True
+trigger:
+  - platform: state
+    entity_id: input_slider.porch_animation_speed
+action:
+  - service: mqtt.publish
+    data_template:
+      topic: "bruh/porch/set"
+      payload: '{"transition":{{ trigger.to_state.state | int }}}'

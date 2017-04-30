@@ -1,8 +1,0 @@
-  living_room_view:
-    name: Living Room
-    view: yes
-    entities: 
-      - group.living_room_lights_card
-      - group.media_equipment_card
-      - media_player.living_room
-      - media_player.kodi

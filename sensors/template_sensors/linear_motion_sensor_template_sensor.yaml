@@ -1,0 +1,5 @@
+platform: template
+sensors:
+  linear_pir_template_sensor:
+    value_template: "{%if states.sensor.linear_wapirz1_motion_sensor_alarm_level_45_1.state == '255' %}motion detected{% elif states.sensor.linear_wapirz1_motion_sensor_alarm_level_45_1.state == '0' %}standby{% endif %}"
+    friendly_name: "Linear PIR"

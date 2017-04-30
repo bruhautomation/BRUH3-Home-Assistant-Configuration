@@ -1,5 +1,0 @@
-  alarm_automations_card:
-    name: Alarm Automations
-    entities:
-      - automation.alarm_trigger_automation
-      - automation.alarm_escalate_automation

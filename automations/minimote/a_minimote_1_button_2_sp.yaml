@@ -13,6 +13,6 @@ action:
       entity_id:
        - light.megadesk
       brightness: 255
-      color_temp: 287
+      color_temp: 200
       rgb_color: [255,255,255]
       transition: 1

@@ -38,6 +38,9 @@
     switch.monitor_light:
       friendly_name: Monitor Light
       icon: mdi:led-outline
+    switch.strip_cord_3:
+      friendly_name: Box Light
+      icon: mdi:led-outline
     switch.fishstick:
       friendly_name: FishStick
       icon: mdi:speaker
@@ -73,6 +76,7 @@
 #######devices#
     device_tracker.bruh_ben6p:
       friendly_name: "Ben 6P MQTT"
+
 #############AEOTEC####
     sensor.aeotec_zw100_multisensor_6_burglar_5_10:
       friendly_name: "Aeotec Motion"
@@ -96,6 +100,7 @@
       hidden: yes
     sensor.aeotec_zw100_multisensor_6_sourcenodeid_5_2:
       hidden: yes
+
 ##############Fibaro####
     sensor.fibaro_system_fgms001zw5_motion_sensor_burglar_6_10:
       friendly_name: "Fibaro Motion"
@@ -119,17 +124,139 @@
       hidden: yes
     binary_sensor.fibaro_system_fgms001zw5_motion_sensor_sensor_6_0:
       hidden: yes
-##############Fibaro####
-    sensor.fibaro_system_unknown_type0701_id2001_access_control_35_9:
-      friendly_name: "Fibaro Door Sensor"
-      icon: mdi:door
+
+##############HA####
+    input_boolean.ha_uptime:
+      hidden: yes
+    group.all_switches:
+      hidden: no
+    group.input_boolean:
+      hidden: no
+    group.all_automations:
+      hidden: no
+    group.all_covers:
+      hidden: no
+    group.all_lights:
+      hidden: no
+    group.all_scripts:
+      hidden: no
+    group.all_devices:
+      hidden: no
+
+##############ZWAVE SWITCHES####
+
+    zwave.homeseer_hsws100_wall_switch_7:
+      hidden: yes
+
     sensor.fibaro_system_unknown_type0701_id2001_burglar_35_10:
-      friendly_name: "Fibaro Door Tamper"
-      icon: mdi:security
+      hidden: yes
     sensor.fibaro_system_unknown_type0701_id2001_general_35_0:
       hidden: yes
     sensor.fibaro_system_unknown_type0701_id2001_sourcenodeid_35_2:
       hidden: yes
-##############HA####
-    input_boolean.ha_uptime:
+    sensor.fibaro_system_unknown_type0701_id2001_alarm_type_35_0:
       hidden: yes
+    sensor.fibaro_system_unknown_type0701_id2001_alarm_level_35_1:
+      hidden: yes
+    sensor.fibaro_system_unknown_type0701_id2001_access_control_35_9:
+      hidden: yes
+    binary_sensor.fibaro_system_unknown_type0701_id2001_sensor_35_0:
+      hidden: yes
+
+
+    zwave.ge_12730_fan_control_switch_37:
+      friendly_name: "Living Room Fan Status"
+      hidden: yes
+    light.ge_12730_fan_control_switch_level_37_0:
+      friendly_name: "Living Room Fan"
+      icon: mdi:fan
+
+    light.ge_12724_3way_dimmer_switch_level_40_0:
+      friendly_name: "Kitchen Overhead"
+    zwave.ge_12724_3way_dimmer_switch_40:
+      friendly_name: "Kitchen Overhead Status"
+      hidden: yes
+
+    light.leviton_unknown_type3201_id0001_level_41_0:
+      friendly_name: "Dining Overhead"
+    zwave.leviton_unknown_type3201_id0001_41:
+      hidden: yes      
+
+    binary_sensor.linear_wapirz1_motion_sensor_sensor_45_0:
+      hidden: yes
+    sensor.linear_wapirz1_motion_sensor_temperature_45_1:
+      friendly_name: "Go Control Temperature"
+      icon: mdi:thermometer
+    sensor.linear_wapirz1_motion_sensor_sourcenodeid_45_2:
+      hidden: yes
+    sensor.linear_wapirz1_motion_sensor_burglar_45_10:
+      hidden: yes
+    sensor.linear_wapirz1_motion_sensor_alarm_type_45_0:
+      hidden: yes
+    sensor.linear_wapirz1_motion_sensor_alarm_level_45_1:
+      friendly_name: "Go Control Motion"
+
+    binary_sensor.linear_unknown_type2001_id0102_sensor_46_0:
+      hidden: yes
+    zwave.linear_unknown_type2001_id0102_46:
+      hidden: yes
+    sensor.linear_unknown_type2001_id0102_sourcenodeid_46_2:
+      hidden: yes
+    sensor.linear_unknown_type2001_id0102_burglar_46_10:
+      hidden: yes
+    sensor.linear_unknown_type2001_id0102_alarm_type_46_0:
+      hidden: yes
+    sensor.linear_unknown_type2001_id0102_alarm_level_46_1:
+      hidden: yes
+ 
+    zwave.linear_unknown_type2001_id0102_47:
+      hidden: yes
+    binary_sensor.linear_unknown_type2001_id0102_sensor_47_0:
+      hidden: yes
+    sensor.linear_unknown_type2001_id0102_burglar_47_10:
+      hidden: yes
+    sensor.linear_unknown_type2001_id0102_alarm_type_47_0:
+      hidden: yes
+    sensor.linear_unknown_type2001_id0102_alarm_level_47_1:
+      hidden: yes
+    sensor.linear_unknown_type2001_id0102_sourcenodeid_47_2:
+      hidden: yes
+
+    light.leviton_unknown_type3201_id0001_level_48_0:
+      friendly_name: "Living Room Overhead"
+    zwave.leviton_unknown_type3201_id0001_48:
+      hidden: yes
+
+    light.leviton_unknown_type3201_id0001_level_49_0:
+      friendly_name: "Living Room Fan Light"
+    zwave.leviton_unknown_type3201_id0001_49:
+      hidden: yes
+
+##############Arlo####
+    script.arlo_record_porch:
+      friendly_name: "Record Porch"
+      icon: mdi:record-rec
+    script.arlo_record_crate:
+      friendly_name: "Record Crate"
+      icon: mdi:record-rec
+    script.arlo_record_back_yard:
+      friendly_name: "Record Back Yard"
+      icon: mdi:record-rec
+    sensor.arlo_porch_motion:
+      friendly_name: "Porch Motion"
+      icon: mdi:record-rec
+    sensor.arlo_crate_motion:
+      friendly_name: "Crate Motion"
+      icon: mdi:record-rec
+    sensor.arlo_back_yard_motion:
+      friendly_name: "Back Yard Motion"
+      icon: mdi:record-rec
+    sensor.arlo_porch_low_battery:
+      friendly_name: "Porch Low Battery"
+      icon: mdi:battery-alert
+    sensor.arlo_crate_low_battery:
+      friendly_name: "Crate Low Battery"
+      icon: mdi:battery-alert
+    sensor.arlo_back_yard_low_battery:
+      friendly_name: "Back Yard Low Battery"
+      icon: mdi:battery-alert

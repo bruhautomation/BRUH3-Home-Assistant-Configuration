@@ -72,6 +72,11 @@ emulated_hue:
   type: google_home
   listen_port: 80
   host_ip: !secret pi_ip
+  expose_by_default: true
+  exposed_domains:
+    - light
+    - switch
+    - group
 
 ecobee:
   api_key: !secret ecobee_api
@@ -144,21 +149,18 @@ shell_command: !include misc/shell_commands.yaml
 switch: !include_dir_list switches/
 script: !include_dir_merge_named scripts/
 automation: !include_dir_list automations/
-##group: !include_dir_merge_named groups/
 group: !include groups.yaml
 weather: !include_dir_list weather/
 weblink: !include misc/weblinks.yaml
 zone: !include_dir_list zones/
 camera: !include_dir_list cameras/
 
-##This is a HASSBIAN GitHub Test... Again... Take 3
 
 alarm_control_panel:
   - platform: manual
 
 config:
 
-############NOT WORKING - https issue?
 android_ip_webcam:
   # This should be the ip of your phone
   - host: !secret B6P_ip
