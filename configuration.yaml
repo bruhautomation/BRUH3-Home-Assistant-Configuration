@@ -52,7 +52,7 @@ sun:
 
 zwave:
   usb_path: /dev/ttyACM0
-  config_path: /srv/homeassistant/lib/python3.4/site-packages/libopenzwave-0.3.2-py3.4-linux-armv7l.egg/config
+  config_path: /srv/homeassistant/src/python-openzwave/openzwave/config
   device_config: !include zwave_device_config.yaml
 
 mqtt:
