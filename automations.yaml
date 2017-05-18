@@ -1,0 +1,1334 @@
+- id: a_3dprinter_off
+  alias: "3D Printer Finish Off"
+  initial_state: True
+  hide_entity: False
+  trigger:
+    - platform: state
+      entity_id: sensor.octoprint_job_percentage
+      state: "100"
+      for:
+        minutes: 5
+  condition:
+    - condition: state
+      entity_id: switch.wemo_insight
+      state: "on"
+  action:
+    - service: switch.turn_off
+      data:
+        entity_id: switch.wemo_insight
+- id: a_alarm_clock
+  alias: 'Alarm Clock'
+  trigger:
+    platform: template
+    value_template: '{{ states.sensor.time.state == states.sensor.alarm_time.state }}'
+  condition:
+    condition: or
+    conditions:
+      - condition: and
+        conditions:
+          - condition: state
+            entity_id: input_boolean.alarmweekday
+            state: 'on'
+          - condition: time
+            weekday:
+              - mon
+              - tue
+              - wed
+              - thu
+              - fri
+      - condition: state
+        entity_id: input_boolean.alarmweekday
+        state: 'off'
+  action:
+    - service: notify.ben
+      data_template:
+        message: "Alarm Clock Triggered"
+      data:
+        data:
+          tag: 'turn_off_alarm'
+          actions:
+          - action: "turn_off_alarm"
+            title: "Turn Off Alarm"
+    - service: light.turn_on
+      data:
+        entity_id:
+         - light.floor_lamp
+        brightness: 255
+        color_temp: 196
+        rgb_color: [0,0,255]
+        transition: 10
+    - service: tts.google_say
+      entity_id:
+        - media_player.kitchen_home
+        - media_player.bedroom_home
+      data_template:
+        message: "Hello! The current time is {{ states.sensor.time.state }}." 
+- id: a_alarm_clock_off
+  alias: Alarm Clock Off
+  initial_state: True
+  hide_entity: False
+  trigger:
+    - platform: event
+      event_type: html5_notification.clicked
+      event_data:
+       action: turn_off_alarm
+  action:
+    - service: notify.ben
+      data:
+        title: "Alarm Clock Off"
+        message: "Have a great day!"
+    - service: light.turn_off
+      data:
+        entity_id:
+         - light.floor_lamp
+        transition: 2
+- id: a_alarm_escalated
+  alias: Alarm Escalate Automation
+  initial_state: True
+  hide_entity: False
+  trigger:
+    - platform: event
+      event_type: html5_notification.clicked
+      event_data:
+       action: activate_siren
+  action:
+    - service: notify.ben
+      data:
+        title: "ALARM SOUND"
+        message: "The alarm sound has been activated"
+    - service: tts.google_say
+      entity_id:
+        - media_player.kitchen_home
+        - media_player.bedroom_home
+      data_template:
+        message: "Alarm triggered by {{ trigger.entity_id }}. You weren't very sneaky! Please leave." 
+- id: a_alarm_triggered
+  alias: Alarm Trigger Automation
+  initial_state: True
+  hide_entity: False
+  trigger:
+    - platform: state
+      entity_id: sensor.xandem
+      state: 'motion detected'
+    - platform: state
+      entity_id: sensor.blinds1_motionx
+      from: "standby"
+      to: "motion"
+    - platform: state
+      entity_id: sensor.blinds1_motiony
+      from: "standby"
+      to: "motion"
+    - platform: state
+      entity_id: sensor.blinds1_motionz
+      from: "standby"
+      to: "motion"
+  condition:
+      - condition: state
+        entity_id: alarm_control_panel.ha_alarm
+        state: armed_away
+  action:
+    - service: notify.ben
+      data_template:
+        message: "Alarm triggered"
+      data:
+        data:
+          tag: 'alarm_trigger'
+          actions:
+          - action: "activate_siren"
+            title: "activate siren"
+    - service: light.turn_on
+      data:
+        entity_id:
+         - light.switch
+         - light.wall
+         - light.sink
+         - light.front_door_right
+         - light.front_door_left
+         - light.back_door
+         - light.floor_lamp
+        brightness: 255
+        color_temp: 196
+        rgb_color: [255,0,0]
+    - service: light.turn_on
+      data:
+        entity_id:
+         - light.jar_leds_template
+        #brightness: 255
+        #color_temp: 196
+        #rgb_color: [255,0,0]
+        effect: "Police All"
+        #transtion: 20
+- id: a_animationspeedsliderjar
+  alias: "Porch Animation Speed"
+  initial_state: True
+  hide_entity: True
+  trigger:
+    - platform: state
+      entity_id: input_slider.jar_animation_speed
+  action:
+    - service: mqtt.publish
+      data_template:
+        topic: "bruh/mqttjar/set"
+        payload: '{"transition":{{ trigger.to_state.state | int }}}'
+- id: a_animationspeedsliderporch
+  alias: "Porch Animation Speed"
+  initial_state: True
+  hide_entity: True
+  trigger:
+    - platform: state
+      entity_id: input_slider.porch_animation_speed
+  action:
+    - service: mqtt.publish
+      data_template:
+        topic: "bruh/porch/set"
+        payload: '{"transition":{{ trigger.to_state.state | int }}}'
+- id: a_arlo_record_porch
+  alias: Arlo Record Porch Escalate Automation
+  initial_state: True
+  hide_entity: False
+  trigger:
+    - platform: event
+      event_type: html5_notification.clicked
+      event_data:
+       action: activate_siren
+  action:
+    - service: notify.ben
+      data:
+        title: "ALARM SOUND"
+        message: "The alarm sound has been activated"
+    - service: tts.google_say
+      entity_id:
+        - media_player.kitchen_home
+        - media_player.bedroom_home
+      data_template:
+        message: "Alarm triggered by {{ trigger.entity_id }}. You weren't very sneaky! Please leave." 
+- id: a_avr_input
+  alias: "AVR Input"
+  initial_state: True
+  hide_entity: False
+  trigger:
+    - platform: state
+      entity_id: input_select.avr_input
+      state: "Chromecast"
+    - platform: state
+      entity_id: input_select.avr_input
+      state: "KODI"
+    - platform: state
+      entity_id: input_select.avr_input
+      state: "HA"
+    - platform: state
+      entity_id: input_select.avr_input
+      state: "PC"
+    - platform: state
+      entity_id: input_select.avr_input
+      state: "Standby"
+  action:
+    - service: hdmi_cec.select_device
+      data_template:
+        device: >
+          {% if states.input_select.avr_input.state == 'Chromecast' %}
+            Chromecast
+          {% elif states.input_select.avr_input.state == 'KODI' %}
+            KODI
+          {% elif states.input_select.avr_input.state == 'HA' %}
+            HA
+          {% elif states.input_select.avr_input.state == 'PC' %}
+            PC
+          {% endif %}
+    - service_template: >
+        {% if is_state('input_boolean.tv_power', 'off') %}
+          input_boolean.turn_on
+        {% endif %}
+      entity_id: input_boolean.tv_power
+    - service: input_boolean.turn_off
+      data_template:
+        entity_id: >
+          {% if states.input_select.avr_input.state == 'Standby' %}
+            input_boolean.tv_power
+          {% endif %}
+- id: a_awake
+  alias: "awake"
+  initial_state: True
+  hide_entity: True
+  trigger:
+    - platform: state
+      entity_id: sensor.xandem
+      state: "motion detected"
+  condition:
+    - condition: template
+      value_template: "{% if states('input_select.ben_status') == 'Sleeping' or states('input_select.cailin_status') == 'Sleeping'%} true {% else %}false{% endif %}"
+    - condition: state
+      entity_id: input_boolean.sleep_lockout
+      state: "off"
+    - condition: sun
+      after: sunrise
+      after_offset: "-3:00:00"
+  action:
+      - service: input_select.select_option
+        data:
+          entity_id: input_select.ben_status
+          option: "Home"
+      - service: input_select.select_option
+        data:
+          entity_id: input_select.cailin_status
+          option: "Home"
+      - service: tts.google_say
+        entity_id: media_player.kitchen_home
+        data:
+          message: "Good morning!"
+- id: a_away
+  alias: "Away Global Actions"
+  initial_state: True
+  hide_entity: False
+  trigger:
+    - platform: state
+      entity_id: input_select.ben_status
+      state: "Away"
+    - platform: state
+      entity_id: input_select.cailin_status
+      state: "Away"
+  condition:
+    - condition: template
+      value_template: "{% if states('input_select.ben_status') == 'Away' and states('input_select.cailin_status') == 'Away' %}true{% else %}false{% endif %}"
+    - condition: state
+      entity_id: input_boolean.presence_lockout
+      state: "off"
+  action:
+    - service: light.turn_off
+      data:
+        entity_id:
+         - group.lab_lights_card
+         - group.kitchen_lights_card
+         - group.bedroom_lights_card
+         - group.bathroom_lights_card
+        transition: 15
+    - service: switch.turn_off
+      data:
+        entity_id:
+          - switch.fishstick
+          - switch.fan
+          - switch.camera_light
+          - switch.bedroom_lamp
+          - switch.monitor_light
+          - switch.wake_on_lan
+          - switch.homeseer_hsws100_wall_switch_switch_7_0
+    - service: alarm_control_panel.alarm_arm_away
+    - service: notify.ben
+      data_template:
+        title: "Away"
+        message:  "BRUH is now set to away" 
+- id: a_away_ben
+  alias: "Away Ben"
+  initial_state: True
+  hide_entity: False
+  trigger:
+    - platform: state
+      entity_id: input_select.ben_status
+      from: "Home"
+      to: "Away"
+  action:
+    - service: notify.ben
+      data_template:
+        title: "Ben is Leaving"
+        message:  "Ben is now {{states.input_select.ben_status.state}}" 
+- id: a_away_cailin
+  alias: "Away Cailin"
+  initial_state: True
+  hide_entity: False
+  trigger:
+    - platform: state
+      entity_id: input_select.cailin_status
+      from: "Home"
+      to: "Away"
+  action:
+    - service: notify.ben
+      data_template:
+        title: "Cailin is Leaving"
+        message:  "Cailin is now {{states.input_select.cailin_status.state}}" 
+- id: a_backdoor_open
+  alias: "Back Door Open"
+  initial_state: True
+  hide_entity: False
+  trigger:
+    - platform: state
+      entity_id: sensor.back_door_sensor_template
+      from: "closed"
+      to: "open"
+  condition:
+    condition: and
+    conditions:
+      - condition: state
+        entity_id: input_boolean.presence_lockout
+        state: "off"
+      - condition: state
+        entity_id: sun.sun
+        state: "below_horizon"
+  action:
+    - service: light.turn_on
+      data:
+        entity_id:
+         - light.front_door_right
+         - light.front_door_left
+         - light.back_door
+        brightness: 255
+        color_temp: 200
+        rgb_color: [255,255,255]
+        transition: 5
+    - service: notify.ben
+      data_template:
+        title: "Back Door Open"
+        message:  "Somebody took Caesium outside?" 
+- id: a_bathroom_mold
+  alias: "bathroom fan control"
+  initial_state: True
+  hide_entity: True
+  trigger:
+    - platform: state
+      entity_id: sensor.bathroom_humidity
+      from: "low humidity"
+      to: "high humidity"
+    - platform: state
+      entity_id: sensor.bathroom_humidity
+      from: "high humidity"
+      to: "low humidity"
+  action:
+    - service_template: >
+        {% if states.sensor.bathroom_humidity == "high humidity"%}
+          switch.turn_on
+        {% else %}
+          switch.turn_off
+        {% endif %}
+      entity_id: switch.homeseer_unknown_type4447_id3033_switch_3_0
+- id: a_ble_beacons
+  alias: ibeaconupdate
+  initial_state: True
+  hide_entity: True
+  trigger:
+    - platform: mqtt
+      topic: owntracks/bruh/ben6p/waypoint
+  action:
+    - service: script.owntracks_update
+    - delay:
+        seconds: 15
+    - service: mqtt.publish
+      data_template:
+        topic: > 
+          owntracks/bruh/{{trigger.payload_json.desc}}
+        payload: '{"_type":"location","tid":"{{trigger.payload_json.desc}}","acc":{{ states.device_tracker.bruh_ben6p.attributes.gps_accuracy}},"batt":80,"conn":"w","doze":false,"lat":{{ states.device_tracker.bruh_ben6p.attributes.latitude}},"lon":{{ states.device_tracker.bruh_ben6p.attributes.longitude}},"t":"r","tst":1234567890}'
+- id: a_ble_beacon_test
+  alias: BLE Beacon Test
+  initial_state: False
+  hide_entity: False
+  trigger:
+    - platform: state
+      entity_id: sensor.ble_beacon_white
+  condition: 
+    - condition: template
+      value_template: '{{ trigger.from_state.state != trigger.to_state.state }}'
+  action:
+    - service: notify.ben
+      data_template:
+        title: "iBeacon Update"
+        message: "{{trigger.to_state.name}} has moved and is currently in the {{trigger.to_state.state}}"
+    - service: light.turn_on
+      data:
+        entity_id: light.megadesk
+        brightness: 255
+        rgb_color: [255,0,0]
+    - delay: 00:00:01
+    - service: light.turn_off
+      data:
+        entity_id: light.megadesk
+    - service: light.turn_on
+      data:
+        entity_id: light.megadesk
+        brightness: 255
+        rgb_color: [255,0,0]
+    - delay: 00:00:01
+    - service: light.turn_off
+      data:
+        entity_id: light.megadesk
+    - service: light.turn_off
+      data:
+        entity_id: light.floor_lamp
+- id: a_blind1toggle
+  alias: "Bilnd1 Motion"
+  initial_state: True
+  hide_entity: True
+  trigger:
+    - platform: state
+      entity_id: sensor.blinds1_motionx
+      from: "standby"
+      to: "motion"
+    - platform: state
+      entity_id: sensor.blinds1_motiony
+      from: "standby"
+      to: "motion"
+    - platform: state
+      entity_id: sensor.blinds1_motionz
+      from: "standby"
+      to: "motion"
+  action:
+    - service: light.lifx_effect_pulse
+      data:
+        entity_id:
+         - light.megadesk
+        brightness: 255
+        color_name: "red"
+        period: 1
+        cycles: 2
+    - service_template: >
+        {%- if is_state("cover.blinds1", "closed") -%}
+          cover.open_cover
+        {% else %}
+          cover.close_cover
+        {% endif %}
+      entity_id: cover.blinds1
+- id: a_blindtilt
+  alias: "Bilnd Tilt"
+  initial_state: True
+  hide_entity: True
+  trigger:
+    - platform: state
+      entity_id: input_slider.blind_tilt
+  action:
+    - service: mqtt.publish
+      data_template:
+        topic: "bruh/blind1/cover/set"
+        payload: '{"tilt": {{ trigger.to_state.state | int }}}'
+- id: a_dash_bounty_toggle
+  alias: Dash Bounty Toggle Automation
+  initial_state: True
+  hide_entity: True
+  trigger:
+    - platform: state
+      entity_id: input_boolean.dash_bounty_toggle
+  action:
+    - service_template: >
+        {% if is_state('input_boolean.dash_bounty_toggle', 'on') %}
+          script.dash_bounty_on
+        {% else %}
+          script.dash_bounty_off
+        {% endif %}
+- id: a_face_detect.notinuse
+  alias: Face Detect
+  trigger:
+    platform: event
+    event_type: image_processing.detect_face
+  action:
+    - service: light.turn_on
+      data:
+        entity_id:
+         - light.boob1
+        brightness: 255
+        color_temp: 196
+        rgb_color: [0,0,255]
+        transition: 10
+- id: a_home_announce
+  alias: "Home Announce"
+  initial_state: True
+  hide_entity: False
+  trigger:
+    - platform: state
+      entity_id: sensor.xandem
+      state: "motion detected"
+  condition:
+    condition: and
+    conditions:
+      - condition: state
+        entity_id: input_boolean.presence_lockout
+        state: "off"
+      - condition: state
+        entity_id: input_boolean.presence_armed
+        state: "on"
+  ############Only fire if Home Assistant has been up for > 5 minutes
+      - condition: template
+        value_template: "{% if as_timestamp(now()) - as_timestamp(states.input_boolean.ha_uptime.last_changed) > 301%}true{% else %}false{% endif %}"
+  ############Only fire if it has been >5 minutes since  last annoucement
+      - condition: template
+        value_template: "{% if as_timestamp(now()) - as_timestamp(states.automation.home_announce.last_updated) > 301%}true{% else %}false{% endif %}"
+  ############Only fire if either of us have been home for < 5 minutes
+      - condition: or
+        conditions:
+        - condition: template
+          value_template: '{% if as_timestamp(now()) - as_timestamp(states.input_select.ben_status.last_changed) < 300 and states.input_select.ben_status.state == "Home" %}true{% else %}false{% endif %}'
+        - condition: template
+          value_template: '{% if as_timestamp(now()) - as_timestamp(states.input_select.cailin_status.last_changed) < 300 and states.input_select.cailin_status.state == "Home" %}true{% else %}false{% endif %}'
+  action:
+    - service: tts.google_say
+      entity_id:
+        - media_player.kitchen_home
+        - media_player.bedroom_home
+      data_template:
+        message: >
+          {% if as_timestamp(now()) - as_timestamp(states.input_select.ben_status.last_changed) < 300 and as_timestamp(now()) - as_timestamp(states.input_select.cailin_status.last_changed) < 300%}
+          Welcome home Benjamin and Kay-Lin!
+          {% elif as_timestamp(now()) - as_timestamp(states.input_select.ben_status.last_changed) < 300%}
+          Welcome home Benjamin!
+          {% elif as_timestamp(now()) - as_timestamp(states.input_select.cailin_status.last_changed) < 300%}
+          Welcome home Kay-Lin!
+          {% else %}
+          This automation is confused! 
+          {% endif %}
+    - service: notify.ben
+      data_template:
+        title: "Arrival"
+        message: >
+          {% if as_timestamp(now()) - as_timestamp(states.input_select.ben_status.last_changed) < 300 and as_timestamp(now()) - as_timestamp(states.input_select.cailin_status.last_changed) < 300%}
+          Welcome home Benjamin and Cailin!
+          {% elif as_timestamp(now()) - as_timestamp(states.input_select.ben_status.last_changed) < 300%}
+          Welcome home Benjamin!
+          {% elif as_timestamp(now()) - as_timestamp(states.input_select.cailin_status.last_changed) < 300%}
+          Welcome home Cailin!
+          {% else %}
+          This automation is confused! 
+          {% endif %}
+- id: a_home_day
+  alias: "Home Day"
+  initial_state: True
+  hide_entity: False
+  trigger:
+    - platform: state
+      entity_id: input_select.ben_status
+      from: "Away"
+      to: "Home"
+    - platform: state
+      entity_id: input_select.cailin_status
+      from: "Away"
+      to: "Home"
+  condition:
+    condition: and
+    conditions:
+      - condition: state
+        entity_id: input_boolean.presence_lockout
+        state: "off"
+      - condition: state
+        entity_id: sun.sun
+        state: "above_horizon"
+      - condition: or
+        conditions:
+  ###############If one of us have been home for more than 5 minutes, don't fire
+        - condition: template
+          value_template: '{% if as_timestamp(now()) - as_timestamp(states.input_select.ben_status.last_changed) < 300 and states.input_select.cailin_status.state != "Home" %}true{% else %}false{% endif %}'
+        - condition: template
+          value_template: '{% if as_timestamp(now()) - as_timestamp(states.input_select.cailin_status.last_changed) < 300 and states.input_select.ben_status.state != "Home" %}true{% else %}false{% endif %}'
+        - condition: template
+          value_template: '{% if as_timestamp(now()) - as_timestamp(states.input_select.ben_status.last_changed) < 300 and as_timestamp(now()) - as_timestamp(states.input_select.cailin_status.last_changed) < 300 %}true{% else %}false{% endif %}'
+  action:
+    - service: switch.turn_on
+      data:
+        entity_id:
+          - switch.wake_on_lan
+    - service: alarm_control_panel.alarm_disarm
+    - service: notify.ben
+      data_template:
+        title: "Home"
+        message:  "BRUH is now set to home day" 
+- id: a_home_night
+  alias: "Home Night"
+  initial_state: True
+  hide_entity: False
+  trigger:
+    - platform: state
+      entity_id: input_select.ben_status
+      from: "Away"
+      to: "Home"
+    - platform: state
+      entity_id: input_select.cailin_status
+      from: "Away"
+      to: "Home"
+  condition:
+    condition: and
+    conditions:
+      - condition: state
+        entity_id: input_boolean.presence_lockout
+        state: "off"
+      - condition: state
+        entity_id: sun.sun
+        state: "below_horizon"
+      - condition: or
+        conditions:
+  ###############If one of us have been home for more than 5 minutes, don't fire
+        - condition: template
+          value_template: '{% if as_timestamp(now()) - as_timestamp(states.input_select.ben_status.last_changed) < 300 and states.input_select.cailin_status.state != "Home" %}true{% else %}false{% endif %}'
+        - condition: template
+          value_template: '{% if as_timestamp(now()) - as_timestamp(states.input_select.cailin_status.last_changed) < 300 and states.input_select.ben_status.state != "Home" %}true{% else %}false{% endif %}'
+        - condition: template
+          value_template: '{% if as_timestamp(now()) - as_timestamp(states.input_select.ben_status.last_changed) < 300 and as_timestamp(now()) - as_timestamp(states.input_select.cailin_status.last_changed) < 300 %}true{% else %}false{% endif %}'
+  action:
+    - service: light.turn_on
+      data:
+        entity_id:
+         - light.switch
+         - light.wall
+         - light.sink
+         - light.front_door_right
+         - light.front_door_left
+         - light.back_door
+         - light.floor_lamp
+        brightness: 255
+        color_temp: 200
+        rgb_color: [255,255,255]
+        transition: 5
+    - service: light.turn_on
+      data:
+        entity_id:
+         - light.porch_strip
+         - light.nightstand
+        brightness: 125
+        rgb_color: [255,255,255]
+        transition: 5
+    - service: alarm_control_panel.alarm_disarm
+    - service: notify.ben
+      data_template:
+        title: "Home"
+        message:  "BRUH is now set to home night" 
+- id: a_late_night
+  alias: "Late Night"
+  initial_state: True
+  hide_entity: False
+  trigger:
+    - platform: time
+      after: '22:00:00'
+  # condition:
+    # - condition: state
+      # entity_id: group.all_devices
+      # state: "home"
+  action:
+    - service: light.turn_on
+      data:
+        entity_id:
+         - light.front_door_right
+         - light.front_door_left
+         - light.back_door
+        brightness: 35
+        color_temp: 300
+        rgb_color: [255,255,255]
+        transition: 30
+- id: a_media_paused_night
+  alias: Media Paused Night
+  initial_state: True
+  hide_entity: True
+  trigger:
+    - platform: state
+      entity_id: media_player.living_room
+      state: "paused"
+    - platform: state
+      entity_id: media_player.kodi
+      state: "paused"
+  condition:
+    - condition: state
+      entity_id: input_boolean.media_lockout
+      state: "off"
+    - condition: sun
+      after: sunset
+      after_offset: "-1:00:00"
+  action:
+    - service: light.turn_on
+      data:
+        entity_id:
+         - light.sink
+        brightness: 50
+        color_temp: 196
+        rgb_color: [255,255,255]
+        transition: 15
+- id: a_media_playing_night
+  alias: Media Playing Night
+  initial_state: True
+  hide_entity: True
+  trigger:
+    - platform: state
+      entity_id: media_player.living_room
+      state: "playing"
+    - platform: state
+      entity_id: media_player.kodi
+      state: "playing"
+  condition:
+    - condition: state
+      entity_id: input_boolean.media_lockout
+      state: "off"
+    - condition: sun
+      after: sunset
+      after_offset: "-1:00:00"
+  action:
+    - service: light.turn_off
+      data:
+        entity_id:
+         - light.switch
+         - light.sink
+        transition: 15
+    - service: light.turn_on
+      data:
+        entity_id:
+         - light.wall
+        brightness: 125
+        color_temp: 200
+        rgb_color: [255,255,255]
+        transition: 15
+- id: a_media_stopped_night
+  alias: Media Stopped Night
+  initial_state: True
+  hide_entity: True
+  trigger:
+    - platform: state
+      entity_id: media_player.living_room
+      state: "off"
+    - platform: state
+      entity_id: media_player.kodi
+      state: "off"
+    - platform: state
+      entity_id: media_player.kodi
+      state: "idle"
+  condition:
+    - condition: state
+      entity_id: input_boolean.media_lockout
+      state: "off"
+    - condition: sun
+      after: sunset
+      after_offset: "-1:00:00"
+  action:
+    - service: light.turn_on
+      data:
+        entity_id:
+         - light.switch
+         - light.wall
+         - light.sink
+        brightness: 255
+        color_temp: 196
+        rgb_color: [255,255,255]
+        transition: 15
+- id: a_minimote_1_button_1_lp
+  alias: Minimote 1 Button 1 Long Press
+  initial_state: True
+  hide_entity: True
+  trigger:
+    - platform: event
+      event_type: zwave.scene_activated
+      event_data:
+        entity_id: aeotec_dsa03202_minimote_33
+        scene_id: 2
+  action:
+    - service: light.turn_off
+      data:
+        entity_id:
+         - light.megadesk
+         - light.boob_1
+         - light.boob_2
+        transition: 1
+- id: a_minimote_1_button_1_sp
+  alias: Minimote 1 Button 1 Short Press
+  initial_state: True
+  hide_entity: True
+  trigger:
+    - platform: event
+      event_type: zwave.scene_activated
+      event_data:
+        entity_id: aeotec_dsa03202_minimote_33
+        scene_id: 1
+  action:
+    - service: light.turn_on
+      data:
+        entity_id:
+         - light.megadesk
+         - light.boob_1
+         - light.boob_2
+        brightness: 255
+        color_temp: 200
+        rgb_color: [255,255,255]
+        transition: 1
+- id: a_minimote_1_button_2_lp
+  alias: Minimote 1 Button 2 Long Press
+  initial_state: True
+  hide_entity: True
+  trigger:
+    - platform: event
+      event_type: zwave.scene_activated
+      event_data:
+        entity_id: aeotec_dsa03202_minimote_33
+        scene_id: 4
+  action:
+    - service: light.turn_off
+      data:
+        entity_id:
+         - light.megadesk
+        transition: 1
+- id: a_minimote_1_button_2_sp
+  alias: Minimote 1 Button 2 Short Press
+  initial_state: True
+  hide_entity: True
+  trigger:
+    - platform: event
+      event_type: zwave.scene_activated
+      event_data:
+        entity_id: aeotec_dsa03202_minimote_33
+        scene_id: 3
+  action:
+    - service: light.turn_on
+      data:
+        entity_id:
+         - light.megadesk
+        brightness: 255
+        color_temp: 200
+        rgb_color: [255,255,255]
+        transition: 1
+- id: a_minimote_1_button_3_lp
+  alias: Minimote 1 Button 3 Long Press
+  initial_state: True
+  hide_entity: True
+  trigger:
+    - platform: event
+      event_type: zwave.scene_activated
+      event_data:
+        entity_id: aeotec_dsa03202_minimote_33
+        scene_id: 6
+  action:
+    - service: switch.turn_off
+      data:
+        entity_id:
+         - switch.monitor_light
+- id: a_minimote_1_button_3_sp
+  alias: Minimote 1 Button 3 Short Press
+  initial_state: True
+  hide_entity: True
+  trigger:
+    - platform: event
+      event_type: zwave.scene_activated
+      event_data:
+        entity_id: aeotec_dsa03202_minimote_33
+        scene_id: 5
+  action:
+    - service: switch.turn_on
+      data:
+        entity_id:
+         - switch.monitor_light
+- id: a_minimote_1_button_4_lp
+  alias: Minimote 1 Button 4 Long Press
+  initial_state: True
+  hide_entity: True
+  trigger:
+    - platform: event
+      event_type: zwave.scene_activated
+      event_data:
+        entity_id: aeotec_dsa03202_minimote_33
+        scene_id: 8
+  action:
+    - service: switch.turn_off
+      data:
+        entity_id:
+         - switch.wake_on_lan
+         - switch.fishstick
+         - switch.fan
+    - service: light.turn_off
+      data:
+        entity_id:
+         - light.megadesk
+         - light.boob_1
+         - light.boob_2
+        transition: 1
+- id: a_minimote_1_button_4_sp
+  alias: Minimote 1 Button 4 Short Press
+  initial_state: True
+  hide_entity: True
+  trigger:
+    - platform: event
+      event_type: zwave.scene_activated
+      event_data:
+        entity_id: aeotec_dsa03202_minimote_33
+        scene_id: 7
+  action:
+    - service: switch.turn_on
+      data:
+        entity_id:
+         - switch.wake_on_lan
+    - service: light.turn_on
+      data:
+        entity_id:
+         - light.megadesk
+         - light.boob_1
+         - light.boob_2
+        brightness: 255
+        color_temp: 200
+        rgb_color: [255,255,255]
+        transition: 1
+  
+- id: a_minimote_2_button_1_lp
+  alias: Minimote 2 Button 1 Long Press
+  initial_state: True
+  hide_entity: True
+  trigger:
+    - platform: event
+      event_type: zwave.scene_activated
+      event_data:
+        entity_id: aeotec_dsa03202_minimote_34
+        scene_id: 2
+  action:
+    - service: light.turn_off
+      data:
+        entity_id:
+         - light.megadesk
+- id: a_minimote_2_button_1_sp
+  alias: Minimote 2 Button 1 Short Press
+  initial_state: True
+  hide_entity: True
+  trigger:
+    - platform: event
+      event_type: zwave.scene_activated
+      event_data:
+        entity_id: aeotec_dsa03202_minimote_34
+        scene_id: 1
+  action:
+    - service: light.turn_on
+      data:
+        entity_id:
+         - light.switch
+         - light.wall
+         - light.sink
+         - light.front_door_right
+         - light.front_door_left
+         - light.back_door
+         - light.floor_lamp
+        brightness: 255
+        color_temp: 200
+        rgb_color: [255,255,255]
+        transition: 1
+- id: a_minimote_2_button_2_lp
+  alias: Minimote 2 Button 2 Long Press
+  initial_state: True
+  hide_entity: True
+  trigger:
+    - platform: event
+      event_type: zwave.scene_activated
+      event_data:
+        entity_id: aeotec_dsa03202_minimote_34
+        scene_id: 4
+  action:
+    - service: light.turn_off
+      data:
+        entity_id:
+         - light.switch
+         - light.wall
+         - light.sink
+- id: a_minimote_2_button_2_sp
+  alias: Minimote 2 Button 2 Short Press
+  initial_state: True
+  hide_entity: True
+  trigger:
+    - platform: event
+      event_type: zwave.scene_activated
+      event_data:
+        entity_id: aeotec_dsa03202_minimote_34
+        scene_id: 3
+  action:
+    - service: light.turn_on
+      data:
+        entity_id:
+         - light.megadesk
+         - light.boob_1
+         - light.boob_2
+        brightness: 255
+        color_temp: 287
+        rgb_color: [255,255,255]
+        transition: 1
+- id: a_minimote_2_button_3_lp
+  alias: Minimote 2 Button 3 Long Press
+  initial_state: True
+  hide_entity: True
+  trigger:
+    - platform: event
+      event_type: zwave.scene_activated
+      event_data:
+        entity_id: aeotec_dsa03202_minimote_34
+        scene_id: 6
+  action:
+    - service: tts.google_say
+      data:
+        entity_id: media_player.bedroom_home
+        message: "Ben your hair looks beautiful today"
+- id: a_minimote_2_button_3_sp
+  alias: Minimote 2 Button 3 Short Press
+  initial_state: True
+  hide_entity: True
+  trigger:
+    - platform: event
+      event_type: zwave.scene_activated
+      event_data:
+        entity_id: aeotec_dsa03202_minimote_34
+        scene_id: 5
+  action:
+    - service: switch.turn_on
+      data:
+        entity_id:
+         - switch.monitor_light
+- id: a_minimote_2_button_4_lp
+  alias: Minimote 2 Button 4 Long Press
+  initial_state: True
+  hide_entity: True
+  trigger:
+    - platform: event
+      event_type: zwave.scene_activated
+      event_data:
+        entity_id: aeotec_dsa03202_minimote_34
+        scene_id: 8
+  action:
+    - service: input_boolean.toggle
+      data:
+        entity_id: input_boolean.tv_power
+  
+- id: a_minimote_2_button_4_sp
+  alias: Minimote 2 Button 4 Short Press
+  initial_state: True
+  hide_entity: True
+  trigger:
+    - platform: event
+      event_type: zwave.scene_activated
+      event_data:
+        entity_id: aeotec_dsa03202_minimote_34
+        scene_id: 7
+  action:
+    - service: switch.turn_off
+      data:
+        entity_id:
+         - switch.monitor_light
+  
+- id: a_motion_lab_night
+  alias: "motion lights lab night"
+  initial_state: True
+  hide_entity: False
+  trigger:
+    - platform: state
+      entity_id: sensor.fibaro_multisensor_motion_template
+      state: "motion detected"
+  condition:
+    - condition: and
+      conditions:
+        - condition: state
+          entity_id: sun.sun
+          state: "below_horizon"
+        - condition: template
+          value_template: "{% if states('input_select.ben_status') != 'Sleeping' and states('input_select.cailin_status') != 'Sleeping' %} true {% else %}false{% endif %}"
+        - condition: state
+          entity_id: input_boolean.motion_lockout
+          state: "off"
+    - condition: or
+      conditions:
+        - condition: state
+          entity_id: light.boob_1
+          state: "off"
+        - condition: state
+          entity_id: light.boob_2
+          state: "off"
+  action:
+    - service: light.turn_on
+      data:
+        entity_id:
+          - light.boob_1
+          - light.boob_2
+          - light.megadesk
+        brightness: 255
+        color_temp: 200
+        rgb_color: [255,255,255]
+        transition: 1
+- id: a_motion_sleeping_night
+  alias: "motion sleeping night"
+  initial_state: True
+  hide_entity: False
+  trigger:
+    - platform: state
+      entity_id: sensor.fibaro_multisensor_motion_template
+      state: "motion detected"
+    - platform: state
+      entity_id: sensor.fibaro_door_sensor_template
+      from: "closed"
+      to: "open"
+    - platform: state
+      entity_id: binary_sensor.kitchen_occupancy
+      state: "On"
+    - platform: state
+      entity_id: binary_sensor.main_floor_occupancy
+      state: "On"
+    - platform: state
+      entity_id: sensor.xandem
+      state: 'motion detected'
+  condition:
+    - condition: state
+      entity_id: sun.sun
+      state: "below_horizon"
+    - condition: template
+      value_template: "{% if states('input_select.ben_status') == 'Sleeping' or states('input_select.cailin_status') == 'Sleeping' and now.hour <= 6 %} true {% elif states('input_select.ben_status') == 'Sleeping' and states('input_select.cailin_status') == 'Sleeping' %}true{% else %}false{% endif %}"
+    - condition: state
+      entity_id: input_boolean.motion_lockout
+      state: "off"
+  action:
+    service: script.motion_sleeping_night
+- id: a_presence_arm
+  alias: "Presence Armed"
+  initial_state: True
+  hide_entity: False
+  trigger:
+    - platform: state
+      entity_id: input_select.ben_status
+      state: "Away"
+    - platform: state
+      entity_id: input_select.cailin_status
+      state: "Away"
+  action:
+    - service: input_boolean.turn_on
+      entity_id: input_boolean.presence_armed
+- id: a_presence_disarm
+  alias: "Presence Disarmed"
+  initial_state: True
+  hide_entity: False
+  trigger:
+    - platform: state
+      entity_id: input_select.ben_status
+      state: "Home"
+    - platform: state
+      entity_id: input_select.cailin_status
+      state: "Home"
+  condition:
+    - condition: state
+      entity_id: input_select.ben_status
+      state: "Home"
+    - condition: state
+      entity_id: input_select.cailin_status
+      state: "Home"
+  action:
+    - delay:
+        seconds: 301
+    - service: input_boolean.turn_off
+      entity_id: input_boolean.presence_armed
+- id: a_sunrise
+  alias: "Sunrise"
+  initial_state: True
+  hide_entity: False
+  trigger:
+    platform: sun
+    event: sunrise
+  # condition:
+    # - condition: state
+      # entity_id: group.all_devices
+      # state: "home"
+  action:
+    - service: light.turn_off
+      data:
+        entity_id:
+         - light.front_door_right
+         - light.front_door_left
+         - light.back_door
+        transition: 30
+- id: a_sunrise_blinds
+  alias: "Sunrise Blinds"
+  initial_state: True
+  hide_entity: False
+  trigger:
+    platform: sun
+    event: sunrise
+  # condition:
+    # - condition: state
+      # entity_id: group.all_devices
+      # state: "home"
+  action:
+    - service: cover.open_cover_tilt
+      data:
+        entity_id:
+         - cover.blinds1
+- id: a_sunset
+  alias: "Sunset"
+  initial_state: True
+  hide_entity: False
+  trigger:
+    platform: sun
+    event: sunset
+    offset: "-1:00:00"
+  # condition:
+    # - condition: state
+      # entity_id: group.all_devices
+      # state: "home"
+  action:
+    - service: light.turn_on
+      data:
+        entity_id:
+         - light.switch
+         - light.wall
+         - light.sink
+         - light.front_door_right
+         - light.front_door_left
+         - light.back_door
+         - light.floor_lamp
+        brightness: 255
+        color_temp: 196
+        rgb_color: [255,255,255]
+        transition: 300
+    - service: light.turn_on
+      data:
+        entity_id:
+         - light.front_door_right
+         - light.front_door_left
+         - light.back_door
+        brightness: 195
+        color_temp: 300
+        rgb_color: [255,255,255]
+        transition: 300
+- id: a_sunset_blinds
+  alias: "Sunset Blinds"
+  initial_state: True
+  hide_entity: False
+  trigger:
+    platform: sun
+    event: sunset
+    offset: "-1:00:00"
+  # condition:
+    # - condition: state
+      # entity_id: group.all_devices
+      # state: "home"
+  action:
+    - service: cover.close_cover_tilt
+      data:
+        entity_id:
+         - cover.blinds1
+- id: a_tv_power
+  alias: "TV power"
+  initial_state: True
+  hide_entity: False
+  trigger:
+    - platform: state
+      entity_id: input_boolean.tv_power
+      state: "on"
+    - platform: state
+      entity_id: input_boolean.tv_power
+      state: "off"
+  action:
+    - service_template: >
+        {% if is_state('input_boolean.tv_power', 'on') %}
+          hdmi_cec.power_on
+        {% elif is_state('input_boolean.tv_power', 'off') %}
+          hdmi_cec.standby
+        {% endif %}
+    - service: input_select.select_option
+      data_template:
+        entity_id: input_select.avr_input
+        option: > 
+          {% if is_state('input_boolean.tv_power', 'off') %}
+            Standby
+          {% endif %}
+- id: a_vacation_night
+  alias: "Vacation Nightime"
+  initial_state: False
+  hide_entity: False
+  trigger:
+    - platform: time
+      after: '22:00:00'
+  # condition:
+    # - condition: state
+      # entity_id: group.all_devices
+      # state: "home"
+  action:
+    - service: light.turn_off
+      data:
+        entity_id:
+         - light.switch
+         - light.wall
+         - light.sink
+         - light.floor_lamp
+        transition: 30
+  

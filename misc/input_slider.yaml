@@ -10,9 +10,17 @@ jar_animation_speed:
   min: 1
   max: 150
   step: 10
-blind_tilt:
-  name: Blind Tilt
+alarmhour:
+  name: Hour
+  icon: mdi:timer
+  initial: 9
+  min: 0
+  max: 23
+  step: 1
+alarmminutes:
+  name: Minutes
+  icon: mdi:timer
   initial: 0
   min: 0
-  max: 100
-  step: 10
+  max: 59
+  step: 5

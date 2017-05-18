@@ -1,0 +1,5 @@
+platform: mqtt
+state_topic: "bruh/blind1/cover/sensor"
+name: "Blinds1 Motionx"
+##unit_of_measurement:
+value_template: '{{ value_json.motionx }}'

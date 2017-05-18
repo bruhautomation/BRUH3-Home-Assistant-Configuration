@@ -29,7 +29,7 @@ presence_armed:
   name: Presence Armed
   initial: off
   icon: mdi:account-multiple
-alarm_clock:
-  name: Alarm Clock
+alarmweekday:
+  name: Weekdays Only
   initial: off
-  icon: mdi:alarm
+  icon: mdi:calendar

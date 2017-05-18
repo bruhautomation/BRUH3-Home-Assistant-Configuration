@@ -14,10 +14,13 @@
       - weblink.xandem_cloud
 
   alarm_clock_card:
-    name: Alarm Control
-    entities:
-      - input_select.alarm_clock_time
-      - input_boolean.alarm_clock
+    name: Alarm Clock
+    entities: 
+      - automation.alarm_clock
+      - sensor.alarm_time
+      - input_slider.alarmhour
+      - input_slider.alarmminutes
+      - input_boolean.alarmweekday
 
   arlo_card:
     name: Arlo Status
@@ -38,10 +41,11 @@
       - sensor.bathroom_humidity
       - sensor.aeotec_zw100_multisensor_6_burglar_5_10
       - sensor.aeotec_multisensor_motion_template
-      - sensor.aeotec_zw100_multisensor_6_luminance_5_3
-      - sensor.aeotec_zw100_multisensor_6_relative_humidity_5_5
-      - sensor.aeotec_zw100_multisensor_6_temperature_5_1
-      - sensor.aeotec_zw100_multisensor_6_ultraviolet_5_27
+      - sensor.__luminance_5_3
+      - sensor.__humidity_5_5
+      - sensor.__temperature_5_1
+      - sensor.__relative_humidity_5_5
+      - sensor.__ultraviolet_5_27
 
   bathroom_lights_card:
     name: Bathroom Lights
@@ -67,6 +71,9 @@
     name: Blinds1 Card
     entities:
       - sensor.blinds1_tilt
+      - sensor.blinds1_motionx
+      - sensor.blinds1_motiony
+      - sensor.blinds1_motionz
       - cover.blinds1
       - input_slider.blind_tilt
 
@@ -101,12 +108,24 @@
   family_locations_card:
     name: Family Locations
     entities:
+      - script.owntracks_update
       - device_tracker.bruh_ben6p
       - device_tracker.1b80727c35c89cb9
       - input_select.ben_status
-      - sensor.ben_n6p_battery
       - device_tracker.bruh_cailin6p
       - input_select.cailin_status
+
+  ben_phone_sensors:
+    name: Ben's Phone Sensor
+    entities:
+      - sensor.b6p_audio_connections
+      - sensor.b6p_video_connections
+      - sensor.ben_n6p_battery
+
+  cailin_phone_sensors:
+    name: Cailin's Phone Sensor
+      - sensor.c6p_audio_connections
+      - sensor.c6p_video_connections
       - sensor.cailin_n6p_battery
 
   fibaro_multisensor_card:
@@ -117,6 +136,14 @@
       - sensor.fibaro_system_fgms001zw5_motion_sensor_luminance_6_3
       - sensor.fibaro_system_fgms001zw5_motion_sensor_temperature_6_1
       - sensor.fibaro_system_fgms001zw5_motion_sensor_seismic_intensity_6_25
+
+  global_scenes_card:
+    name: Global Scenes
+    entities:
+      - script.lights_all_off
+      - script.lights_all_on
+      - script.bedtime
+      - script.goodmorning
       
   humidity_card:
     name: Humidities
@@ -125,6 +152,7 @@
       - sensor.upstairs_humidity
       - sensor.sn1_humidity
       - sensor.aeotec_zw100_multisensor_6_relative_humidity_5_5
+      - sensor.__relative_humidity_5_5
       - sensor.owm_humidity
 
   kitchen_lights_card:
@@ -231,7 +259,12 @@
       - sensor.sn1_ldr
       - sensor.sn1_pir
       - light.sn1_led
-      
+
+  sense_card:
+     - sensor.sense_water_heater
+     - sensor.sense_washer
+     - sensor.sense_dryer
+
   strip_cord_card:
     name: Strip Cords
     entities:
@@ -286,6 +319,13 @@
       - sensor.owm_wind_speed
       - weather.openweathermap
 
+  time_card:
+      - sensor.time
+      - sensor.time__date
+      - sensor.time_utc
+      - sensor.date
+      - sensor.date__time
+
   tracker_ble_happy_bubbles_card:
     name: BLE Tracker - Happy Bubbles 
     entities:
@@ -309,6 +349,7 @@
       - group.bedroom_lights_card
       - group.bathroom_lights_card
       - group.bedroom_sensors_card
+      - group.alarm_clock_card
       - media_player.bedroom_home
 
   climate_view:
@@ -328,8 +369,9 @@
     entities:
       - device_tracker.b6p
       - device_tracker.1b80727c35c89cb9
-      - group.alarm_clock_card
       - group.family_locations_card
+      - group.ben_phone_sensors
+      - group.cailin_phone_sensors
       - group.time_travel_card
       - group.family_location_card
       - group.tracker_ble_happy_bubbles_card
@@ -369,17 +411,6 @@
       - media_player.living_room
       - media_player.kodi
 
-  media_view:
-    name: Media Players
-    view: yes
-    entities:
-      - media_player.bedroom_home
-      - media_player.kitchen_home
-      - media_player.lab
-      - media_player.living_room
-      - media_player.kodi
-      - media_player.everything
-
   outside_view:
     name: Outside
     view: yes
@@ -387,6 +418,8 @@
       - group.outside_lights_backdoor_card
       - group.outside_lights_frontdoor_card
       - group.porch_led_strip_card
+      - group.aeotec_multisensor_card
+      - group.aeotec_multisensor_card
 
   security_view:
     name: Security
@@ -412,15 +445,9 @@
       - group.all_scripts
       - group.all_devices
 
-  # default_view:
-    # view: yes
-    # entities:
-      # - group.alarm_control_card
-      # - group.alarm_clock_card
-      # - group.bedroom_lights_card
-      # - group.kitchen_lights_card
-      # - group.lab_lights_card
-      # - group.living_room_lights_card
-      # - group.outside_lights_backdoor_card
-      # - group.outside_lights_frontdoor_card
-      # - group.kitchen_lights_card
+  default_view:
+    view: yes
+    entities:
+      - group.alarm_control_card
+      - group.global_scenes_card
+      - group.system_sensors_card

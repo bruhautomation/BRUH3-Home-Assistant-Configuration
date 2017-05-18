@@ -1,0 +1,5 @@
+platform: template
+sensors:
+  alarm_time:
+    friendly_name: 'Set Time'
+    value_template: '{{ "%0.02d:%0.02d" | format(states("input_slider.alarmhour") | int, states("input_slider.alarmminutes") | int) }}'

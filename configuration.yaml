@@ -76,7 +76,7 @@ emulated_hue:
   exposed_domains:
     - light
     - switch
-    - group
+    - cover
 
 ecobee:
   api_key: !secret ecobee_api
@@ -108,15 +108,24 @@ cover:
           password:  !secret garadget_password
           name:  Garage Door
   - platform: mqtt
-    state_topic: "bruh/blind1/cover"
-    command_topic: "bruh/blind1/cover/set"
+    state_topic: "bruh/blind1/cover/state"
+    command_topic: "bruh/blind1/cover/command"
     name: "blinds1"
-    payload_open: '{"state": "open"}'
-    payload_close:  '{"state": "close"}'
-    payload_stop: '{"state": "stop"}'
-    state_open: '{"state": "open"}'
-    state_closed: '{"state": "close"}'
-    optimistic: true
+    qos: 0
+    retain: true
+    payload_open: "OPEN"
+    payload_close: "CLOSE"
+    payload_stop: "STOP"
+    state_open: "OPEN"
+    state_closed: "CLOSE"
+    optimistic: false
+    value_template: '{{ value }}'
+    tilt_command_topic: "bruh/blind1/cover/tilt"
+    tilt_state_topic: "bruh/blind1/cover/tilt-status"
+    tilt_min : 0
+    tilt_max: 200
+    tilt_opened_value : 100
+    tilt_closed_value : 0
 
 hdmi_cec:
   platform: media_player
@@ -148,18 +157,20 @@ light: !include_dir_list lights/
 shell_command: !include misc/shell_commands.yaml
 switch: !include_dir_list switches/
 script: !include_dir_merge_named scripts/
-automation: !include_dir_list automations/
+##automation: !include_dir_list automations/
 group: !include groups.yaml
 weather: !include_dir_list weather/
 weblink: !include misc/weblinks.yaml
 zone: !include_dir_list zones/
 camera: !include_dir_list cameras/
 
+#image_processing:
+#  - platform: dlib_face_detect
+#    source:
+#     - entity_id: camera.octoprint
 
 alarm_control_panel:
   - platform: manual
-
-config:
 
 android_ip_webcam:
   # This should be the ip of your phone
@@ -167,3 +178,6 @@ android_ip_webcam:
     name: B6P
     username: !secret B6P_username
     password: !secret B6P_password
+
+automation: !include automations.yaml
+config:
