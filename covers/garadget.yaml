@@ -1,0 +1,6 @@
+platform: garadget
+covers:
+    !secret garadget_id:
+      username:  !secret garadget_username
+      password:  !secret garadget_password
+      name:  Garage Door

@@ -8,7 +8,7 @@
       icon: mdi:printer-3d
     switch.wemo_insight:
       icon: mdi:printer-3d
-      friendly_name: 3D Printer
+      friendly_name: Hictop
     binary_sensor.octoprint_printing:
       hidden: yes
     binary_sensor.octoprint_printing_error:
@@ -39,7 +39,10 @@
       friendly_name: Monitor Light
       icon: mdi:led-outline
     switch.strip_cord_3:
-      friendly_name: Box Light
+      friendly_name: Party Light
+      icon: mdi:alarm-light
+    switch.strip_cord_2:
+      friendly_name: Work Lights
       icon: mdi:led-outline
     switch.fishstick:
       friendly_name: FishStick
@@ -168,7 +171,7 @@
     zwave.ge_12730_fan_control_switch_37:
       friendly_name: "Living Room Fan Status"
       hidden: yes
-    light.ge_12730_fan_control_switch_level_37_0:
+    fan.ge_12730_fan_control_switch_level_37_0:
       friendly_name: "Living Room Fan"
       icon: mdi:fan
 
@@ -267,3 +270,7 @@
     sensor.time:
       friendly_name: "Current Time"
       icon: mdi:clock
+
+    switch.strip_cord:
+      friendly_name: Mini
+      icon: mdi:printer-3d

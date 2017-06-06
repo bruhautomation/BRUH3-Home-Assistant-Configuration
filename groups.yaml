@@ -34,9 +34,16 @@
       - script.arlo_record_porch
       - script.arlo_record_crate
       - script.arlo_record_back_yard
+      - sensor.arlo_cameras
+      - sensor.last_porch
+      - sensor.last_crate
+      - sensor.last_back_yard
+      - sensor.captured_today_back_yard
+      - sensor.captured_today_crate
+      - sensor.captured_today_porch
 
   aeotec_multisensor_card:
-    name: Aeotec Multisensor
+    name: Shed
     entities:
       - sensor.bathroom_humidity
       - sensor.aeotec_zw100_multisensor_6_burglar_5_10
@@ -56,7 +63,6 @@
     name: Bedroom Lights
     entities:
       - light.floor_lamp
-      - light.nightstand_lamp
       - light.nightstand
       - input_slider.jar_animation_speed
 
@@ -71,9 +77,7 @@
     name: Blinds1 Card
     entities:
       - sensor.blinds1_tilt
-      - sensor.blinds1_motionx
-      - sensor.blinds1_motiony
-      - sensor.blinds1_motionz
+      - sensor.blinds1_motion
       - cover.blinds1
       - input_slider.blind_tilt
 
@@ -111,9 +115,32 @@
       - script.owntracks_update
       - device_tracker.bruh_ben6p
       - device_tracker.1b80727c35c89cb9
+      - sensor.find_ben_time
+      - sensor.find_ben
       - input_select.ben_status
       - device_tracker.bruh_cailin6p
       - input_select.cailin_status
+      - sensor.find_cailin_time
+      - sensor.find_cailin
+
+  ben_locations_card:
+    name: Ben Location
+    entities:
+      - script.owntracks_update
+      - device_tracker.bruh_ben6p
+      - device_tracker.1b80727c35c89cb9
+      - sensor.find_ben_time
+      - sensor.find_ben
+      - input_select.ben_status
+
+  cailin_locations_card:
+    name: Cailin Location
+    entities:
+      - script.owntracks_update
+      - device_tracker.bruh_cailin6p
+      - input_select.cailin_status
+      - sensor.find_cailin_time
+      - sensor.find_cailin
 
   ben_phone_sensors:
     name: Ben's Phone Sensor
@@ -168,6 +195,7 @@
     entities:
       - sensor.kitchen_temperature
       - binary_sensor.kitchen_occupancy
+      - sensor.back_door_sensor_template
 
   motion_card:
     name: Motion Detectors
@@ -184,8 +212,9 @@
       - light.boob_1
       - light.boob_2
       - light.megadesk
+      - light.silver_lamp
       - switch.monitor_light
-      - switch.strip_cord_3
+      - switch.strip_cord_2
 
   lab_switches_card:
     name: Lab Switches
@@ -207,11 +236,20 @@
       - light.wall
       - light.leviton_unknown_type3201_id0001_level_48_0
       - light.leviton_unknown_type3201_id0001_level_49_0
+      - switch.strip_cord_3
 
   living_room_devices_card:
     name: Living Room Devices
     entities:
-      - light.ge_12730_fan_control_switch_level_37_0
+      - fan.ge_12730_fan_control_switch_level_37_0
+
+  living_room_sensors:
+    name: Living Room Sensors
+    entities:
+      - binary_sensor.main_floor_occupancy
+      - sensor.main_floor_temperature
+      - sensor.main_floor_humidity
+      - sensor.front_door_sensor_template
 
   media_equipment_card:
     name: Media Equipment
@@ -227,6 +265,7 @@
     name: 3D Printer Status
     entities:
       - switch.wemo_insight
+      - switch.strip_cord
       - sensor.octoprint_current_state
       - binary_sensor.octoprint_printing
       - binary_sensor.octoprint_printing_error
@@ -261,15 +300,18 @@
       - light.sn1_led
 
   sense_card:
+    name: Sense
+    entities:
      - sensor.sense_water_heater
      - sensor.sense_washer
      - sensor.sense_dryer
-
-  strip_cord_card:
-    name: Strip Cords
-    entities:
-      - switch.strip_cord
-      - switch.strip_cord_2
+     - sensor.sense_oven
+     - sensor.sense_stove
+     - sensor.sense_ac
+     - sensor.sense_refrigerator_light
+     - sensor.sense_refrigerator_water_pump
+     - sensor.sense_refrigerator
+     - sensor.sense_disposal
 
   system_lockouts_card:
     name: System Lockouts
@@ -351,6 +393,7 @@
       - group.bedroom_sensors_card
       - group.alarm_clock_card
       - media_player.bedroom_home
+      - camera.crate
 
   climate_view:
     name: Climate
@@ -367,15 +410,12 @@
     name: Family
     view: yes
     entities:
-      - device_tracker.b6p
-      - device_tracker.1b80727c35c89cb9
-      - group.family_locations_card
       - group.ben_phone_sensors
       - group.cailin_phone_sensors
       - group.time_travel_card
-      - group.family_location_card
+      - group.ben_locations_card
+      - group.cailin_locations_card
       - group.tracker_ble_happy_bubbles_card
-      - automation.ble_beacon_test
 
   kitchen_view:
     name: Kitchen
@@ -383,7 +423,8 @@
     entities: 
       - group.kitchen_lights_card
       - group.kitchen_sensors
-      - group.laundry_sensors
+      - group.laundry_card
+      - group.sense_card
       - media_player.kitchen_home
 
   lab_view:
@@ -407,6 +448,7 @@
     entities: 
       - group.living_room_lights_card
       - group.living_room_devices_card
+      - group.living_room_sensors
       - group.media_equipment_card
       - media_player.living_room
       - media_player.kodi
@@ -420,6 +462,8 @@
       - group.porch_led_strip_card
       - group.aeotec_multisensor_card
       - group.aeotec_multisensor_card
+      - camera.porch
+      - camera.back_yard
 
   security_view:
     name: Security
@@ -434,20 +478,20 @@
     name: Admin
     view: yes
     entities:
-      - group.all_switches
       - group.system_lockouts_card
       - group.system_sensors_card
       - group.all_switches
       - group.input_boolean
+      - group.all_switches
       - group.all_automations
       - group.all_covers
       - group.all_lights
       - group.all_scripts
       - group.all_devices
 
-  default_view:
-    view: yes
-    entities:
-      - group.alarm_control_card
-      - group.global_scenes_card
-      - group.system_sensors_card
+#  default_view:
+#    view: yes
+#    entities:
+#      - group.alarm_control_card
+#      - group.global_scenes_card
+#      - group.system_sensors_card

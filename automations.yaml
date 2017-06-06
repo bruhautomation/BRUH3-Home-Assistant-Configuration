@@ -49,7 +49,7 @@
           actions:
           - action: "turn_off_alarm"
             title: "Turn Off Alarm"
-    - service: light.turn_on
+    - service: light.lifx_set_state
       data:
         entity_id:
          - light.floor_lamp
@@ -77,11 +77,12 @@
       data:
         title: "Alarm Clock Off"
         message: "Have a great day!"
-    - service: light.turn_off
+    - service: light.lifx_set_state
       data:
         entity_id:
          - light.floor_lamp
         transition: 2
+        power: off
 - id: a_alarm_escalated
   alias: Alarm Escalate Automation
   initial_state: True
@@ -136,7 +137,7 @@
           actions:
           - action: "activate_siren"
             title: "activate siren"
-    - service: light.turn_on
+    - service: light.lifx_set_state
       data:
         entity_id:
          - light.switch
@@ -149,7 +150,7 @@
         brightness: 255
         color_temp: 196
         rgb_color: [255,0,0]
-    - service: light.turn_on
+    - service: light.lifx_set_state
       data:
         entity_id:
          - light.jar_leds_template
@@ -294,7 +295,7 @@
       entity_id: input_boolean.presence_lockout
       state: "off"
   action:
-    - service: light.turn_off
+    - service: light.lifx_set_state
       data:
         entity_id:
          - group.lab_lights_card
@@ -302,6 +303,7 @@
          - group.bedroom_lights_card
          - group.bathroom_lights_card
         transition: 15
+        power: off
     - service: switch.turn_off
       data:
         entity_id:
@@ -364,7 +366,7 @@
         entity_id: sun.sun
         state: "below_horizon"
   action:
-    - service: light.turn_on
+    - service: light.lifx_set_state
       data:
         entity_id:
          - light.front_door_right
@@ -372,7 +374,7 @@
          - light.back_door
         brightness: 255
         color_temp: 200
-        rgb_color: [255,255,255]
+        power: on
         transition: 5
     - service: notify.ben
       data_template:
@@ -430,27 +432,30 @@
       data_template:
         title: "iBeacon Update"
         message: "{{trigger.to_state.name}} has moved and is currently in the {{trigger.to_state.state}}"
-    - service: light.turn_on
+    - service: light.lifx_set_state
       data:
         entity_id: light.megadesk
         brightness: 255
         rgb_color: [255,0,0]
     - delay: 00:00:01
-    - service: light.turn_off
+    - service: light.lifx_set_state
       data:
         entity_id: light.megadesk
-    - service: light.turn_on
+        power: off
+    - service: light.lifx_set_state
       data:
         entity_id: light.megadesk
         brightness: 255
         rgb_color: [255,0,0]
     - delay: 00:00:01
-    - service: light.turn_off
+    - service: light.lifx_set_state
       data:
         entity_id: light.megadesk
-    - service: light.turn_off
+        power: off
+    - service: light.lifx_set_state
       data:
         entity_id: light.floor_lamp
+        power: off
 - id: a_blind1toggle
   alias: "Bilnd1 Motion"
   initial_state: True
@@ -516,7 +521,7 @@
     platform: event
     event_type: image_processing.detect_face
   action:
-    - service: light.turn_on
+    - service: light.lifx_set_state
       data:
         entity_id:
          - light.boob1
@@ -656,7 +661,7 @@
         - condition: template
           value_template: '{% if as_timestamp(now()) - as_timestamp(states.input_select.ben_status.last_changed) < 300 and as_timestamp(now()) - as_timestamp(states.input_select.cailin_status.last_changed) < 300 %}true{% else %}false{% endif %}'
   action:
-    - service: light.turn_on
+    - service: light.lifx_set_state
       data:
         entity_id:
          - light.switch
@@ -668,15 +673,15 @@
          - light.floor_lamp
         brightness: 255
         color_temp: 200
-        rgb_color: [255,255,255]
+        power: on
         transition: 5
-    - service: light.turn_on
+    - service: light.lifx_set_state
       data:
         entity_id:
          - light.porch_strip
          - light.nightstand
         brightness: 125
-        rgb_color: [255,255,255]
+        power: on
         transition: 5
     - service: alarm_control_panel.alarm_disarm
     - service: notify.ben
@@ -695,7 +700,7 @@
       # entity_id: group.all_devices
       # state: "home"
   action:
-    - service: light.turn_on
+    - service: light.lifx_set_state
       data:
         entity_id:
          - light.front_door_right
@@ -703,7 +708,7 @@
          - light.back_door
         brightness: 35
         color_temp: 300
-        rgb_color: [255,255,255]
+        power: on
         transition: 30
 - id: a_media_paused_night
   alias: Media Paused Night
@@ -724,13 +729,13 @@
       after: sunset
       after_offset: "-1:00:00"
   action:
-    - service: light.turn_on
+    - service: light.lifx_set_state
       data:
         entity_id:
          - light.sink
         brightness: 50
         color_temp: 196
-        rgb_color: [255,255,255]
+        power: on
         transition: 15
 - id: a_media_playing_night
   alias: Media Playing Night
@@ -751,19 +756,20 @@
       after: sunset
       after_offset: "-1:00:00"
   action:
-    - service: light.turn_off
+    - service: light.lifx_set_state
       data:
         entity_id:
          - light.switch
          - light.sink
         transition: 15
-    - service: light.turn_on
+        power: off
+    - service: light.lifx_set_state
       data:
         entity_id:
          - light.wall
         brightness: 125
         color_temp: 200
-        rgb_color: [255,255,255]
+        power: on
         transition: 15
 - id: a_media_stopped_night
   alias: Media Stopped Night
@@ -787,7 +793,7 @@
       after: sunset
       after_offset: "-1:00:00"
   action:
-    - service: light.turn_on
+    - service: light.lifx_set_state
       data:
         entity_id:
          - light.switch
@@ -795,7 +801,7 @@
          - light.sink
         brightness: 255
         color_temp: 196
-        rgb_color: [255,255,255]
+        power: on
         transition: 15
 - id: a_minimote_1_button_1_lp
   alias: Minimote 1 Button 1 Long Press
@@ -808,13 +814,14 @@
         entity_id: aeotec_dsa03202_minimote_33
         scene_id: 2
   action:
-    - service: light.turn_off
+    - service: light.lifx_set_state
       data:
         entity_id:
          - light.megadesk
          - light.boob_1
          - light.boob_2
         transition: 1
+        power: off
 - id: a_minimote_1_button_1_sp
   alias: Minimote 1 Button 1 Short Press
   initial_state: True
@@ -826,7 +833,7 @@
         entity_id: aeotec_dsa03202_minimote_33
         scene_id: 1
   action:
-    - service: light.turn_on
+    - service: light.lifx_set_state
       data:
         entity_id:
          - light.megadesk
@@ -834,7 +841,7 @@
          - light.boob_2
         brightness: 255
         color_temp: 200
-        rgb_color: [255,255,255]
+        power: on
         transition: 1
 - id: a_minimote_1_button_2_lp
   alias: Minimote 1 Button 2 Long Press
@@ -847,11 +854,12 @@
         entity_id: aeotec_dsa03202_minimote_33
         scene_id: 4
   action:
-    - service: light.turn_off
+    - service: light.lifx_set_state
       data:
         entity_id:
          - light.megadesk
         transition: 1
+        power: off
 - id: a_minimote_1_button_2_sp
   alias: Minimote 1 Button 2 Short Press
   initial_state: True
@@ -863,13 +871,13 @@
         entity_id: aeotec_dsa03202_minimote_33
         scene_id: 3
   action:
-    - service: light.turn_on
+    - service: light.lifx_set_state
       data:
         entity_id:
          - light.megadesk
         brightness: 255
         color_temp: 200
-        rgb_color: [255,255,255]
+        power: on
         transition: 1
 - id: a_minimote_1_button_3_lp
   alias: Minimote 1 Button 3 Long Press
@@ -918,13 +926,14 @@
          - switch.wake_on_lan
          - switch.fishstick
          - switch.fan
-    - service: light.turn_off
+    - service: light.lifx_set_state
       data:
         entity_id:
          - light.megadesk
          - light.boob_1
          - light.boob_2
         transition: 1
+        power: off
 - id: a_minimote_1_button_4_sp
   alias: Minimote 1 Button 4 Short Press
   initial_state: True
@@ -940,7 +949,7 @@
       data:
         entity_id:
          - switch.wake_on_lan
-    - service: light.turn_on
+    - service: light.lifx_set_state
       data:
         entity_id:
          - light.megadesk
@@ -948,7 +957,7 @@
          - light.boob_2
         brightness: 255
         color_temp: 200
-        rgb_color: [255,255,255]
+        power: on
         transition: 1
   
 - id: a_minimote_2_button_1_lp
@@ -962,10 +971,11 @@
         entity_id: aeotec_dsa03202_minimote_34
         scene_id: 2
   action:
-    - service: light.turn_off
+    - service: light.lifx_set_state
       data:
         entity_id:
          - light.megadesk
+        power: off
 - id: a_minimote_2_button_1_sp
   alias: Minimote 2 Button 1 Short Press
   initial_state: True
@@ -977,7 +987,7 @@
         entity_id: aeotec_dsa03202_minimote_34
         scene_id: 1
   action:
-    - service: light.turn_on
+    - service: light.lifx_set_state
       data:
         entity_id:
          - light.switch
@@ -989,7 +999,7 @@
          - light.floor_lamp
         brightness: 255
         color_temp: 200
-        rgb_color: [255,255,255]
+        power: on
         transition: 1
 - id: a_minimote_2_button_2_lp
   alias: Minimote 2 Button 2 Long Press
@@ -1002,12 +1012,13 @@
         entity_id: aeotec_dsa03202_minimote_34
         scene_id: 4
   action:
-    - service: light.turn_off
+    - service: light.lifx_set_state
       data:
         entity_id:
          - light.switch
          - light.wall
          - light.sink
+        power: off
 - id: a_minimote_2_button_2_sp
   alias: Minimote 2 Button 2 Short Press
   initial_state: True
@@ -1019,7 +1030,7 @@
         entity_id: aeotec_dsa03202_minimote_34
         scene_id: 3
   action:
-    - service: light.turn_on
+    - service: light.lifx_set_state
       data:
         entity_id:
          - light.megadesk
@@ -1027,7 +1038,7 @@
          - light.boob_2
         brightness: 255
         color_temp: 287
-        rgb_color: [255,255,255]
+        power: on
         transition: 1
 - id: a_minimote_2_button_3_lp
   alias: Minimote 2 Button 3 Long Press
@@ -1118,7 +1129,7 @@
           entity_id: light.boob_2
           state: "off"
   action:
-    - service: light.turn_on
+    - service: light.lifx_set_state
       data:
         entity_id:
           - light.boob_1
@@ -1126,7 +1137,7 @@
           - light.megadesk
         brightness: 255
         color_temp: 200
-        rgb_color: [255,255,255]
+        power: on
         transition: 1
 - id: a_motion_sleeping_night
   alias: "motion sleeping night"
@@ -1209,13 +1220,14 @@
       # entity_id: group.all_devices
       # state: "home"
   action:
-    - service: light.turn_off
+    - service: light.lifx_set_state
       data:
         entity_id:
          - light.front_door_right
          - light.front_door_left
          - light.back_door
         transition: 30
+        power: off
 - id: a_sunrise_blinds
   alias: "Sunrise Blinds"
   initial_state: True
@@ -1245,7 +1257,7 @@
       # entity_id: group.all_devices
       # state: "home"
   action:
-    - service: light.turn_on
+    - service: light.lifx_set_state
       data:
         entity_id:
          - light.switch
@@ -1257,9 +1269,9 @@
          - light.floor_lamp
         brightness: 255
         color_temp: 196
-        rgb_color: [255,255,255]
+        power: on
         transition: 300
-    - service: light.turn_on
+    - service: light.lifx_set_state
       data:
         entity_id:
          - light.front_door_right
@@ -1267,7 +1279,7 @@
          - light.back_door
         brightness: 195
         color_temp: 300
-        rgb_color: [255,255,255]
+        power: on
         transition: 300
 - id: a_sunset_blinds
   alias: "Sunset Blinds"
@@ -1318,12 +1330,8 @@
   trigger:
     - platform: time
       after: '22:00:00'
-  # condition:
-    # - condition: state
-      # entity_id: group.all_devices
-      # state: "home"
   action:
-    - service: light.turn_off
+    - service: light.lifx_set_state
       data:
         entity_id:
          - light.switch
@@ -1331,4 +1339,21 @@
          - light.sink
          - light.floor_lamp
         transition: 30
-  
+        power: off
+- id: a_megadesk_work_light
+  alias: "Megadesk Work Light"
+  initial_state: True
+  hide_entity: False
+  trigger:
+    - platform: state
+      entity_id: switch.strip_cord_2
+      state: 'on'
+  action:
+    - service: light.lifx_set_state
+      data:
+        entity_id:
+         - light.megadesk
+        transition: 1
+        power: on
+        brightness: 255
+        color_temp: 222

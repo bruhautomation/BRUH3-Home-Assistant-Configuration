@@ -21,39 +21,41 @@ http:
   use_x_forwarded_for: True
   trusted_networks:
     - !secret trusted_ip
+    - !secret trusted_ip_2
   ip_ban_enabled: True
   login_attempts_threshold: 5
 
-updater:
+alarm_control_panel:
+  - platform: manual
 
-discovery:
-
-media_player:
-  - platform: cast
-  - platform: kodi
-    host: !secret kodi_ip
+config:
 
 conversation:
 
-history:
+device_tracker:
+  - platform: owntracks
+  - platform: locative
+  - platform: nmap_tracker
+    hosts: !secret nmap_ip
+  - platform: netgear
+    host: !secret router_IP
+    username: !secret router_account
+    password: !secret router_password
+    port: !secret router_port
 
-recorder:
-  purge_days: 7
+discovery:
+
+history:
 
 logbook:
 
 logger:
   default: info
 
-ifttt:
-  key: !secret ifttt_api
-
-sun:
-
-zwave:
-  usb_path: /dev/ttyACM0
-  config_path: /srv/homeassistant/src/python-openzwave/openzwave/config
-  device_config: !include zwave_device_config.yaml
+media_player:
+  - platform: cast
+  - platform: kodi
+    host: !secret kodi_ip
 
 mqtt:
   broker: !secret mqtt_broker_ip
@@ -64,23 +66,6 @@ mqtt:
   discovery: true
   discovery_prefix: homeassistant
 
-octoprint:
-  host: !secret octoprint_ip
-  api_key: !secret octoprint_api
-
-emulated_hue:
-  type: google_home
-  listen_port: 80
-  host_ip: !secret pi_ip
-  expose_by_default: true
-  exposed_domains:
-    - light
-    - switch
-    - cover
-
-ecobee:
-  api_key: !secret ecobee_api
-
 notify:
   - name: ecobee
     platform: ecobee
@@ -88,6 +73,27 @@ notify:
     platform: html5
     gcm_api_key: !secret ben_gcm_api_key
     gcm_sender_id: !secret ben_gcm_sender_id
+
+panel_iframe:
+  configurator:
+    title: Editor
+    icon: mdi:wrench
+    url: https://hassbian.local:3218
+
+recorder:
+  purge_days: 7
+  
+sun:
+
+updater:
+
+tts:
+  - platform: google
+
+zwave:
+  usb_path: /dev/ttyACM0
+  config_path: /srv/homeassistant/src/python-openzwave/openzwave/config
+  device_config: !include zwave_device_config.yaml
 
 #### Not in Use Because of HTTPS
 ##panel_iframe:
@@ -100,32 +106,54 @@ notify:
 ##    url: !secret router_ip_https
 ##    icon: mdi:router-wireless
 
-cover:
-  - platform: garadget
-    covers:
-        !secret garadget_id:
-          username:  !secret garadget_username
-          password:  !secret garadget_password
-          name:  Garage Door
-  - platform: mqtt
-    state_topic: "bruh/blind1/cover/state"
-    command_topic: "bruh/blind1/cover/command"
-    name: "blinds1"
-    qos: 0
-    retain: true
-    payload_open: "OPEN"
-    payload_close: "CLOSE"
-    payload_stop: "STOP"
-    state_open: "OPEN"
-    state_closed: "CLOSE"
-    optimistic: false
-    value_template: '{{ value }}'
-    tilt_command_topic: "bruh/blind1/cover/tilt"
-    tilt_state_topic: "bruh/blind1/cover/tilt-status"
-    tilt_min : 0
-    tilt_max: 200
-    tilt_opened_value : 100
-    tilt_closed_value : 0
+###########INCLUDES#####
+alert: !include_dir_merge_named alerts/
+automation: !include automations.yaml
+cover: !include_dir_list covers/
+input_boolean: !include misc/input_boolean.yaml
+input_select: !include misc/input_select.yaml
+input_slider: !include misc/input_slider.yaml
+binary_sensor: !include_dir_list binary_sensors/
+sensor: !include_dir_list sensors/
+light: !include_dir_list lights/
+shell_command: !include misc/shell_commands.yaml
+switch: !include_dir_list switches/
+script: !include_dir_merge_named scripts/
+group: !include groups.yaml
+weather: !include_dir_list weather/
+weblink: !include misc/weblinks.yaml
+zone: !include_dir_list zones/
+camera: !include_dir_list cameras/
+
+##########OTHER#####
+
+android_ip_webcam:
+  # This should be the ip of your phone
+  - host: !secret B6P_ip
+    name: B6P
+    username: !secret B6P_username
+    password: !secret B6P_password
+
+arlo:
+  username: !secret arlo_email
+  password: !secret arlo_password
+  
+ecobee:
+  api_key: !secret ecobee_api
+
+emulated_hue:
+  type: google_home
+  listen_port: 80
+  host_ip: !secret pi_ip
+  expose_by_default: true
+  exposed_domains:
+    - cover
+    - fan
+    - light
+    - switch
+
+ffmpeg:
+  ffmpeg_bin: /usr/bin/ffmpeg
 
 hdmi_cec:
   platform: media_player
@@ -137,47 +165,14 @@ hdmi_cec:
       3: HA
       4: PC
 
-device_tracker:
-  - platform: owntracks
-  - platform: locative
-  - platform: nmap_tracker
-    hosts: !secret nmap_ip
-
-tts:
-  - platform: google
-
-###########SENSORS#####
-alert: !include_dir_merge_named alerts/
-input_boolean: !include misc/input_boolean.yaml
-input_select: !include misc/input_select.yaml
-input_slider: !include misc/input_slider.yaml
-binary_sensor: !include_dir_list binary_sensors/
-sensor: !include_dir_list sensors/
-light: !include_dir_list lights/
-shell_command: !include misc/shell_commands.yaml
-switch: !include_dir_list switches/
-script: !include_dir_merge_named scripts/
-##automation: !include_dir_list automations/
-group: !include groups.yaml
-weather: !include_dir_list weather/
-weblink: !include misc/weblinks.yaml
-zone: !include_dir_list zones/
-camera: !include_dir_list cameras/
+ifttt:
+  key: !secret ifttt_api
 
 #image_processing:
 #  - platform: dlib_face_detect
 #    source:
 #     - entity_id: camera.octoprint
 
-alarm_control_panel:
-  - platform: manual
-
-android_ip_webcam:
-  # This should be the ip of your phone
-  - host: !secret B6P_ip
-    name: B6P
-    username: !secret B6P_username
-    password: !secret B6P_password
-
-automation: !include automations.yaml
-config:
+octoprint:
+  host: !secret octoprint_ip
+  api_key: !secret octoprint_api

@@ -1,0 +1,19 @@
+platform: mqtt
+state_topic: "bruh/blind1/cover/state"
+command_topic: "bruh/blind1/cover/command"
+name: "blinds1"
+qos: 0
+retain: true
+payload_open: "OPEN"
+payload_close: "CLOSE"
+payload_stop: "STOP"
+state_open: "OPEN"
+state_closed: "CLOSE"
+optimistic: false
+value_template: '{{ value }}'
+tilt_command_topic: "bruh/blind1/cover/tilt"
+tilt_status_topic: "bruh/blind1/cover/tilt-status"
+tilt_min : 0
+tilt_max: 100
+tilt_opened_value : 50
+tilt_closed_value : 0

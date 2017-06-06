@@ -1,0 +1,6 @@
+platform: rest
+resource: https://ml.internalpositioning.com/location?group=friedoysters&user=b6pf
+value_template: '{{ value_json.users.b6pf[0].location }}'
+method: GET
+name: FIND Ben
+scan_interval: 6

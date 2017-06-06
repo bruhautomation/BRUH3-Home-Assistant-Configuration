@@ -5,6 +5,9 @@
 *.key
 *.conf
 *.json
+*.py
+*.db-shm
+*.db-wal
 OZW_Log.txt
 home-assistant.log
 home-assistant_v2.db
@@ -19,3 +22,4 @@ ip_bans.yaml
 .*
 !/.gitignore
 config
+ozw_config
