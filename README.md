@@ -1,7 +1,7 @@
 These are the Home Assistant configuration files used in the BRUH3 Home Automation project. Check out the [YouTube Series](https://www.youtube.com/playlist?list=PLgtGAtCt_hGTc_GAEmMhQ_XVs80mZoBIG) if you want to learn more about it! 
 
 # Installation Process
-I'm currently running [Home Assistant](https://home-assistant.io) version __0.45.1__. My preferred installation method is [Hassbian](https://github.com/home-assistant/pi-gen/releases).
+I'm currently running [Home Assistant](https://home-assistant.io) version __0.46.0__. My preferred installation method is [Hassbian](https://github.com/home-assistant/pi-gen/releases).
 
 After downloading the disk image and writing it to an SD card with [Etcher](https://etcher.io/), I run the following commands in [Putty](https://www.chiark.greenend.org.uk/~sgtatham/putty/latest.html) to install the required prerequisites. 
 
